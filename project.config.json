@@ -1,0 +1,110 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wxe0105663c3c9faff",
+	"projectname": "nowwork",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 10,
+			"list": [
+				{
+					"id": 0,
+					"name": "我的",
+					"pathName": "pages/usercenter/usercenter",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "详情",
+					"pathName": "pages/goodsDetails/goodsDetails",
+					"query": "good_id=2735532560"
+				},
+				{
+					"id": 2,
+					"name": "9.9",
+					"pathName": "pages/goodMailList/goodMailList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "收藏",
+					"pathName": "pages/babyCollection/babyCollection",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "收支",
+					"pathName": "pages/paymentDetails/paymentDetails",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/orderManagement/orderManagement",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提现",
+					"pathName": "pages/payPage/payPage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "问题",
+					"pathName": "pages/userProblem/userProblem",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "搜索xiangqing",
+					"pathName": "pages/searchDetails/searchDetails",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "002",
+					"pathName": "pages/index/index",
+					"query": ""
+				}
+			]
+		}
+	}
+}

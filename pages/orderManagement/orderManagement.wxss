@@ -1,0 +1,255 @@
+.notice {
+    width: 100%;
+    height: 66rpx;
+    background: rgba(255, 231, 230, 0.7);
+    line-height: 66rpx;
+    font-size: 24rpx;
+    text-align: center;
+    color: #e02e24;
+}
+
+.notice image {
+    width: 28rpx;
+    height: 24rpx;
+    vertical-align: middle;
+}
+
+.userData {
+    width: 100%;
+    height: 146rpx;
+    box-sizing: border-box;
+    background-size: cover;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-image: url("https://tp.datikeji.com/a/15408073818367/2ITWGi8qqb9u95CElSg2a4QqLQa8rBxTQXX9CYK0.png");
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.userData .bothView {
+    width: 50%;
+    height: 146rpx;
+    color: #fff;
+    box-sizing: border-box;
+    padding-top: 20rpx;
+}
+
+.bothView view {
+    text-align: center;
+    margin-bottom: 10rpx;
+}
+
+.verticalBar {
+    width: 2rpx;
+    height: 34rpx;
+    background: rgba(237, 97, 89, 1);
+    border-radius: 2rpx;
+    margin-top: 50rpx;
+}
+
+.topClass {
+    width: 100%;
+    height: 88rpx;
+    border-bottom: 2rpx solid #eaeaea;
+    line-height: 84rpx;
+    display: flex;
+    justify-content: space-around;
+    font-size: 28rpx;
+    text-align: center;
+}
+
+.topClass view {
+    height: 88rpx;
+}
+
+.noselect {
+    color: #797979;
+}
+
+.select {
+    color: #e02e24;
+}
+
+view.selectline {
+    width: 24rpx;
+    height: 4rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 2rpx;
+    margin: 0 auto;
+}
+
+.orderList {
+    width: 100%;
+}
+
+.orderListItem {
+    width: 690rpx;
+    height: 342rpx;
+    box-shadow: 0px 3rpx 20rpx 0px rgba(111, 105, 103, 0.16);
+    border-radius: 8rpx;
+    margin: 30rpx auto 0;
+    position: relative;
+}
+
+.orderDetails {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 16rpx 20rpx;
+    position: relative;
+}
+
+.orderDetails text:first-child {
+    color: #e02e24;
+    font-size: 20rpx;
+    box-sizing: border-box;
+    padding: 0 10rpx;
+    background-color: rgba(224, 46, 36, 0.1);
+    border-radius: 16rpx;
+    margin-right: 10rpx;
+}
+
+.orderDetails text:nth-child(2) {
+    color: #797979;
+    font-size: 22rpx;
+}
+
+.orderDetails text:last-child {
+    background: rgba(224, 46, 36, 1);
+    border-radius: 2rpx;
+    font-size: 22rpx;
+    color: rgba(255, 254, 254, 1);
+    box-sizing: border-box;
+    padding: 6rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 20rpx;
+}
+
+text#invalid {
+    background-color: rgba(234, 234, 234, 1);
+    color: #797979;
+}
+
+.goodsDetails {
+    width: 100%;
+    height: 160rpx;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18rpx;
+}
+
+.goodsIcon image {
+    width: 160rpx;
+    height: 160rpx;
+}
+
+.goodsDescribe {
+    width: 446rpx;
+    height: 160rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.goodsName {
+    width: 282rpx;
+    height: 80rpx;
+    color: #333;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.goodsPrice {
+    width: 162rpx;
+    color: #333;
+    font-size: 22rpx;
+    line-height: 40rpx;
+    text-align: right;
+}
+
+.goodsBase {
+    width: 100%;
+    padding: 0 20rpx;
+    text-align: right;
+    color: #333;
+    font-size: 22rpx;
+    box-sizing: border-box;
+}
+
+.goodsDate {
+    width: 100%;
+    padding: 0 20rpx;
+    text-align: right;
+    color: #797979;
+    font-size: 20rpx;
+    box-sizing: border-box;
+    margin-top: 16rpx;
+}
+
+.noData {
+    margin: 124rpx auto 0;
+}
+
+.noData, .noData image {
+    width: 467rpx;
+    height: 400rpx;
+}
+
+.nodataTxt {
+    color: #333;
+    font-size: 26rpx;
+    text-align: center;
+    position: relative;
+    top: -60rpx;
+}
+
+.buyCashback {
+    width: 690rpx;
+    height: 342rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.goToHome {
+    width: 220rpx;
+    height: 68rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 34rpx 0px 0px 34rpx;
+    background-color: #e02e24;
+    text-align: center;
+    color: white;
+    line-height: 68rpx;
+    position: fixed;
+    right: 0rpx;
+    bottom: 50rpx;
+	font-size: 30rpx;
+}
+
+.goToHome image{
+	display: inline-block;
+	width: 30rpx;
+	height: 30rpx;
+	vertical-align: middle;
+	position: absolute;
+	top: 19rpx;
+	left: 32rpx;
+}
+
+.goToHome text{
+	display: inline-block;
+	position: absolute;
+	left: 74rpx;
+}

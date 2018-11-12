@@ -1,0 +1,54 @@
+<view class="bg">
+
+    <view class='notice'>
+        <image src='/assets/horn.png' /> 只保留近一个月收藏，热销商品可能会失效，请尽快购买
+    </view>
+    <view class='dataList' style="height:94.5vh;" wx:if="{{defaultList.length}}">
+        <scroll-view scroll-into-view="{{toView}}" id='scrollView' scroll-y style="height:94.5vh;" bindscrolltolower="dropDownRefresh">
+            <view class='dataListBox' id='dataListBox' data-IIII='123'>
+                <view class='dataIteam' wx:for="{{defaultList}}" wx:key="index" data-goodID="{{item.goods_detail.goods_id}}" bindtap='goTodetail'>
+                    <view class='dataIcon'>
+                        <image src='{{item.goods_detail.goods_thumbnail_url}}' bindload="imageLoad" />
+                    </view>
+
+                    <view class='details'>
+                        <view class='goodDescribe'>{{item.goods_detail.goods_name}}</view>
+                        <view class='goodBackBox'>
+                            <text>可返{{item.cashBack}}</text>
+                            <text>已有{{item.goods_detail.sold_quantity}}人购买</text>
+                        </view>
+                        <view class='goodPrice'>
+                            ￥
+                            <text>{{(item.goods_detail.min_group_price-item.goods_detail.coupon_discount)/100}}</text>
+                            <text>￥{{item.goods_detail.min_group_price/100}}</text>
+                        </view>
+
+                        <view class='juan'>
+                            <text>劵</text>
+                            <text>￥</text>
+                            <text>{{item.goods_detail.coupon_discount/100}}</text>
+                        </view>
+
+                        <view class='shareGood' catchtap='catchtap'>
+                            <button id='shareGoodBtn' data-goodID='{{item.goods_detail.goods_id}}' data-img="{{item.goods_detail.goods_thumbnail_url}}" open-type="share">
+                                <image src='/assets/index/shareIcon.png' />
+                                <text>分享</text>
+                            </button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+
+    <view class='noData' wx:if="{{!defaultList.length}}">
+        <image src='/assets/babyNoData.png' />
+    </view>
+	<view class='nodataTxt'  wx:if="{{!defaultList.length}}">添加收藏让这里热闹起来哦~</view>
+	<view hover-class="hover-class" class='collectionBtn'  wx:if="{{!defaultList.length}}" bindtap='goToIndex'>快去收藏</view>
+
+	<view wx:if="{{defaultList.length}}" class='gotop' bindtap='goToTop' hover-class="hover-class">
+		<image src='/assets/goTop.png' />
+		<view class='gotoTopTxt'>顶部</view>
+	</view>
+</view>

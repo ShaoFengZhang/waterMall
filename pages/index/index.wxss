@@ -1,0 +1,343 @@
+.topLine {
+    width: 100%;
+    height: 10rpx;
+}
+
+.topSearchInput {
+    width: 690rpx;
+    height: 68rpx;
+    margin: 0 auto;
+    position: relative;
+    background: rgba(241, 241, 241, 1);
+    border-radius: 68rpx;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    line-height: 68rpx;
+}
+
+.topSearchInput image {
+    width: 42rpx;
+    height: 44rpx;
+    vertical-align: middle;
+}
+
+.topSearchInput text {
+    font-size: 24rpx;
+    color: #797979;
+}
+
+/* 顶部分类Swiper */
+
+.topSwiperBox {
+    width: 690rpx;
+    height: 110rpx;
+    margin: 0 auto;
+    position: relative;
+}
+
+.promteTxt {
+    height: 110rpx;
+    line-height: 110rpx;
+    position: absolute;
+    top: 0rpx;
+    right: -10rpx;
+    color: red;
+}
+
+#topswiper {
+    height: 110rpx;
+}
+
+.topSwiperBox swiper-item {
+    line-height: 110rpx;
+    text-align: center;
+    color: #333;
+}
+
+.noSelect {
+    position: relative;
+    font-size: 28rpx;
+}
+
+.select {
+    position: relative;
+    font-size: 30rpx;
+    font-weight: 700;
+}
+
+.noSelectMenu {
+    color: #797979;
+}
+
+.selectMenu {
+    color: #e02e24;
+}
+
+.orderMenu {
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 28rpx;
+    box-sizing: border-box;
+    padding: 0 50rpx;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2rpx solid #eaeaea;
+}
+
+.orderMenu image {
+    width: 10rpx;
+    height: 14rpx;
+    vertical-align: middle;
+}
+
+.line {
+    width: 24rpx;
+    height: 4rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 2rpx;
+    position: absolute;
+    left: 38rpx;
+    bottom: 26rpx;
+}
+
+/* 轮播图Swiper */
+
+.topShufflingBox, #shuffSwiper {
+    width: 690rpx;
+    height: 324rpx;
+    margin: 0 auto;
+    border-radius: 10rpx;
+}
+
+.topShufflingBox image {
+    width: 690rpx;
+    height: 324rpx;
+    border-radius: 10rpx;
+}
+
+.test {
+    width: 100%;
+    height: 40rpx;
+    text-align: center;
+    font-size: 22rpx;
+    line-height: 40rpx;
+}
+
+.test .selectShuff {
+    display: inline-block;
+    width: 30rpx;
+    height: 10rpx;
+    background: rgba(224, 46, 36, 1);
+    opacity: 0.8;
+    border-radius: 5rpx;
+    margin-right: 10rpx;
+}
+
+.test .noShuff {
+    display: inline-block;
+    width: 10rpx;
+    height: 10rpx;
+    background: rgba(224, 46, 36, 1);
+    opacity: 0.2;
+    border-radius: 50%;
+    margin-right: 10rpx;
+}
+
+.adAreaBox {
+    width: 100%;
+    height: 140rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.adIteam {
+    width: 98rpx;
+    height: 140rpx;
+    text-align: center;
+}
+
+.adIteam view {
+    font-size: 22rpx;
+    color: #333;
+    text-align: center;
+    margin-top: -10rpx;
+}
+
+.adIteam image {
+    width: 88rpx;
+    height: 88rpx;
+    margin: 0;
+}
+
+navigator {
+    height: 100%;
+}
+
+/* 数据列表 */
+
+.dataListBox {
+    width: 690rpx;
+    margin: 0 auto;
+}
+
+.dataIteam {
+    width: 100%;
+    height: 330rpx;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 20rpx 0rpx rgba(111, 105, 103, 0.16);
+    border-radius: 8rpx;
+    box-sizing: border-box;
+    padding: 30rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    margin-bottom: 30rpx;
+    position: relative;
+}
+
+.dataIcon {
+    width: 270rpx;
+    height: 270rpx;
+    margin-right: 28rpx;
+    border-radius: 8rpx;
+}
+
+.dataIcon image {
+    width: 270rpx;
+    height: 270rpx;
+    border-radius: 8rpx;
+}
+
+.details {
+    width: 328rpx;
+    height: 270rpx;
+    position: relative;
+}
+
+.goodDescribe {
+    width: 100%;
+    height: 100rpx;
+    font-size: 28rpx;
+    color: #333;
+    line-height: 50rpx;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.goodBackBox text:first-child {
+    font-size: 20rpx;
+    color: #e02e24;
+    border: 2rpx solid #e02e24;
+    margin-right: 22rpx;
+}
+
+.goodBackBox text:last-child {
+    font-size: 20rpx;
+    color: #797979;
+}
+
+.goodPrice {
+    margin-top: 14rpx;
+    color: #e02e24;
+    font-size: 26rpx;
+}
+
+.goodPrice text:first-child {
+    font-size: 36rpx;
+    color: #e02e24;
+    margin-right: 32rpx;
+}
+
+.goodPrice text:last-child {
+    font-size: 22rpx;
+    color: #797979;
+    text-decoration: line-through;
+}
+
+.juan {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.shareGood {
+    width: 160rpx;
+    height: 54rpx;
+    background-color: #e02e24;
+    position: absolute;
+    bottom: 0;
+    right: -60rpx;
+    border-radius: 54rpx 0 0 54rpx;
+	z-index: 1000;
+}
+
+#shareGoodBtn {
+    width: 160rpx;
+    height: 54rpx;
+    background-color: #e02e24;
+    border-radius: 54rpx 0 0 54rpx;
+    padding: 0;
+    color: white;
+    font-size: 24rpx;
+    line-height: 50rpx;
+    position: relative;
+}
+
+.shareGood image {
+    width: 42rpx;
+    height: 42rpx;
+    vertical-align: middle;
+}
+
+.shareGood text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.gotop {
+    bottom: 20rpx;
+	z-index: 1000;
+}
+
+/* 多层FormId */
+
+.btn {
+    width: 20rpx;
+    height: 20rpx;
+    margin: 0;
+    padding: 0;
+    border-radius: 8rpx;
+    position: absolute;
+	background-color: #ffffff;
+	opacity: 0;
+    top: 0;
+    left: 0;
+}
+
+.aa {
+    width: 690rpx;
+    height: 330rpx;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+	border-radius: 8rpx;
+    top: 0;
+    left: 0;
+}
+
+#btn1,#btn2,#btn3,#btn4,#btn5{
+	overflow: visible;
+}
+
+.hover-class{
+	background-color:#f2f2f2;
+}

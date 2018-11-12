@@ -1,0 +1,81 @@
+<view calss="bg">
+
+    <view class='userInfo'>
+        <view class='userDoller'>
+            <text style='font-size:50rpx;'>￥</text>{{amount}}
+        </view>
+
+        <view class='userData'>
+            <view class='bothView'>
+                <view style='font-size:36rpx;'>{{withdrow}}</view>
+                <view style='color:#FFE5E4;font-size:26rpx;'>已提现</view>
+            </view>
+
+            <view class='verticalBar'></view>
+
+            <view class='bothView'>
+                <view style='font-size:36rpx;'>{{no_withdrow}}</view>
+                <view style='color:#FFE5E4;font-size:26rpx;'>可提现</view>
+            </view>
+
+            <view class='verticalBar'></view>
+
+            <view class='bothView' bindtap='daiFanXianRouler'>
+                <view style='font-size:36rpx;'>{{no_amount}}</view>
+                <view style='color:#FFE5E4;font-size:26rpx;'>
+                    待返现
+                    <image class='breath' src='/assets/fanxian.png' />
+                </view>
+            </view>
+        </view>
+
+        <view class='payment' bindtap='goToPayment' hover-class="hover-class1">
+            收支明细
+        </view>
+    </view>
+
+    <view class='drawWithBtn' bindtap='withDrawFun'>提现</view>
+    <view class='ruleTxt' bindtap='ifShowRuleBox'>提现规则 & 常见问题 >></view>
+
+    <view class='ruleMask' wx:if="{{ifShowRule}}">
+        <view class='ruleBody'>
+            <view class='drawRule'>
+                <image src='/assets/drawRule.png' />
+            </view>
+            <view class='drawRuleDesc'>
+                <view>1. 首次提现最低金额{{firstTimeWidthDraw}}元 </view>
+                <view>2. 后续单次提现最低金额{{subsequenWidthDraw}}元 </view>
+                <view>3. 单天提现上限为{{singleTopWidthDraw}}元 </view>
+                <view style='color:#E02E24;margin-top:10rpx;'>钱包中只有可提现金额可以申请提现到账时间为1~7天,提现到账周期为1~7天。</view>
+                <view class='ruleBotTxt'>
+                    <text style='color:#E02E24'>*注：</text>确认收货后15天，待返现金额会自动转为可提
+					<view style='color:#333333;font-size:20rpx;padding-left:45rpx;'>现金额，请您不要着急！</view>
+                </view>
+                <view class='bigBubbles Bubbles'></view>
+                <view class='samllBubbles Bubbles'></view>
+            </view>
+            <view class='Ikonw' bindtap='ifShowRuleBox'>我知道了</view>
+        </view>
+    </view>
+
+    <view class='fanXianRuleMask' wx:if="{{ifShowfanXian}}">
+        <view class='fanxianBody'>
+
+			<view class='Fnum'>
+				<view style='font-size:34rpx;'>{{no_amount}}</view>
+				<view style='font-size:26rpx;'>待返现</view>
+				<image src='/assets/botline.png' />
+			</view>
+
+            <view class='FTitle'>
+                <text style='color:#E02E24;font-weight:700;'>|</text> 待返现金额
+            </view>
+			<view class='Fpromet'>指您在"拼多多"平台已经完成购买,但还未达到返现要求的订单所产生的提成金额。</view>
+			<view class='Fline'></view>
+
+			<view class='FdetialTxt'><text style='color:#E02E24'>*返现要求：</text>在拼多多完成支付并确认收货15 天后，待返现金额会自动转为可提现金额。</view>
+
+			<view class='Fbtn' bindtap='daiFanXianRouler'>我知道了</view>
+        </view>
+    </view>
+</view>

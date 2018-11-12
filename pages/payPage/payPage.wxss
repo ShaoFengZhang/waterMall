@@ -1,0 +1,272 @@
+.userInfo {
+    width: 100%;
+    height: 462rpx;
+    box-sizing: border-box;
+    background-size: cover;
+    padding: 50rpx 0 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    background-image: url("https://tp.datikeji.com/a/15408720633713/dKc1Lpfc1GhIsFHZnEKMzdAuB4sZ7NRDZwlWqD9M.png");
+}
+
+.userDoller {
+    text-align: left;
+    font-size: 130rpx;
+    color: #fff;
+	box-sizing: border-box;
+	padding-left: 64rpx;
+}
+
+.userData {
+    width: 100%;
+    height: 146rpx;
+    box-sizing: border-box;
+    background-size: cover;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.userData .bothView {
+    width: 30%;
+    height: 146rpx;
+    color: #fff;
+    box-sizing: border-box;
+    padding-top: 20rpx;
+}
+
+.bothView view {
+    text-align: center;
+    margin-bottom: 10rpx;
+}
+
+.bothView image {
+    width: 24rpx;
+    height: 24rpx;
+    vertical-align: middle;
+	position: relative;
+	top: -2rpx;
+}
+
+.verticalBar {
+    width: 2rpx;
+    height: 34rpx;
+    background: rgba(237, 97, 89, 1);
+    border-radius: 2rpx;
+    margin-top: 50rpx;
+}
+
+.payment {
+    width: 152rpx;
+    height: 60rpx;
+    background: rgba(255, 81, 71, 1);
+    border-radius: 30rpx 0px 0px 30rpx;
+    font-size: 26rpx;
+    color: rgba(255, 229, 228, 1);
+    text-align: center;
+    line-height: 60rpx;
+    position: absolute;
+    right: 0;
+    top: 90rpx;
+}
+
+.drawWithBtn {
+    width: 622rpx;
+    height: 88rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 44rpx;
+    color: #fff;
+    font-size: 34rpx;
+    line-height: 88rpx;
+    text-align: center;
+    margin: 80rpx auto 0;
+}
+
+.ruleTxt {
+    width: 100%;
+    color: #e02e24;
+    text-align: center;
+    font-size: 22rpx;
+    margin-top: 30rpx;
+}
+
+/* 弹窗 */
+
+.ruleMask {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ruleBody {
+    width: 602rpx;
+    height: 890rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 8rpx;
+    margin: 96rpx auto 0;
+}
+
+.drawRule, .drawRule image {
+    width: 602rpx;
+    height: 278rpx;
+    opacity: 0.9;
+    border-radius: 8rpx;
+}
+
+.drawRule image {
+    opacity: 1;
+}
+
+.drawRuleDesc {
+    width: 538rpx;
+    height: 420rpx;
+    border: 2rpx solid rgba(224, 46, 36, 1);
+    opacity: 0.8;
+    border-radius: 10rpx;
+    margin: 20rpx auto 0;
+    box-sizing: border-box;
+    padding: 42rpx 0 0 44rpx;
+    line-height: 50rpx;
+    position: relative;
+}
+
+.drawRuleDesc view {
+    font-size: 26rpx;
+    color: rgba(51, 51, 51, 1);
+}
+
+view.ruleBotTxt {
+    color: #333;
+    font-size: 20rpx;
+    position: absolute;
+    left: 24rpx;
+    bottom: 10rpx;
+	line-height: 40rpx;
+}
+
+.Ikonw {
+    width: 418rpx;
+    height: 88rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 44rpx;
+    margin: 40rpx auto 0;
+    text-align: center;
+    color: #fff;
+    font-size: 34rpx;
+    line-height: 88rpx;
+}
+
+.Bubbles {
+    background: rgba(235, 63, 53, 1);
+    opacity: 0.1;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.bigBubbles {
+    width: 96rpx;
+    height: 96rpx;
+    left: 12rpx;
+    bottom: -26rpx;
+}
+
+.samllBubbles {
+    width: 48rpx;
+    height: 48rpx;
+    top: 90rpx;
+    right: 99rpx;
+}
+
+/* 返现规则弹窗 */
+
+.fanXianRuleMask {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.fanxianBody {
+    width: 642rpx;
+    height: 598rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 8rpx;
+    margin: 252rpx auto 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.FTitle {
+    font-size: 34rpx;
+    color: #333;
+    margin-top: 80rpx;
+    margin-left: 60rpx;
+}
+
+.Fpromet {
+    width: 364rpx;
+    height: 124rpx;
+    color: #797979;
+    font-size: 28rpx;
+    line-height: 46rpx;
+    margin: 40rpx 0 0 74rpx;
+}
+
+.Fline {
+    width: 518rpx;
+    height: 1rpx;
+    background: rgba(234, 234, 234, 1);
+    border-radius: 1rpx;
+    margin: 40rpx auto 0;
+}
+
+.FdetialTxt {
+    width: 520rpx;
+    height: 72rpx;
+    color: #333;
+    font-size: 26rpx;
+    line-height: 36rpx;
+    margin: 40rpx 0 0 74rpx;
+}
+
+.Fbtn {
+    width: 418rpx;
+    height: 88rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 44rpx;
+    color: white;
+    line-height: 88rpx;
+    text-align: center;
+    margin: 40rpx auto 0;
+}
+
+.Fnum {
+    width: 144rpx;
+    height: 104rpx;
+    border: 2rpx solid rgba(224, 46, 36, 1);
+    border-radius: 10rpx;
+    position: absolute;
+    top: 50rpx;
+    right: 40rpx;
+    text-align: center;
+    color: #e02e24;
+    line-height: 50rpx;
+}
+
+.Fnum image {
+    width: 12rpx;
+    height: 118rpx;
+	position: relative;
+	top: 10rpx;
+}
+
+.hover-class1 {
+    background-color: rgba(255, 81, 71, 0.3);
+}

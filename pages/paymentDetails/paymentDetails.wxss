@@ -1,0 +1,80 @@
+.bg {
+    background-color: #f2f2f2;
+}
+
+.topBanner {
+    width: 100%;
+    height: 72rpx;
+    line-height: 72rpx;
+    color: #333;
+    font-size: 30rpx;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.topBanner view {
+    width: 50%;
+    height: 100%;
+}
+
+view.selectLine {
+    width: 24rpx;
+    height: 4rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 2rpx;
+	margin: 0 auto;
+}
+
+.dataList {
+    width: 100%;
+    margin-top: 20rpx;
+    background-color: #fff;
+}
+
+.payItem {
+    width: 100%;
+    height: 126rpx;
+    box-sizing: border-box;
+    padding: 26rpx 54rpx;
+    position: relative;
+}
+
+.doller {
+    width: 40%;
+    height: 124rpx;
+    line-height: 124rpx;
+    color: #e02e24;
+    font-size: 38rpx;
+    position: absolute;
+    right: 54rpx;
+    top: 0;
+    text-align: right;
+}
+
+.line {
+    width: 642rpx;
+    height: 2rpx;
+    background: rgba(234, 234, 234, 1);
+    position: absolute;
+    bottom: 0;
+    left: 54rpx;
+}
+
+.noData{
+	margin: 30vh auto 0;
+}
+
+.noData,.noData image{
+	width: 467rpx;
+	height: 400rpx;
+}
+
+.nodataTxt{
+	color: #333333;
+	font-size: 26rpx;
+	text-align: center;
+	position:relative;
+	top: -60rpx;
+}

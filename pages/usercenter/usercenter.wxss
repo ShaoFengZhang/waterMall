@@ -1,0 +1,236 @@
+.bg {
+    background-image: url('https://tp.datikeji.com/a/15404417694654/b1mEwi20eFN1Md9WATtDA08AWLWwgOjy0F6R6fYb.png');
+    background-size: 750rpx 338rpx;
+    overflow: hidden;
+}
+
+.userInfo {
+    width: 750rpx;
+    height: 158rpx;
+    box-sizing: border-box;
+    padding: 30rpx 0 0 30rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoLeft {
+    width: 128rpx;
+    height: 128rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4rpx solid white;
+    box-sizing: border-box;
+}
+
+.infoRight {
+    width: 568rpx;
+    height: 128rpx;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.userName {
+    font-size: 30rpx;
+}
+
+.userDoller {
+    font-size: 26rpx;
+}
+
+.userDoller text {
+    font-size: 36rpx;
+}
+
+.userData {
+    width: 690rpx;
+    height: 128rpx;
+    background-color: #fff;
+    box-shadow: 0rpx 0rpx 20rpx 0rpx rgba(111, 105, 103, 0.16);
+    border-radius: 8rpx;
+    margin: 60rpx auto 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+}
+
+.userDataItem {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.orderTxt {
+    width: 690rpx;
+    margin: 34rpx auto 0;
+    color: #333;
+    font-size: 30rpx;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+}
+
+.orderItem {
+    width: 580rpx;
+    height: 146rpx;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 30rpx 0 28rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderDataItem {
+    color: #333;
+    font-size: 22rpx;
+    text-align: center;
+}
+
+.orderDataItem image {
+    width: 54rpx;
+    height: 54rpx;
+}
+
+.shareFriend {
+    width: 690rpx;
+    height: 168rpx;
+    margin: 0 auto;
+    border-radius: 8rpx;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url('https://tp.datikeji.com/a/15404524256655/x1GkhJxkCVkIA28y5Xf40i3pi06yTr7Whv8DB7oi.png');
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+}
+
+.shareFriend view:first-child {
+    font-size: 30rpx;
+    margin-bottom: 22rpx;
+}
+
+.shareFriend view:last-child {
+    font-size: 24rpx;
+}
+
+.promoteBox {
+    width: 690rpx;
+    height: 170rpx;
+    margin: 0 auto;
+    border-bottom: 2rpx solid #eaeaea;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 16rpx;
+}
+
+.promoteItem {
+    color: #333;
+    font-size: 22rpx;
+    text-align: center;
+    margin-top: 28rpx;
+}
+
+.promoteItem:first-child {
+    margin-right: 222rpx;
+}
+
+.promoteItem image {
+    width: 78rpx;
+    height: 78rpx;
+}
+
+.saveMoneyBox {
+    width: 690rpx;
+    height: 102rpx;
+    line-height: 102rpx;
+    margin: 0 auto;
+}
+
+.botLine {
+    width: 624rpx;
+    height: 2rpx;
+    background: rgba(234, 234, 234, 1);
+    margin-left: 96rpx;
+}
+
+.haveProblem {
+    width: 690rpx;
+    height: 102rpx;
+    margin: 0 auto;
+    line-height: 102rpx;
+}
+
+.botlist {
+    color: #333;
+    font-size: 28rpx;
+    /* font-family: PingFang-SC-Medium;
+    font-weight: 500; */
+}
+
+.botlist image {
+    width: 54rpx;
+    height: 54rpx;
+    vertical-align: middle;
+}
+
+/* 弹窗 */
+
+.serviceMask {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(51, 51, 51, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.MaskBody {
+    width: 530rpx;
+    height: 600rpx;
+    background: rgba(254, 252, 253, 1);
+    border-radius: 32rpx;
+    margin: 268rpx auto 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.maskPromtTxt {
+    font-size: 40rpx;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+    line-height: 60rpx;
+    text-align: center;
+    margin-top: 80rpx;
+    margin-bottom: 68rpx;
+}
+
+.MaskBody image {
+    width: 38rpx;
+    height: 56rpx;
+    position: absolute;
+    top: 50rpx;
+    left: 0;
+}
+
+.txtDetil {
+    text-align: center;
+    font-size: 34rpx;
+    line-height: 72rpx;
+}
+
+#customerBtn {
+    width: 360rpx;
+    height: 68rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 34rpx;
+    margin: 60rpx auto 0;
+    font-size: 30rpx;
+    color: rgba(255, 255, 255, 1);
+    line-height: 68rpx;
+}

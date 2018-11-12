@@ -1,0 +1,121 @@
+.bigBox {
+    width: 690rpx;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 3rpx 20rpx 0px rgba(111, 105, 103, 0.16);
+    border-radius: 8rpx;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    color: #333;
+    line-height: 92rpx;
+}
+
+image {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    margin-right: 16rpx;
+}
+
+.shengQian {
+    height: 324rpx;
+    margin-top: 10rpx;
+}
+
+.fanXian {
+    height: 586rpx;
+    margin-top: 30rpx;
+}
+
+.yaoQing {
+    height: 274rpx;
+    margin-top: 30rpx;
+}
+
+.pItems {
+    width: 100%;
+    height: 92rpx;
+    box-sizing: border-box;
+    border-bottom: 2rpx solid #eaeaea;
+}
+
+.itemTitle {
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.problemItem {
+    padding: 0 60rpx;
+    font-size: 28rpx;
+}
+
+.bigBox view:last-child {
+    height: 138rpx;
+    border-bottom: none;
+    line-height: 50rpx;
+    padding-top: 16rpx;
+}
+
+.wen {
+    width: 630rpx;
+    height: 106rpx;
+    line-height: 106rpx;
+    margin: 0 auto;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+    border-bottom: 2rpx solid #eaeaea;
+}
+
+.wen1 {
+    width: 630rpx;
+    height: 106rpx;
+    line-height: 50rpx;
+    margin: 0 auto;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+    border-bottom: 2rpx solid #eaeaea;
+}
+
+.wen1 image {
+    vertical-align: top;
+}
+
+.wen1 text {
+    display: inline-block;
+    width: 570rpx;
+}
+
+.da {
+    width: 630rpx;
+    height: 106rpx;
+    margin: 20rpx auto;
+    font-size: 28rpx;
+    color: rgba(51, 51, 51, 1);
+    line-height: 48rpx;
+}
+
+.da text {
+    display: inline-block;
+    width: 570rpx;
+}
+
+image#daImg {
+    vertical-align: top;
+}
+
+.checkBtn {
+    width: 622rpx;
+    height: 88rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 44rpx;
+    margin: 60rpx auto;
+    color: #fff;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 34rpx;
+	position: absolute;
+	left: 64rpx;
+	bottom: 60rpx;
+}

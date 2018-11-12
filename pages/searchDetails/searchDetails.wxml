@@ -1,0 +1,61 @@
+<view class="bg">
+
+    <view class='searchBox'>
+        <view class='searchInput'>
+            <image wx:if="{{ifShowSearchIcon}}" class='searchIcon' src='/assets/index/searchIcon.png' />
+            <input value='{{inputValue}}' placeholder='{{placeholderTxt}}' placeholder-class='placeClass' bindinput="bindinput"  bindconfirm="bindconfirm"></input>
+            <image wx:if="{{!ifShowSearchIcon}}" class='errorIcon' src='/assets/error.png' bindtap='clearInputTxt' />	
+        </view>
+		<view class='searchBtn' bindtap='bindconfirm' hover-class="hover-class1">搜索</view>
+    </view>
+
+    <view class='orderMenu' wx:if="{{ifShowMenu}}">
+        <view class='{{orderMenuCurrent==1?"selectMenu":"noSelectMenu"}}' data-menuIndex='1' bindtap='orderMenuClick'>综合</view>
+        <view class='{{orderMenuCurrent==2?"selectMenu":"noSelectMenu"}}' data-menuIndex='2' bindtap='orderMenuClick'> 价格
+            <image src='/assets/index/nArrow.png' wx:if="{{POrder=='1'}}" />
+            <image src='/assets/index/tArrow.png' wx:if="{{POrder=='2'}}" />
+            <image src='/assets/index/bArrow.png' wx:if="{{POrder=='3'}}" />
+        </view>
+        <view class='{{orderMenuCurrent==3?"selectMenu":"noSelectMenu"}}' data-menuIndex='3' bindtap='orderMenuClick'>
+            优惠券
+            <image src='/assets/index/nArrow.png' wx:if="{{YOrder=='1'}}" />
+            <image src='/assets/index/tArrow.png' wx:if="{{YOrder=='2'}}" />
+            <image src='/assets/index/bArrow.png' wx:if="{{YOrder=='3'}}" />
+        </view>
+        <view class='{{orderMenuCurrent==4?"selectMenu":"noSelectMenu"}}' data-menuIndex='4' bindtap='orderMenuClick'>
+            销量
+            <image src='/assets/index/nArrow.png' wx:if="{{XOrder=='1'}}" />
+            <image src='/assets/index/tArrow.png' wx:if="{{XOrder=='2'}}" />
+            <image src='/assets/index/bArrow.png' wx:if="{{XOrder=='3'}}" />
+        </view>
+    </view>
+
+    <view class='dataList' style="height:{{scrollHeight}}rpx;">
+        <scroll-view id='scrollView' scroll-y style="height: {{scrollHeight-30}}rpx;" bindscrolltolower="dropDownRefresh" scroll-into-view="{{toView}}">
+            <view hover-class="hover-class" wx:for="{{defaultList}}" id='scrollView{{index}}' wx:key="{{index}}" class='dataItem' data-goodID="{{item.goods_id}}" bindtap='goTodetail'>
+                <image src='{{item.goods_thumbnail_url}}'/>
+                <view class='ItemTitle'>{{item.goods_name}}</view>
+                <view class='preferential'>
+                    <text>拼多多 </text>
+                    <text style='text-decoration: line-through;'> ¥{{item.min_group_price/100}}</text>
+                    <view class='dataJuan'>
+                        <text style='position: relative;left:4rpx;'>劵</text>
+                        <text style='position: relative;left:14rpx;'>￥</text>
+                        <text style='position: relative;left:14rpx;'>{{item.coupon_discount/100}}</text>
+                    </view>
+                </view>
+
+                <view class='goodPrice'>
+                    <text>￥</text>
+                    <text class='priceNum'>{{(item.min_group_price-item.coupon_discount)/100}}</text>
+                    <text class='juanhouTxt'>下单返现</text>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+
+	<view class='gotop' bindtap='goToTop'>
+		<image src='/assets/goTop.png' />
+		<view class='gotoTopTxt'>顶部</view>
+	</view>
+</view>

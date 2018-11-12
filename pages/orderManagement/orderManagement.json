@@ -1,0 +1,7 @@
+{
+	"navigationBarBackgroundColor": "#FFFFFF",
+	"navigationBarTextStyle": "black",
+	"backgroundColor": "#F2F2F2",
+	"navigationBarTitleText": "订单管理",
+	"disableScroll": true
+}

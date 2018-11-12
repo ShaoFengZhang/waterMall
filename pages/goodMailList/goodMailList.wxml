@@ -1,0 +1,31 @@
+<view calss="bg">
+
+    <view class='dataList' style="height: 100vh;">
+        <scroll-view scroll-into-view="{{topId}}" id='scrollView' scroll-y style="height: 98vh;" bindscrolltolower="dropDownRefresh">
+            <view hover-class="hover-class" wx:for="{{defaultList}}" id='scrollView{{index}}' wx:key="{{index}}" class='dataItem' data-goodID="{{item.goods_id}}" bindtap='goTodetail'>
+                <image src='{{item.goods_thumbnail_url}}' bindload="imageLoad" />
+                <view class='ItemTitle'>{{item.goods_name}}</view>
+                <view class='preferential'>
+                    <text>拼多多 </text>
+                    <text style='text-decoration: line-through;'> ¥{{item.min_group_price/100}}</text>
+                    <view class='dataJuan'>
+                        <text style='position: relative;left:4rpx;'>劵</text>
+                        <text style='position: relative;left:14rpx;'>￥</text>
+                        <text style='position: relative;left:14rpx;'>{{item.coupon_discount/100}}</text>
+                    </view>
+                </view>
+
+                <view class='goodPrice'>
+                    <text>￥</text>
+                    <text class='priceNum'>{{(item.min_group_price-item.coupon_discount)/100}}</text>
+                    <text class='juanhouTxt'>下单返现</text>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+
+	<view class='gotop' bindtap='goToTop' hover-class="hover-class">
+		<image src='/assets/goTop.png' />
+		<view class='gotoTopTxt'>顶部</view>
+	</view>
+</view>

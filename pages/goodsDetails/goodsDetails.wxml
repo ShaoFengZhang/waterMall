@@ -1,0 +1,131 @@
+<view class="bg">
+    <scroll-view scroll-y style="height:{{scrolloheight}}rpx;background-color: #f2f2f2;" scroll-into-view="{{topId}}">
+        <view id='goodWindow' style='background-color: #fff;padding-bottom:20rpx;'>
+
+            <view class='goodWindow'>
+
+			<!-- 顶部轮播图 -->
+        <view class='topShufflingBox' id='topShuff'>
+            <swiper id="shuffSwiper" bindchange="shuffChangeEvent" indicator-dots="{{false}}" autoplay="{{true}}" duration="{{500}}" interval="{{3000}}">
+                <swiper-item wx:for="{{GoodDetai.goods_detail.goods_gallery_urls}}" wx:key="index">
+                    <image src="{{item}}" wx:if="{{item}}" mode="aspectFit" />
+                    <image src="/assets/index/normole.png" wx:if="{{!item}}" />
+                </swiper-item>
+            </swiper>
+        </view>
+
+        <view class='test'>
+            <text class='{{shuffCurrent==index?"selectShuff":"noShuff"}}' wx:for="{{GoodDetai.goods_detail.goods_gallery_urls}}" wx:key="index"></text>
+        </view>
+
+
+
+                <!-- <image mode="aspectFit" src='{{GoodDetai.goods_detail.goods_thumbnail_url}}' /> -->
+                <text class='goodSales'>已有{{GoodDetai.goods_detail.sold_quantity || "0"}}人购买 <text class='point'></text> </text>
+            </view>
+
+            <view class='goodTitle'>
+                <text class='pinTxt'>拼多多</text> {{GoodDetai.goods_detail.goods_name}}
+            </view>
+            <view class='goodPrice'>
+                <text>￥</text>
+                <text class='priceNum'>{{(GoodDetai.goods_detail.min_group_price-GoodDetai.goods_detail.coupon_discount)/100 || "0"}}</text>
+                <text class='juanhouTxt'>劵后价</text>
+                <text class='ordersBack'>下单可返{{GoodDetai.goods_detail.cashBack}}</text>
+            </view>
+
+            <view class='preferential'>
+                <text>拼多多价格 </text>
+                <text style='text-decoration: line-through;'> ¥{{GoodDetai.goods_detail.min_group_price/100 || "0"}}</text>
+            </view>
+
+            <view class='bottomBaner'>
+                <view>
+                    <image src='/assets/goodDetail/okIcon.png' /> 自购返现
+                </view>
+                <view>
+                    <image src='/assets/goodDetail/okIcon.png' /> 分享赚钱
+                </view>
+                <view>
+                    <image src='/assets/goodDetail/okIcon.png' /> 优选好货
+                </view>
+                <view>
+                    <image src='/assets/goodDetail/okIcon.png' /> 无忧售后
+                </view>
+            </view>
+
+        </view>
+
+        <view class='youHuiJuanBox'>
+            <view class='youHuiJuan'>
+                <view class='youTxt'>优惠券</view>
+                <view class='youNum'>
+                    <text class='dollerIcon'>￥</text>
+                    <text class='youPrice'>{{GoodDetai.goods_detail.coupon_discount/100 || "0"}}</text>
+                    <!-- <text class='lingTxt'>领</text> -->
+                    <navigator hover-class="hover-class" class='lingTxt' target="miniProgram" open-type="navigate" app-id="wx32540bd863b27570" path="{{gotopath}}" extra-data="" version="release">领
+                        <form bindsubmit="collectFormId" report-submit>
+                            <button id='formID1' formType="submit" class='lingTxt'>
+                            </button>
+                        </form>
+                    </navigator>
+                </view>
+                <view class='youDate'>有效期:{{GoodDetai.starttTime || "0"}}-{{GoodDetai.endtTime || "0"}}</view>
+            </view>
+        </view>
+
+        <view class='photo'>
+            <view class='xiangqingTxt'>
+                <text></text> 商品详情
+            </view>
+            <view class='photoList'>
+                <image wx:if="{{GoodDetai.goods_detail.goods_gallery_urls.length}}" wx:for="{{GoodDetai.goods_detail.goods_gallery_urls}}" wx:key="{{index}}" src="{{item}}" />
+            </view>
+        </view>
+
+        <view class='botView'></view>
+
+    </scroll-view>
+
+    <view class='bottomTap'>
+        <view class='homeIconBox' bindtap='goToIndex' hover-class="hover-class">
+            <image src='/assets/goodDetail/homeIcon.png' />
+            <view>首页</view>
+        </view>
+
+        <view class='botStar' bindtap='collectionsGoodsFun'>
+            <image src='/assets/goodDetail/star.png' wx:if="{{!selectStar}}" />
+            <image src='/assets/goodDetail/selectStar.png' wx:if="{{selectStar}}" />
+            <view>收藏</view>
+            <view class='botStarBtn' style='overflow:hidden' catchtap='catchtap' wx:if="{{!hasUserInfo && canIUse}}">
+                <button wx:if="{{!hasUserInfo && canIUse}}" id='botStar' lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+            </view>
+
+        </view>
+
+        <view class='shareGood'>
+            <view class='shareBtn'>
+                <button id='shareGoodBtn' data-goodID='{{GoodDetai.goods_detail.goods_id}}' data-img="{{GoodDetai.goods_detail.goods_thumbnail_url}}" open-type="share">
+                </button>
+                分享宝贝
+            </view>
+            <!-- <view class='buyCashback'>自购返现{{"0.99"}}元</view> -->
+            <view>
+                <navigator hover-class="hover-class1" class='buyCashback' target="miniProgram" open-type="navigate" app-id="wx32540bd863b27570" path="{{gotopath}}" extra-data="" version="release">自购返现{{GoodDetai.goods_detail.cashBack}}元
+                    <form bindsubmit="collectFormId" report-submit>
+                        <button id='formID2' formType="submit" class='buyCashback'>
+                        </button>
+                    </form>
+                </navigator>
+            </view>
+            <view class='userInofBtn' wx:if="{{!hasUserInfo && canIUse}}">
+                <button id='userInofBtn' lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+            </view>
+        </view>
+    </view>
+
+	<view class='gotop' bindtap='goToTop' hover-class="hover-class">
+		<image src='/assets/goTop.png' />
+		<view class='gotoTopTxt'>顶部</view>
+	</view>
+</view>

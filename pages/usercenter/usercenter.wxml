@@ -1,0 +1,92 @@
+<view class="bg">
+    <view class='userInfo'>
+        <view class='infoLeft'>
+            <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class='infoRight'>
+            <view class='userName'>
+                <open-data type="userNickName"></open-data>
+            </view>
+            <view class='userDoller'>
+                已为你累计省钱
+                <text>{{all_amount}}</text> 元
+            </view>
+        </view>
+    </view>
+
+    <view class='userData'>
+        <view class='userDataItem' bindtap='goToWithDraw' hover-class="hover-class">
+            <view style='color:#E02E24;font-size:36rpx;margin-bottom:6rpx;'>{{amount}}</view>
+            <view style='color:#333333;font-size:22rpx'>钱包</view>
+        </view>
+        <view class='userDataItem' bindtap='goToWithDraw' hover-class="hover-class">
+            <view style='color:#E02E24;font-size:36rpx;margin-bottom:6rpx;'>{{no_amount}}</view>
+            <view style='color:#333333;font-size:22rpx'>待返现</view>
+        </view>
+        <view class='userDataItem' bindtap='goToCollection' hover-class="hover-class">
+            <view style='color:#E02E24;font-size:36rpx;margin-bottom:6rpx;'>{{user_collection}}</view>
+            <view style='color:#333333;font-size:22rpx'>收藏</view>
+        </view>
+    </view>
+
+    <view class='orderTxt' data-index='1' bindtap='goToOrder'>订单管理</view>
+
+    <view class='orderItem'>
+        <view class='orderDataItem' data-index='7' bindtap='goToOrder' hover-class="hover-class">
+            <image src='/assets/userContent/cashBack.png' />
+            <view>待返现</view>
+        </view>
+        <view class='orderDataItem' data-index='3' bindtap='goToOrder' hover-class="hover-class">
+            <image src='/assets/userContent/haveCash.png' />
+            <view>已返现</view>
+        </view>
+        <view class='orderDataItem' data-index='4' bindtap='goToOrder' hover-class="hover-class">
+            <image src='/assets/userContent/theOrder.png' />
+            <view>无效订单</view>
+        </view>
+    </view>
+
+    <view class='shareFriend' bindtap='theOnline'>
+        <view>邀请好友购物 自己得返现奖励</view>
+        <view>（ 即将上线 尽请期待 ）</view>
+    </view>
+
+    <view class='promoteBox' >
+        <view class='promoteItem' data-type='6' bindtap='goToCustomer' hover-class="hover-class">
+            <image src='/assets/userContent/saveMoney.png' />
+            <view>省钱福利群</view>
+        </view>
+
+        <view class='promoteItem' data-type='8' bindtap='goToCustomer' hover-class="hover-class">
+            <image src='/assets/userContent/public.png' />
+            <view>赚钱公众号</view>
+        </view>
+    </view>
+
+    <view class='saveMoneyBox botlist' bindtap='goToProblemPage' hover-class="hover-class">
+        <image src='/assets/userContent/mark.png' /> 新手省钱/赚钱必看
+    </view>
+
+    <view class='botLine'></view>
+
+    <navigator hover-class="hover-class" class='haveProblem botlist' target="miniProgram" open-type="navigate" app-id="wx8abaf00ee8c3202e" path="" extra-data="{{extraData}}" version="release">
+        <view>
+            <image src='/assets/userContent/problem.png' /> 遇到问题？不要急，来这里反馈
+        </view>
+    </navigator>
+
+    <view class='botLine'></view>
+
+
+	<view class='serviceMask' wx:if="{{ifShowServiceMask}}" bindtap='closeMask'>
+		<view class='MaskBody'>
+			<image src='/assets/point.png' />
+			<view class='maskPromtTxt'>提示</view>
+			<view class='txtDetil'>在接下来的界面回复</view>
+			<view class='txtDetil' style='color:#E02E24;font-size:60rpx;'> “{{serviceNum}}” </view>
+			<view class='txtDetil'>按照提示的操作即可</view>
+			<button id='customerBtn' open-type="contact">我知道了</button>
+		</view>
+	</view>
+
+</view>

@@ -1,0 +1,51 @@
+{
+	"pages": [
+		"pages/index/index",
+		"pages/search/search",
+		"pages/usercenter/usercenter",
+		"pages/goodsDetails/goodsDetails",
+		"pages/goodMailList/goodMailList",
+		"pages/babyCollection/babyCollection",
+		"pages/paymentDetails/paymentDetails",
+		"pages/orderManagement/orderManagement",
+		"pages/payPage/payPage",
+		"pages/userProblem/userProblem",
+		"pages/searchDetails/searchDetails"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#ffffff",
+		"navigationBarTitleText": "省钱买分享赚",
+		"navigationBarTextStyle": "black"
+	},
+
+	"navigateToMiniProgramAppIdList":["wx2ed91bb84c56fe04","wx32540bd863b27570","wx8abaf00ee8c3202e"],
+	
+	"tabBar": {
+		"color": "#BCBCBC",
+		"selectedColor": "#E02E24",
+		"backgroundColor": "#fff",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "/assets/index/pkicon.png",
+				"selectedIconPath": "/assets/index/pkselect.png"
+			},
+			{
+				"pagePath": "pages/search/search",
+				"text": "省钱搜",
+				"iconPath": "/assets/index/cupicon.png",
+				"selectedIconPath": "/assets/index/cupselect.png"
+			},
+			{
+				"pagePath": "pages/usercenter/usercenter",
+				"text": "我的",
+				"iconPath": "/assets/index/usercentericon.png",
+				"selectedIconPath": "/assets/index/userselect.png"
+			}
+		]
+	},
+	"debug": false
+}

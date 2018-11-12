@@ -1,0 +1,241 @@
+/* 顶部分类 */
+
+.noSelect {
+    position: relative;
+    font-size: 28rpx;
+}
+
+.select {
+    position: relative;
+    font-size: 30rpx;
+    font-weight: 700;
+}
+
+.noSelectMenu {
+    color: #797979;
+}
+
+.selectMenu {
+    color: #e02e24;
+}
+
+.orderMenu {
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 28rpx;
+    box-sizing: border-box;
+    padding: 0 50rpx;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2rpx solid #eaeaea;
+}
+
+.orderMenu image {
+    width: 10rpx;
+    height: 14rpx;
+    vertical-align: middle;
+}
+
+.line {
+    width: 24rpx;
+    height: 4rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 2rpx;
+    position: absolute;
+    left: 38rpx;
+    bottom: 26rpx;
+}
+
+/* 搜索框 */
+
+.searchInput {
+    width: 530rpx;
+    height: 68rpx;
+    border-radius: 78rpx;
+    box-sizing: border-box;
+    line-height: 68rpx;
+    z-index: 10;
+    background-color: #f1f1f1;
+    position: relative;
+}
+
+.searchIcon {
+    width: 42rpx;
+    height: 44rpx;
+    position: absolute;
+    top: 12rpx;
+    left: 30rpx;
+}
+
+.errorIcon {
+    width: 62rpx;
+    height: 62rpx;
+    position: absolute;
+    right: 18rpx;
+    top: 4rpx;
+}
+
+input {
+    width: 378rpx;
+    height: 68rpx;
+    color: #333;
+    font-size: 24rpx;
+    margin: 0 auto;
+    line-height: 68rpx;
+}
+
+.placeClass {
+    color: #797979;
+}
+
+.searchBox {
+    width: 100%;
+    height: 68rpx;
+    padding: 0 30rpx;
+	display: flex;
+	justify-content: space-around;
+	box-sizing: border-box;
+	margin-top: 10rpx;
+}
+
+.searchBtn {
+    width: 130rpx;
+    height: 68rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 34rpx;
+	line-height: 68rpx;
+	color: #ffffff;
+	text-align: center;
+	font-size: 26rpx;
+}
+
+/* 数据列表 */
+
+.dataList {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30rpx 30rpx 0;
+}
+
+.dataItem {
+    width: 338rpx;
+    height: 564rpx;
+    box-shadow: 0px 0px 20rpx 0px rgba(111, 105, 103, 0.16);
+    border-radius: 8rpx;
+    margin-bottom: 30rpx;
+}
+
+.dataItem:nth-child(n) {
+    float: left;
+}
+
+.dataItem:nth-child(2n) {
+    float: right;
+}
+
+.dataItem image {
+    width: 338rpx;
+    height: 338rpx;
+    border-radius: 8rpx 8rpx 0px 0px;
+}
+
+.ItemTitle {
+    width: 100%;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 28rpx;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+    line-height: 36rpx;
+    box-sizing: border-box;
+    padding: 0 24rpx;
+    margin-top: 10rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.preferential {
+    width: 100%;
+    height: 36rpx;
+    color: #797979;
+    font-size: 24rpx;
+    margin-top: 20rpx;
+    box-sizing: border-box;
+    padding: 0 24rpx;
+    position: relative;
+    line-height: 36rpx;
+}
+
+.dataJuan {
+    float: right;
+    width: 98rpx;
+    height: 36rpx;
+    box-sizing: border-box;
+    background-size: cover;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-image: url('https://tp.datikeji.com/a/15405483792767/xXjaDwwl7Ke3VRmXNop7sYP46O5To4LwF5Ceyp5h.png');
+    color: #fff;
+    font-size: 20rpx;
+    line-height: 36rpx;
+}
+
+.goodPrice {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0 0 20rpx;
+    margin-top: 12rpx;
+}
+
+.goodPrice text:first-child {
+    color: #e02e24;
+    font-size: 26rpx;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.priceNum {
+    font-size: 36rpx;
+    color: #e02e24;
+    font-weight: normal;
+    margin-right: 26rpx;
+    vertical-align: middle;
+}
+
+.juanhouTxt {
+    font-size: 20rpx;
+    font-family: PingFang-SC-Medium;
+    font-weight: normal;
+    color: rgba(224, 46, 36, 1);
+    background: rgba(224, 46, 36, 0.1);
+    border-radius: 8px;
+    padding: 2rpx 10rpx;
+    /* margin-right: 34rpx; */
+}
+
+.ordersBack {
+    color: #e02e24;
+    font-size: 22rpx;
+    border: 2rpx solid #e02e24;
+    padding: 0 10rpx;
+}
+
+.botView {
+    width: 100%;
+    height: 40rpx;
+}
+
+#scrollView {
+    overflow: hidden;
+	box-sizing: border-box;
+}
+
+.hover-class1{
+	background-color: rgba(224,46,36,0.8)
+}

@@ -1,0 +1,32 @@
+<view class="bg">
+
+    <view class='topBanner'>
+        <view bindtap='topSelectClick' data-selectIndex='1'>
+            收入记录
+            <view class='selectLine' wx:if="{{selectLine==1}}"></view>
+        </view>
+        <view bindtap='topSelectClick' data-selectIndex='2'>
+            提现记录
+            <view class='selectLine' wx:if="{{selectLine==2}}"></view>
+        </view>
+    </view>
+
+    <view class='dataList' style="height:92.3vh;" wx:if="{{payMentList.length}}">
+        <scroll-view id='scrollView' scroll-y style="height:92.3vh;">
+            <view class='payItem' wx:for="{{payMentList}}" wx:key="{{index}}">
+                <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{dataType==0}}">拼多多订单返现</view>
+                <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{dataType==1}}">用户自助提现</view>
+                <view style='color:#797979;font-size:22rpx;width:50%;margin-top:8rpx;'>{{item.created_at }}
+                </view>
+                <view class='doller' wx:if="{{dataType==0}}">+19.90</view>
+                <view class='doller' wx:if="{{dataType==1}}">-19.90</view>
+                <view class='line'></view>
+            </view>
+        </scroll-view>
+    </view>
+
+	<view class='noData' wx:if="{{!payMentList.length}}">
+        <image src='/assets/payNoData.png' />
+    </view>
+	<view class='nodataTxt' wx:if="{{!payMentList.length}}">暂无钱包明细哦~</view>
+</view>

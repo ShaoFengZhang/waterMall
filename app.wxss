@@ -1,0 +1,125 @@
+page {
+    width: 100%;
+    height: 100vh;
+}
+
+.bg {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    background-size: cover;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.button-hover {
+    color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
+}
+
+button::after {
+    border: none;
+}
+
+.navigator-hover {
+    background-color: rgba(0, 0, 0, 0);
+	opacity: 1;
+}
+
+.breath {
+    animation: breath 1.5s ease-in-out infinite;
+}
+
+@keyframes breath {
+    0% {
+        transform: scale(0.8);
+    }
+
+    80% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.8);
+    }
+}
+
+.juan {
+    background-image: url('https://tp.datikeji.com/a/15405435659474/QYCzJcYGyvFrmtGi0cVVBdb60oLEF9gWwbbeSez8.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    width: 116rpx;
+    height: 44rpx;
+    color: white;
+}
+
+.juan text {
+	 display: inline-block;
+    height: 44rpx;
+	line-height: 44rpx;
+	font-size: 20rpx;
+}
+
+.juan text:first-child {
+    position: absolute;
+    top: 0;
+    left: 6rpx;
+}
+
+.juan text:nth-child(2){
+	position: absolute;
+    top: 0;
+    left: 36rpx;
+}
+
+.juan text:last-child {
+	font-size: 26rpx;
+    position: absolute;
+    top: 0;
+    left: 58rpx;
+}
+
+
+.gotop {
+    width: 80rpx;
+    height: 80rpx;
+    background: rgba(255, 255, 255, 1);
+    border: 2rpx solid rgba(234, 234, 234, 1);
+    border-radius: 50%;
+	position: fixed;
+	bottom: 100rpx;
+	right: 30rpx;
+}
+
+.gotop image{
+	width: 26rpx;
+	height: 28rpx;
+	position: absolute;
+	top: 10rpx;
+	left: 26rpx;
+}
+
+.gotoTopTxt{
+	text-align: center;
+	font-size: 20rpx;
+	color:#333333;
+	position: absolute;
+	bottom: 10rpx;
+	left: 20rpx;
+}
+
+.hover-class{
+	background-color:#f2f2f2;
+}
+
+
+

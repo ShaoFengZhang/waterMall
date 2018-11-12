@@ -1,0 +1,167 @@
+.bg {
+    background-color: rgba(237,73,64, 1);
+}
+
+.searchInput {
+    width: 690rpx;
+    height: 68rpx;
+    position: fixed;
+    left: 30rpx;
+    top: 344rpx;
+    background-color: #fff;
+    border-radius: 68rpx;
+    box-sizing: border-box;
+    line-height: 68rpx;
+}
+
+.searchBtn {
+    width: 126rpx;
+    height: 68rpx;
+    background: rgba(255,41,29, 0.68);
+    border-radius:0px 34rpx 34rpx 0px;
+	line-height: 68rpx;
+	color: #ffffff;
+	text-align: center;
+	font-size: 28rpx;
+	position: fixed;
+	top: 344rpx;
+	right: 30rpx;
+}
+
+.searchIcon {
+    width: 42rpx;
+    height: 44rpx;
+    position: absolute;
+    top: 12rpx;
+    left: 30rpx;
+}
+
+.errorIcon {
+    width: 62rpx;
+    height: 62rpx;
+    position: absolute;
+    right: 144rpx;
+    top: 3rpx;
+}
+
+input {
+    width: 412rpx;
+    height: 68rpx;
+    color: #333;
+    font-size: 24rpx;
+    line-height: 68rpx;
+	position: absolute;
+	top: 0;
+	left: 72rpx;
+}
+
+.placeClass {
+    color: #797979;
+}
+
+.scrollBox {
+    width: 100%;
+    height: 100vh;
+}
+
+.topIcon, .topIcon image {
+    width: 100%;
+    height: 488rpx;
+}
+
+.newUserPromt {
+    width: 690rpx;
+    margin: 0rpx auto 0;
+    position: relative;
+    top: -46rpx;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 6rpx 8rpx 30rpx 4rpx rgba(237,73,64, 0.63) inset;
+    border-radius: 8rpx;
+}
+
+.promtTxt {
+    width: 690rpx;
+    height: 3050rpx;
+    overflow: hidden;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.toptitle {
+    color: #e02e24;
+    text-align: center;
+    font-size: 34rpx;
+    margin-top: 40rpx;
+}
+
+.smallTitle {
+    color: #e02e24;
+    text-align: center;
+    font-size: 24rpx;
+    margin-top: 10rpx;
+	opacity: 0.8;
+}
+
+.step {
+    width: 638rpx;
+    border-left: 2rpx solid #e02e24;
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: relative;
+}
+
+.stepTxt {
+    color: #e02e24;
+    font-size: 30rpx;
+    position: relative;
+    top: -20rpx;
+    left: 16rpx;
+}
+
+.stepDesc {
+    color: #797979;
+    font-size: 24rpx;
+    padding-left: 16rpx;
+    line-height: 42rpx;
+}
+
+.stepIcon {
+    width: 638rxp;
+    height: 408rpx;
+    margin-top: 30rpx;
+	position: relative;
+	left: 30rpx;
+}
+
+.radiousIcon {
+    width: 20rpx;
+    height: 20rpx;
+    position: absolute;
+    top: -9rpx;
+    left: -9rpx;
+}
+
+.stepTwo, .stepThree, .stepOne, .stepFour, .stepFive {
+    height: 580rpx;
+    padding: 0;
+}
+
+.stepOne {
+    margin-top: 40rpx;
+}
+
+.stepThree .stepIcon {
+    margin-top: 50rpx;
+}
+
+.stepThree .stepDesc {
+    line-height: 64rpx;
+}
+
+.stepFive {
+    border: none;
+}
+
+.hover-class{
+	background-color: red;
+}

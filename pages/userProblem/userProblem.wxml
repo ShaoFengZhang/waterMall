@@ -1,0 +1,45 @@
+<view class="bg">
+    <view wx:if="{{ifShowRules}}">
+        <view class='shengQian bigBox'>
+            <view class='itemTitle pItems' hover-class="hover-class">
+                <image src='/assets/newUser/sheng.png' /> 关于省钱买分享赚
+            </view>
+            <view hover-class="hover-class" class='problemItem pItems' data-index='1' bindtap='showRule'>省钱买分享赚是什么？</view>
+            <view hover-class="hover-class" class='problemItem pItems' data-index='2' bindtap='showRule'>省钱买分享赚所选商品是否正品，购买过程中遇到售后问题如何解决？</view>
+        </view>
+
+        <view class='fanXian bigBox'>
+            <view class='itemTitle pItems' hover-class="hover-class">
+                <image src='/assets/newUser/fan.png' /> 关于返现
+            </view>
+            <view hover-class="hover-class" class='problemItem pItems' data-index='3' bindtap='showRule'>如何获得返现奖励？</view>
+            <view hover-class="hover-class" class='problemItem pItems' data-index='4' bindtap='showRule'>返现什么时候发放？</view>
+            <view hover-class="hover-class" class='problemItem pItems' data-index='5' bindtap='showRule'>返现什么时候可以提现？</view>
+            <view hover-class="hover-class" class='problemItem pItems' data-index='6' bindtap='showRule'>哪些情况下，订单不会有返现？</view>
+            <view hover-class="hover-class" class='problemItem pItems' data-index='7' bindtap='showRule'>为什么有些商品实际返现金额和显示返现金额 不一样？</view>
+        </view>
+
+        <view class='yaoQing bigBox'>
+            <view class='itemTitle pItems' hover-class="hover-class">
+                <image src='/assets/newUser/yao.png' /> 关于邀请好友 (即将上线)
+            </view>
+            <view hover-class="hover-class" class='problemItem pItems' data-index='8' bindtap='showRule'>邀请好友有什么好处？</view>
+            <view hover-class="hover-class" class='problemItem pItems' data-index='9' bindtap='showRule'>怎么邀请好友？</view>
+        </view>
+    </view>
+
+
+    <view wx:if="{{!ifShowRules}}">
+        <view class='{{rulesItem.wenClass ||"wen"}}'>
+            <image src='/assets/newUser/wen.png' />
+			<text>{{rulesItem.title}}</text>
+        </view>
+        <view class='da'>
+            <image id='daImg' src='/assets/newUser/da.png' />
+			<text>{{rulesItem.answer}}</text>
+			
+        </view>
+    </view>
+
+	<view wx:if="{{!ifShowRules}}" class='checkBtn' bindtap='hiddenRule'>返回新手常见问题列表</view>
+</view>

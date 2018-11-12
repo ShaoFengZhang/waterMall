@@ -1,0 +1,159 @@
+<view class="bg">
+
+    <!-- 顶部搜索部分 -->
+    <view class='topLine'></view>
+    <view class='topSearchInput' bindtap='goToSearch'>
+        <image src='/assets/index/searchIcon.png' />
+        <text>搜索商品名/复制拼多多商品标题</text>
+    </view>
+
+
+    <!-- 顶部分类Swiper -->
+    <view class='topSwiperBox' wx:if="{{!ifShowMenu}}">
+        <swiper id='topswiper' indicator-dots="{{false}}" autoplay="{{false}}" display-multiple-items="{{7}}">
+            <swiper-item wx:for="{{TopClassData}}" wx:key="index" data-optID="{{item.opt_id}}" data-index="{{index}}" class="{{selectIndex==index?'select':'noSelect'}}" bindtap='topClassClick'>
+                <text>{{item.opt_name}}</text>
+                <view class='line' wx:if="{{selectIndex==index}}"></view>
+            </swiper-item>
+        </swiper>
+        <!-- <view class='promteTxt'> > </view> -->
+    </view>
+
+    <view class='orderMenu' wx:if="{{ifShowMenu}}">
+        <view class='{{orderMenuCurrent==1?"selectMenu":"noSelectMenu"}}' data-menuIndex='1' bindtap='orderMenuClick'>综合</view>
+        <view class='{{orderMenuCurrent==2?"selectMenu":"noSelectMenu"}}' data-menuIndex='2' bindtap='orderMenuClick'> 价格
+            <image src='/assets/index/nArrow.png' wx:if="{{POrder=='1'}}" />
+            <image src='/assets/index/tArrow.png' wx:if="{{POrder=='2'}}" />
+            <image src='/assets/index/bArrow.png' wx:if="{{POrder=='3'}}" />
+        </view>
+        <view class='{{orderMenuCurrent==3?"selectMenu":"noSelectMenu"}}' data-menuIndex='3' bindtap='orderMenuClick'>
+            优惠券
+            <image src='/assets/index/nArrow.png' wx:if="{{YOrder=='1'}}" />
+            <image src='/assets/index/tArrow.png' wx:if="{{YOrder=='2'}}" />
+            <image src='/assets/index/bArrow.png' wx:if="{{YOrder=='3'}}" />
+        </view>
+        <view class='{{orderMenuCurrent==4?"selectMenu":"noSelectMenu"}}' data-menuIndex='4' bindtap='orderMenuClick'>
+            销量
+            <image src='/assets/index/nArrow.png' wx:if="{{XOrder=='1'}}" />
+            <image src='/assets/index/tArrow.png' wx:if="{{XOrder=='2'}}" />
+            <image src='/assets/index/bArrow.png' wx:if="{{XOrder=='3'}}" />
+        </view>
+    </view>
+
+    <!-- 轮播以下 -->
+    <scroll-view scroll-y style="height: 85vh;" bindscroll="topScrollChange" bindscrolltolower="dropDownRefresh" scroll-into-view="{{toView}}" lower-threshold="{{330}}">
+        <!-- 顶部轮播图 -->
+        <view class='topShufflingBox' id='topShuff'>
+            <swiper id="shuffSwiper" bindchange="shuffChangeEvent" indicator-dots="{{false}}" autoplay="{{true}}" duration="{{500}}" interval="{{3000}}">
+                <swiper-item bindtap="goTodetail" data-goodID="{{item.goods_id}}" wx:for="{{ShuffList}}" wx:key="index">
+                    <image src="{{item.goods_image_url}}" wx:if="{{item.goods_image_url}}" />
+                    <image src="/assets/index/normole.png" wx:if="{{!item.goods_image_url}}" />
+                </swiper-item>
+            </swiper>
+        </view>
+
+        <view class='test'>
+            <text class='{{shuffCurrent==index?"selectShuff":"noShuff"}}' wx:for="{{ShuffList}}" wx:key="index"></text>
+        </view>
+
+        <!-- 四个广告位 -->
+        <view class='adAreaBox'>
+
+            <view class='adIteam' hover-class="hover-class" data-type='0' data-title='9.9包邮' bindtap='gotoMailList'>
+                <image src='/assets/index/9.9.png' />
+                <view>9.9包邮</view>
+            </view>
+
+            <view hover-class="hover-class" class='adIteam' data-type='1' data-title='热销爆款' bindtap='gotoMailList'>
+                <image src='/assets/index/freeicon.png' />
+                <view>热销爆款</view>
+            </view>
+
+            <view hover-class="hover-class" class='adIteam' data-type='2' data-title='双11聚惠' bindtap='gotoMailList'>
+                <image src='/assets/index/zero.png' />
+                <view class='breath' style='color:#E02E24;'>双11聚惠</view>
+            </view>
+
+            <view class='adIteam' hover-class="hover-class">
+                <navigator target="miniProgram" open-type="navigate" app-id="wx2ed91bb84c56fe04" path="" extra-data="" version="release">
+                    <image src='/assets/index/chou.png' />
+                    <view>免费抽奖</view>
+                </navigator>
+            </view>
+        </view>
+
+        <!-- 数据列表 -->
+        <view class='dataListBox' id='dataListBox' data-IIII='123'>
+            <view class='dataIteam' wx:for="{{defaultList}}" wx:key="index" data-goodID="{{item.goods_id}}" bindtap='goTodetail'>
+                <view class='dataIcon'>
+                    <image src='{{item.goods_thumbnail_url}}' bindload="imageLoad" />
+                </view>
+
+                <view class='details'>
+                    <view class='goodDescribe'>{{item.goods_name}}</view>
+                    <view class='goodBackBox'>
+                        <text>可返{{item.cashBack}}</text>
+                        <text>已有{{item.sold_quantity}}人购买</text>
+                    </view>
+                    <view class='goodPrice'>
+                        ￥
+                        <text>{{(item.min_group_price-item.coupon_discount)/100}}</text>
+                        <text>￥{{item.min_group_price/100}}</text>
+                    </view>
+
+                    <view class='juan'>
+                        <text>劵</text>
+                        <text>￥</text>
+                        <text>{{item.coupon_discount/100}}</text>
+                    </view>
+
+                    <view class='shareGood' catchtap='catchtap'>
+                        <button id='shareGoodBtn' data-goodID='{{item.goods_id}}' data-img="{{item.goods_thumbnail_url}}" open-type="share">
+                            <image src='/assets/index/shareIcon.png' />
+                            <text>分享</text>
+                        </button>
+                    </view>
+                </view>
+
+                <form bindsubmit="formSubmit" report-submit="{{true}}">
+                    <button formType="submit" class='btn' id='btn1'>
+                        <view class='aa' hover-class="hover-class">
+                            <form bindsubmit="formSubmit" report-submit="{{true}}">
+                                <button formType="submit" class='btn' id='btn2'>
+                                    <view class='aa' hover-class="hover-class">
+                                        <form bindsubmit="formSubmit" report-submit="{{true}}">
+                                            <button formType="submit" class='btn' id='btn3'>
+                                                <view class='aa' hover-class="hover-class">
+                                                    <form bindsubmit="formSubmit" report-submit="{{true}}">
+                                                        <button formType="submit" class='btn' id='btn4'>
+                                                            <view class='aa' hover-class="hover-class">
+                                                                <form bindsubmit="formSubmit" report-submit="{{true}}">
+                                                                    <button formType="submit" class='btn' id='btn5'>
+                                                                        <view hover-class="hover-class" class='aa'>
+                                                                        </view>
+                                                                    </button>
+                                                                </form>
+                                                            </view>
+                                                        </button>
+                                                    </form>
+                                                </view>
+                                            </button>
+                                        </form>
+                                    </view>
+                                </button>
+                            </form>
+                        </view>
+                    </button>
+                </form>
+
+            </view>
+        </view>
+
+    </scroll-view>
+
+    <view class='gotop' bindtap='goToTop' hover-class="hover-class">
+        <image src='/assets/goTop.png' />
+        <view class='gotoTopTxt'>顶部</view>
+    </view>
+
+</view>

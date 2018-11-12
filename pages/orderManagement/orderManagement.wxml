@@ -1,0 +1,94 @@
+<view class="bg">
+
+    <view class='notice'>
+        <image src='/assets/horn.png' /> 拼多多订单确认收货后15天待返现金额自动到账，无效订单除外
+    </view>
+
+    <view class='userData' wx:if="{{ifShowUserData}}">
+        <view class='bothView'>
+            <view style='font-size:36rpx;'>{{no_withdrow}}</view>
+            <view style='color:#FFE5E4;font-size:22rpx;'>已返现</view>
+        </view>
+        <view class='verticalBar'></view>
+        <view class='bothView'>
+            <view style='font-size:36rpx;'>{{no_amount}}</view>
+            <view style='color:#FFE5E4;font-size:22rpx;'>待返现</view>
+        </view>
+    </view>
+
+    <view class='topClass'>
+        <view class='noselect' data-index="1" bindtap='topSelectClick'>
+            全部
+            <view class='selectline' wx:if="{{selcetIndex==1}}"></view>
+        </view>
+        <view class='noselect' data-index="7" bindtap='topSelectClick'>
+            待返现
+            <view class='selectline' wx:if="{{selcetIndex==7}}"></view>
+        </view>
+        <view class='noselect' data-index="3" bindtap='topSelectClick'>
+            已返现
+            <view class='selectline' wx:if="{{selcetIndex==3}}"></view>
+        </view>
+        <view class='noselect' data-index="4" bindtap='topSelectClick'>
+            无效订单
+            <view class='selectline' wx:if="{{selcetIndex==4}}"></view>
+        </view>
+    </view>
+
+    <view class='orderList' style='height:{{scrollHeight}}' wx:if="{{orderList.length}}">
+        <scroll-view scroll-y style="height:{{scrollHeight}};" bindscrolltolower="dropDownRefresh" scroll-into-view="{{topview}}">
+            <view hover-class="hover-class" wx:if="{{item.order_status!=-1}}" id='orderListItem{{index}}' class='orderListItem' wx:for="{{orderList}}" wx:key="{{index}}">
+                <view class='orderDetails'>
+                    <text>拼多多</text>
+                    <text>订单号:{{item.order_sn}}</text>
+                    <text wx:if="{{item.order_status==3}}">已返现 ¥{{item.cashBack}}</text>
+                    <text wx:if="{{item.order_status==1 || item.order_status==2}}">待返现 ¥{{item.cashBack}}</text>
+                    <text wx:if="{{item.order_status==4}}" id='invalid'>无效订单</text>
+                    <text wx:if="{{item.order_status==-1}}" id='invalid'>未支付</text>
+                    <text wx:if="{{item.order_status==0}}" id='invalid'>已支付</text>
+                    <text wx:if="{{item.order_status==5}}" id='invalid'>已结算</text>
+                    <text wx:if="{{item.order_status==8}}" id='invalid'>无佣金订单</text>
+                </view>
+
+                <view class='goodsDetails'>
+                    <view class='goodsIcon'>
+                        <image src='{{item.goods_thumbnail_url}}' />
+                    </view>
+                    <view class='goodsDescribe'>
+                        <view class='goodsName'>{{item.goods_name}}</view>
+                        <view class='goodsPrice'>
+                            ￥{{item.goods_price/100}}
+                            <view>x{{item.goods_quantity}}</view>
+                        </view>
+                    </view>
+                </view>
+
+                <view class='goodsBase'>
+                    共计{{item.goods_quantity}}件商品 实付:¥{{item.order_amount/100}}
+                </view>
+
+                <view class='goodsDate'>
+                    下单时间 {{item.created_at}}
+                </view>
+
+                <navigator class='buyCashback' target="miniProgram" open-type="navigate" app-id="wx32540bd863b27570" path="/pages/index/index" extra-data="" version="release">
+                    <form bindsubmit="collectFormId" report-submit>
+                        <button id='formID2' formType="submit" class='buyCashback'></button>
+                    </form>
+                </navigator>
+
+            </view>
+
+        </scroll-view>
+    </view>
+
+    <view class='noData' wx:if="{{!orderList.length}}">
+        <image src='/assets/orderNoData.png' />
+    </view>
+    <view class='nodataTxt' wx:if="{{!orderList.length}}">您还没有相关订单哦~</view>
+
+
+    <view class='goToHome' bindtap='goToHome' wx:if="{{!ifShowUserData}}">
+        <image src='/assets/Home.png' /> <text>返回首页</text> 
+    </view>
+</view>
