@@ -10,7 +10,7 @@
 
     <!-- 顶部分类Swiper -->
     <view class='topSwiperBox' wx:if="{{!ifShowMenu}}">
-        <swiper id='topswiper' indicator-dots="{{false}}" autoplay="{{false}}" display-multiple-items="{{7}}">
+        <swiper id='topswiper' current="{{selectIndex>3?selectIndex-3:0}}" indicator-dots="{{false}}" autoplay="{{false}}" display-multiple-items="{{7}}">
             <swiper-item wx:for="{{TopClassData}}" wx:key="index" data-optID="{{item.opt_id}}" data-index="{{index}}" class="{{selectIndex==index?'select':'noSelect'}}" bindtap='topClassClick'>
                 <text>{{item.opt_name}}</text>
                 <view class='line' wx:if="{{selectIndex==index}}"></view>
@@ -44,7 +44,7 @@
     <scroll-view scroll-y style="height: 85vh;" bindscroll="topScrollChange" bindscrolltolower="dropDownRefresh" scroll-into-view="{{toView}}" lower-threshold="{{330}}">
         <!-- 顶部轮播图 -->
         <view class='topShufflingBox' id='topShuff'>
-            <swiper id="shuffSwiper" bindchange="shuffChangeEvent" indicator-dots="{{false}}" autoplay="{{true}}" duration="{{500}}" interval="{{3000}}">
+            <swiper id="shuffSwiper" bindchange="shuffChangeEvent" indicator-dots="{{false}}" autoplay="{{autoplay}}" duration="{{500}}" interval="{{3000}}">
                 <swiper-item bindtap="goTodetail" data-goodID="{{item.goods_id}}" wx:for="{{ShuffList}}" wx:key="index">
                     <image src="{{item.goods_image_url}}" wx:if="{{item.goods_image_url}}" />
                     <image src="/assets/index/normole.png" wx:if="{{!item.goods_image_url}}" />
@@ -69,9 +69,9 @@
                 <view>热销爆款</view>
             </view>
 
-            <view hover-class="hover-class" class='adIteam' data-type='2' data-title='双11聚惠' bindtap='gotoMailList'>
+            <view hover-class="hover-class" class='adIteam' data-type='2' data-title='限时秒杀' bindtap='gotoMailList'>
                 <image src='/assets/index/zero.png' />
-                <view class='breath' style='color:#E02E24;'>双11聚惠</view>
+                <view class='breath' style='color:#E02E24;'>限时秒杀</view>
             </view>
 
             <view class='adIteam' hover-class="hover-class">
@@ -151,6 +151,7 @@
 
     </scroll-view>
 
+	<!-- 返回顶部按钮 -->
     <view class='gotop' bindtap='goToTop' hover-class="hover-class">
         <image src='/assets/goTop.png' />
         <view class='gotoTopTxt'>顶部</view>

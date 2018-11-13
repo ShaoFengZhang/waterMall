@@ -13,6 +13,7 @@ const wxloginfnc = (app) => {
                 method: "POST",
                 data: data,
                 success: function(value) {
+					// console.log(value);
 					app.user_OpenId = value.data.data;
 					app.ifNewUser = !value.data.code;
 					wx.setStorageSync('user_openID', value.data.data);

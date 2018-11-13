@@ -13,7 +13,8 @@ Page({
 
     onLoad: function(options) {
         this.setData({
-            scrolloheight: wx.getSystemInfoSync().windowHeight * 2 - 92
+            scrolloheight: wx.getSystemInfoSync().windowHeight * 2 - 92,
+			
         });
 		
         if (app.globalData.userInfo) {
@@ -59,7 +60,7 @@ Page({
     },
 
     onShow: function() {
-
+		console.log(app.ifNewUser)
     },
 
 	//轮播图改变事件 

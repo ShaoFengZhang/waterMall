@@ -1,6 +1,7 @@
 const app = getApp();
 import util from '../../utils/util.js';
 import wxAPIF from '../../utils/wxApiFun.js';
+import config from '../../utils/config.js';
 Page({
     data: {
         userInfo: {},
@@ -15,7 +16,8 @@ Page({
         YOrder: '1',
         XOrder: '1',
 		POrder:"1",
-        ifShowMenu: false
+        ifShowMenu: false,
+		TopClassData: config.topClass,
     },
     onLoad: function() {
         if (app.globalData.userInfo) {
@@ -57,13 +59,21 @@ Page({
         this.pageIndex = 0;
         this.defaultList = [];
         this.getDefaultList();
-        this.getTopClassData();
+        // this.getTopClassData();
 		this.userID = wx.getStorageSync('user_openID');
     },
 
 	onShow:function(){
 		this.setData({
-			shuffCurrent: 1,
+			// shuffCurrent: 0,
+			autoplay:true,
+		});
+	},
+
+	onHide:function(){
+		this.setData({
+			// shuffCurrent: 0,
+			autoplay:false,
 		});
 	},
 
@@ -151,7 +161,7 @@ Page({
     // 顶部分类点击事件
     topClassClick: function(e) {
         let optID = e.currentTarget.dataset.optid;
-        let index = e.currentTarget.dataset.index;
+		let index = parseInt(e.currentTarget.dataset.index);
         if (index == this.data.selectIndex) {
             return;
         };
