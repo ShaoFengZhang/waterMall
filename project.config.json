@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 15,
 			"list": [
 				{
 					"id": 0,
@@ -102,6 +102,36 @@
 					"id": 10,
 					"name": "002",
 					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "商品列表",
+					"pathName": "pages/goodsList/goodsList",
+					"query": "goodsName=百货&goods_id=15"
+				},
+				{
+					"id": -1,
+					"name": "好友列表",
+					"pathName": "pages/FriendList/FriendList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "好友订单",
+					"pathName": "pages/FriendOrderPage/FriendOrderPage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "邀请赚钱",
+					"pathName": "pages/shareFriendGuide/shareFriendGuide",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "微信小技巧",
+					"pathName": "pages/howInvite/howInvite",
 					"query": ""
 				}
 			]

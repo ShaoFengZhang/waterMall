@@ -1,34 +1,80 @@
-.bg {
-    background-color: rgba(237,73,64, 1);
+/* 顶部分类TBar */
+
+.topClassBar {
+    width: 100%;
+    height: 88rpx;
+    background-color: #ed4940;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    line-height: 68rpx;
+    position: absolute;
+    top: 0;
+    z-index: 999;
 }
+
+.topClassBarSelect {
+    font-size: 30rpx;
+}
+
+.topClassBarNoSelect {
+    font-size: 28rpx;
+}
+
+.clearFloat {
+    width: 100%;
+    height: 88rpx;
+}
+
+.topClassBar .topClassBarItem {
+    width: 50%;
+    height: 88rpx;
+    position: relative;
+}
+
+.topClassBarLine {
+    width: 24rpx;
+    height: 4rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 2rpx;
+    margin: 0 auto;
+}
+
+/* 搜索框 */
 
 .searchInput {
     width: 690rpx;
     height: 68rpx;
-    position: fixed;
-    left: 30rpx;
-    top: 344rpx;
-    background-color: #fff;
+    background-color: rgba(241, 241, 241, 1);
     border-radius: 68rpx;
     box-sizing: border-box;
     line-height: 68rpx;
+    position: relative;
+    margin: 30rpx auto 0;
+}
+
+.posSearchInput {
+    position: absolute;
+    top: 314rpx;
+    left: 30rpx;
 }
 
 .searchBtn {
     width: 126rpx;
     height: 68rpx;
-    background: rgba(255,41,29, 0.68);
-    border-radius:0px 34rpx 34rpx 0px;
-	line-height: 68rpx;
-	color: #ffffff;
-	text-align: center;
-	font-size: 28rpx;
-	position: fixed;
-	top: 344rpx;
-	right: 30rpx;
+    background: rgba(255, 41, 29, 0.68);
+    border-radius: 0px 34rpx 34rpx 0px;
+    line-height: 68rpx;
+    color: #fff;
+    text-align: center;
+    font-size: 28rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
-.searchIcon {
+image.searchIcon {
     width: 42rpx;
     height: 44rpx;
     position: absolute;
@@ -50,13 +96,166 @@ input {
     color: #333;
     font-size: 24rpx;
     line-height: 68rpx;
-	position: absolute;
-	top: 0;
-	left: 72rpx;
+    position: absolute;
+    top: 0;
+    left: 72rpx;
 }
 
 .placeClass {
     color: #797979;
+}
+
+/* 热搜 */
+
+.HotSearch {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 30rpx;
+    margin-bottom: 40rpx;
+}
+
+.everySerchTxt {
+    font-size: 26rpx;
+    color: #333;
+    line-height: 60rpx;
+}
+
+.HotSearchTopItem, .HotSearchBotItem {
+    display: flex;
+    margin-top: 30rpx;
+    box-sizing: border-box;
+}
+
+.HotSearchTopItem {
+    color: #e02e24;
+}
+
+.HotSearchBotItem {
+    margin-top: 20rpx;
+}
+
+.HotSearchItem {
+    display: inline-block;
+    height: 60rpx;
+    line-height: 60rpx;
+    background: rgba(246, 246, 246, 1);
+    border-radius: 2rpx;
+    font-size: 24rpx;
+    text-align: center;
+    padding: 0rpx 16rpx;
+    margin-right: 30rpx;
+}
+
+/* 分类 */
+
+.departmentBox {
+    width: 100%;
+    border-top: 2rpx solid #eaeaea;
+    display: flex;
+	padding: 0;
+}
+
+.departmentLeft {
+    width: 170rpx;
+    height: 100%;
+    border-right: 2rpx solid #eaeaea;
+}
+
+.departmentRight {
+    width: 578rpx;
+    height: 100%;
+}
+
+.departmentLeft-item {
+    width: 100%;
+    height: 110rpx;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 110rpx;
+    position: relative;
+}
+
+.departmentLeftNoSelect-item {
+    color: #333;
+}
+
+.departmentLeftSelect-item {
+    color: #e02e24;
+}
+
+.scrollLine {
+    width: 36rpx;
+    height: 4rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 2rpx;
+    margin: 0 auto;
+    position: absolute;
+    left: 67rpx;
+    bottom: 27rpx;
+}
+
+.classTitle {
+    width: 100%;
+    height: 110rpx;
+    line-height: 110rpx;
+    text-align: center;
+    color: #333;
+    font-size: 28rpx;
+    position: relative;
+    vertical-align: middle;
+}
+
+.classTitle text {
+    display: inline-block;
+    width: 4rpx;
+    height: 4rpx;
+    background: rgba(39, 39, 39, 1);
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.classTitle text:first-child {
+    margin-right: 20rpx;
+}
+
+.classTitle text:last-child {
+    margin-left: 16rpx;
+}
+
+#botScroll {
+    box-sizing: border-box;
+    padding: 0 44rpx;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.classItem {
+	display: inline-block;
+    width: 130rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #797979;
+    margin-right: 50rpx; 
+    margin-bottom: 30rpx;
+}
+
+.classItem:nth-child(3n+0) {
+    margin-right: 0rpx;
+}
+
+.classItem image {
+    width: 130rpx;
+    height: 130rpx;
+    /* background: rgba(245, 92, 84, 1); */
+    border-radius: 8rpx;
+}
+
+/* 精准省钱 */
+
+.accurateSave {
+    overflow: hidden;
+    background: #ed4940;
 }
 
 .scrollBox {
@@ -64,9 +263,10 @@ input {
     height: 100vh;
 }
 
-.topIcon, .topIcon image {
+.topIcon, .topIcon .searchBigimg {
     width: 100%;
     height: 488rpx;
+    position: relative;
 }
 
 .newUserPromt {
@@ -75,7 +275,7 @@ input {
     position: relative;
     top: -46rpx;
     background: rgba(255, 255, 255, 1);
-    box-shadow: 6rpx 8rpx 30rpx 4rpx rgba(237,73,64, 0.63) inset;
+    box-shadow: 6rpx 8rpx 30rpx 4rpx rgba(237, 73, 64, 0.63) inset;
     border-radius: 8rpx;
 }
 
@@ -99,7 +299,7 @@ input {
     text-align: center;
     font-size: 24rpx;
     margin-top: 10rpx;
-	opacity: 0.8;
+    opacity: 0.8;
 }
 
 .step {
@@ -129,8 +329,8 @@ input {
     width: 638rxp;
     height: 408rpx;
     margin-top: 30rpx;
-	position: relative;
-	left: 30rpx;
+    position: relative;
+    left: 30rpx;
 }
 
 .radiousIcon {
@@ -162,6 +362,14 @@ input {
     border: none;
 }
 
-.hover-class{
-	background-color: red;
+.hover-class {
+    background-color: red;
+}
+
+.hover-class1{
+	background-color: grey;
+}
+
+.hover-class2{
+	background-color: #f2f2f2;
 }

@@ -1,0 +1,12 @@
+.bgicon {
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.scrollBox, .scrollBox image {
+    width: 100%;
+    height: 3452rpx;
+}

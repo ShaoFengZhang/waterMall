@@ -46,7 +46,7 @@
                 <view>1. 首次提现最低金额{{firstTimeWidthDraw}}元 </view>
                 <view>2. 后续单次提现最低金额{{subsequenWidthDraw}}元 </view>
                 <view>3. 单天提现上限为{{singleTopWidthDraw}}元 </view>
-                <view style='color:#E02E24;margin-top:10rpx;'>钱包中只有可提现金额可以申请提现到账时间为1~7天,提现到账周期为1~7天。</view>
+                <view style='color:#E02E24;margin-top:10rpx;'>钱包中只有可提现金额可以申请提现,到账时间为1~7天。</view>
                 <view class='ruleBotTxt'>
                     <text style='color:#E02E24'>*注：</text>确认收货后15天，待返现金额会自动转为可提
 					<view style='color:#333333;font-size:20rpx;padding-left:45rpx;'>现金额，请您不要着急！</view>

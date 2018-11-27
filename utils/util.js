@@ -17,7 +17,7 @@ const formatNumber = n => {
 //字符串截取加点
 
 const formatStr = (str, len) => {
-    let length = str.lenght;
+	let length = str.length;
     if (length === void 0) {
         length = len;
     };

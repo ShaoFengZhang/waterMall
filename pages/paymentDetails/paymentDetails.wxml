@@ -14,19 +14,24 @@
     <view class='dataList' style="height:92.3vh;" wx:if="{{payMentList.length}}">
         <scroll-view id='scrollView' scroll-y style="height:92.3vh;">
             <view class='payItem' wx:for="{{payMentList}}" wx:key="{{index}}">
-                <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{dataType==0}}">拼多多订单返现</view>
-                <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{dataType==1}}">用户自助提现</view>
+                <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{item.type==0}}">拼多多订单返现</view>
+                <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{item.type==1}}">用户自助提现</view>
+                <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{item.type==2}}">新人红包</view>
+                <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{item.type==3}}">邀请新用户奖励</view>
+                <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{item.type==4}}">平台返现</view>
+                <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{item.type==5}}">子代佣金</view>
+                <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{item.type==6}}">分享佣金</view>
                 <view style='color:#797979;font-size:22rpx;width:50%;margin-top:8rpx;'>{{item.created_at }}
                 </view>
-                <view class='doller' wx:if="{{dataType==0}}">+19.90</view>
-                <view class='doller' wx:if="{{dataType==1}}">-19.90</view>
+                <view class='doller' wx:if="{{dataType!=1}}">+{{item.amount}}</view>
+                <view class='doller' wx:if="{{dataType==1}}">-{{item.amount}}</view>
                 <view class='line'></view>
             </view>
         </scroll-view>
     </view>
 
-	<view class='noData' wx:if="{{!payMentList.length}}">
+	<view class='noData' wx:if="{{!payMentList.length && ifloadingup}}">
         <image src='/assets/payNoData.png' />
     </view>
-	<view class='nodataTxt' wx:if="{{!payMentList.length}}">暂无钱包明细哦~</view>
+	<view class='nodataTxt' wx:if="{{!payMentList.length && ifloadingup}}">暂无钱包明细哦~</view>
 </view>

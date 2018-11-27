@@ -7,12 +7,12 @@
     <view class='userData' wx:if="{{ifShowUserData}}">
         <view class='bothView'>
             <view style='font-size:36rpx;'>{{no_withdrow}}</view>
-            <view style='color:#FFE5E4;font-size:22rpx;'>已返现</view>
+            <view style='color:#FFE5E4;font-size:26rpx;'>已返现</view>
         </view>
         <view class='verticalBar'></view>
         <view class='bothView'>
             <view style='font-size:36rpx;'>{{no_amount}}</view>
-            <view style='color:#FFE5E4;font-size:22rpx;'>待返现</view>
+            <view style='color:#FFE5E4;font-size:26rpx;'>待返现</view>
         </view>
     </view>
 
@@ -79,16 +79,21 @@
 
             </view>
 
+            <view class='orderPrometTxt'>订单信息偶尔有延迟,请您不必担心哦~</view>
+
         </scroll-view>
     </view>
 
-    <view class='noData' wx:if="{{!orderList.length}}">
-        <image src='/assets/orderNoData.png' />
-    </view>
-    <view class='nodataTxt' wx:if="{{!orderList.length}}">您还没有相关订单哦~</view>
-
+    <scroll-view wx:if="{{!orderList.length && ifloadingup}}" scroll-y style="height:{{scrollHeight}};" bindscrolltolower="dropDownRefresh1">
+        <view class='noData' wx:if="{{!orderList.length && ifloadingup}} ">
+            <image src='/assets/orderNoData.png' />
+        </view>
+        <view class='nodataTxt' wx:if="{{!orderList.length && ifloadingup}} ">您还没有相关订单哦~</view>
+        <view class='orderPrometTxt'>订单信息偶尔有延迟,请您不必担心哦~</view>
+    </scroll-view>
 
     <view class='goToHome' bindtap='goToHome' wx:if="{{!ifShowUserData}}">
-        <image src='/assets/Home.png' /> <text>返回首页</text> 
+        <image src='/assets/Home.png' />
+        <text>返回首页</text>
     </view>
 </view>

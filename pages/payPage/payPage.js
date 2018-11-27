@@ -103,7 +103,7 @@ Page({
     onShareAppMessage: function() {
         return {
             title: '没一会儿已经赚了这么多钱，而且提现即时到账。好爽呢...',
-			path: `/pages/index/index?user_openId=${wx.getStorageSync('user_openID')}`,
+			path: `/pages/index/index?user_openId=${wx.getStorageSync('u_id')}`,
         }
     },
 })

@@ -1,0 +1,56 @@
+<view calss="bg">
+
+    <view class='orderMenu'>
+        <view class='{{orderMenuCurrent==1?"selectMenu":"noSelectMenu"}}' data-menuIndex='1' bindtap='orderMenuClick'>综合</view>
+        <view class='{{orderMenuCurrent==2?"selectMenu":"noSelectMenu"}}' data-menuIndex='2' bindtap='orderMenuClick'> 价格
+            <image src='/assets/index/nArrow.png' wx:if="{{POrder=='1'}}" />
+            <image src='/assets/index/tArrow.png' wx:if="{{POrder=='2'}}" />
+            <image src='/assets/index/bArrow.png' wx:if="{{POrder=='3'}}" />
+        </view>
+        <view class='{{orderMenuCurrent==3?"selectMenu":"noSelectMenu"}}' data-menuIndex='3' bindtap='orderMenuClick'>
+            优惠券
+            <image src='/assets/index/nArrow.png' wx:if="{{YOrder=='1'}}" />
+            <image src='/assets/index/tArrow.png' wx:if="{{YOrder=='2'}}" />
+            <image src='/assets/index/bArrow.png' wx:if="{{YOrder=='3'}}" />
+        </view>
+        <view class='{{orderMenuCurrent==4?"selectMenu":"noSelectMenu"}}' data-menuIndex='4' bindtap='orderMenuClick'>
+            销量
+            <image src='/assets/index/nArrow.png' wx:if="{{XOrder=='1'}}" />
+            <image src='/assets/index/tArrow.png' wx:if="{{XOrder=='2'}}" />
+            <image src='/assets/index/bArrow.png' wx:if="{{XOrder=='3'}}" />
+        </view>
+    </view>
+
+    <view class='dataList' style="height: {{scrolloheight}}rpx;">
+        <scroll-view wx:if="{{defaultList.length}}" scroll-into-view="{{topId}}" id='scrollView' scroll-y style="height: {{scrolloheight}}rpx;" bindscrolltolower="dropDownRefresh">
+            <view hover-class="hover-class" wx:for="{{defaultList}}" id='scrollView{{index}}' wx:key="{{index}}" class='dataItem' data-goodID="{{item.goods_id}}" bindtap='goTodetail'>
+                <image src='{{item.goods_thumbnail_url}}' bindload="imageLoad" />
+                <view class='ItemTitle'>{{item.goods_name}}</view>
+                <view class='preferential'>
+                    <text>拼多多 </text>
+                    <text style='text-decoration: line-through;'> ¥{{item.min_group_price/100}}</text>
+                    <view class='dataJuan'>
+                        <text style='position: relative;left:4rpx;'>劵</text>
+                        <text style='position: relative;left:14rpx;'>￥</text>
+                        <text style='position: relative;left:14rpx;'>{{item.coupon_discount/100}}</text>
+                    </view>
+                </view>
+
+                <view class='goodPrice'>
+                    <text>￥</text>
+                    <text class='priceNum'>{{(item.min_group_price-item.coupon_discount)/100}}</text>
+                    <text class='juanhouTxt'>下单返现</text>
+                </view>
+            </view>
+        </scroll-view>
+        <view class='noData' wx:if="{{!defaultList.length && ifloadingup}}">
+            <image src='/assets/babyNoData.png' />
+        </view>
+        <view class='nodataTxt' wx:if="{{!defaultList.length && ifloadingup}}">暂时没有数据哦~,快去看看别的吧~</view>
+    </view>
+
+    <view class='gotop' bindtap='goToTop' hover-class="hover-class">
+        <image src='/assets/goTop.png' />
+        <view class='gotoTopTxt'>顶部</view>
+    </view>
+</view>

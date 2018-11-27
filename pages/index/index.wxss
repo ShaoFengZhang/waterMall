@@ -56,12 +56,12 @@
 
 .noSelect {
     position: relative;
-    font-size: 28rpx;
+    font-size: 30rpx;
 }
 
 .select {
     position: relative;
-    font-size: 30rpx;
+    font-size:34rpx;
     font-weight: 700;
 }
 
@@ -152,24 +152,25 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+	margin-bottom: 40rpx;
 }
 
 .adIteam {
-    width: 98rpx;
+    width: 124rpx;
     height: 140rpx;
     text-align: center;
 }
 
 .adIteam view {
-    font-size: 22rpx;
+    font-size: 28rpx;
     color: #333;
     text-align: center;
     margin-top: -10rpx;
 }
 
 .adIteam image {
-    width: 88rpx;
-    height: 88rpx;
+    width: 104rpx;
+    height: 104rpx;
     margin: 0;
 }
 
@@ -278,7 +279,7 @@ navigator {
     bottom: 0;
     right: -60rpx;
     border-radius: 54rpx 0 0 54rpx;
-	z-index: 1000;
+    z-index: 999;
 }
 
 #shareGoodBtn {
@@ -306,38 +307,85 @@ navigator {
 
 .gotop {
     bottom: 20rpx;
+    z-index: 999;
+}
+
+
+.suspension {
+    position: fixed;
+    right: 30rpx;
+    bottom: 176rpx;
+}
+
+.suspension, .suspension image {
+    width: 132rpx;
+    height: 124rpx;
 	z-index: 1000;
 }
 
-/* 多层FormId */
+/* 二级分类 */
 
-.btn {
-    width: 20rpx;
-    height: 20rpx;
-    margin: 0;
-    padding: 0;
-    border-radius: 8rpx;
-    position: absolute;
-	background-color: #ffffff;
-	opacity: 0;
-    top: 0;
-    left: 0;
-}
-
-.aa {
+.secondClass {
     width: 690rpx;
-    height: 330rpx;
-    background: rgba(0, 0, 0, 0);
-    position: absolute;
-	border-radius: 8rpx;
-    top: 0;
-    left: 0;
+    height: 312rpx;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 16rpx 12rpx 0;
+	/* background-color:yellow; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
-#btn1,#btn2,#btn3,#btn4,#btn5{
-	overflow: visible;
+.secondClassItem {
+    width: 138rpx;
+    height: 148rpx;
+    color: #797979;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 30rpx;
+	margin-right: 38rpx;
 }
 
-.hover-class{
-	background-color:#f2f2f2;
+.secondClassItem:nth-child(4n+0){
+	margin-right: 0rpx;
+}
+
+.secondClassItem image {
+    width: 94rpx;
+    height: 94rpx;
+    /* background: rgba(224, 46, 36, 1); */
+    border-radius: 50%;
+    margin-bottom: 10rpx;
+}
+
+/* 分享新人 */
+.shareNewUser {
+    width: 690rpx;
+    height: 160rpx;
+    margin: 22rpx auto 32rpx;
+    position: relative;
+}
+
+.shareNewFriend {
+    width: 690rpx;
+    height: 160rpx;
+}
+
+.GoIcon{
+	width: 134rpx;
+    height: 134rpx;
+	position: absolute;
+	top: 24rpx;
+	right: 17rpx;
+}
+
+.closeBtn{
+	margin-top: 20rpx;
+	text-align: center;
+}
+
+.closeBtn image{
+	width: 54rpx;
+	height: 54rpx;
 }

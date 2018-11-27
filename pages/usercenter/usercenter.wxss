@@ -1,7 +1,13 @@
-.bg {
-    background-image: url('https://tp.datikeji.com/a/15404417694654/b1mEwi20eFN1Md9WATtDA08AWLWwgOjy0F6R6fYb.png');
-    background-size: 750rpx 338rpx;
+#scrollBox {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
     overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15422612654834/T0tndE3B5trhC5UP8hIhXTLicGHFjEeJn7JEPu1Y.png');
+    background-size: 750rpx 340rpx;
 }
 
 .userInfo {
@@ -32,15 +38,16 @@
 }
 
 .userName {
-    font-size: 30rpx;
+    font-size: 34rpx;
 }
 
 .userDoller {
-    font-size: 26rpx;
+    font-size:30rpx;
 }
 
 .userDoller text {
     font-size: 36rpx;
+	font-weight: bold;
 }
 
 .userData {
@@ -83,7 +90,7 @@
 
 .orderDataItem {
     color: #333;
-    font-size: 22rpx;
+    font-size: 28rpx;
     text-align: center;
 }
 
@@ -94,28 +101,71 @@
 
 .shareFriend {
     width: 690rpx;
-    height: 168rpx;
+    height: 222rpx;
     margin: 0 auto;
     border-radius: 8rpx;
     color: #fff;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: url('https://tp.datikeji.com/a/15404524256655/x1GkhJxkCVkIA28y5Xf40i3pi06yTr7Whv8DB7oi.png');
+    background: url('https://tp.datikeji.com/a/15422620067802/B479wJs6YneGvlDYhOqDSyNqATKEGKVIw2GwnFCh.png');
     box-sizing: border-box;
     background-size: cover;
     background-repeat: no-repeat;
     background-origin: border-box;
+    position: relative;
+    overflow: hidden;
 }
 
-.shareFriend view:first-child {
-    font-size: 30rpx;
-    margin-bottom: 22rpx;
+.shareFriendIcon {
+    width: 664rpx;
+    height: 116rpx;
+    margin: 92rpx auto 0;
+    background-image: url('https://tp.datikeji.com/a/15422621402881/AhKvG8Nu1nEYQ8TXTPdMbsatyOoSs3EYOLddKdVp.png');
+    background-repeat: no-repeat;
+    background-size: 664rpx 116rpx;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: conter;
 }
 
-.shareFriend view:last-child {
-    font-size: 24rpx;
+.shareFriendLeftIcon {
+    width: 290rpx;
+    height: 100%;
+	box-sizing: border-box;
+	padding-left: 24rpx;
+	text-align: center;
+	position: relative;
+}
+
+.shareFriendRightIcon {
+    width: 290rpx;
+    height: 100%;
+	box-sizing: border-box;
+	padding-right: 24rpx;
+	text-align: center;
+	position: relative;
+}
+
+.leftArrow,.rightArrow{
+	width: 16rpx;
+	height: 28rpx;
+	position: absolute;
+	top: 44rpx;
+}
+
+.leftArrow{
+	left: 208rpx;
+}
+
+.rightArrow{
+	left: 184rpx;
+}
+
+
+.invitationIcon, .invitationIcon image {
+    width: 110rpx;
+    height: 106rpx;
 }
 
 .promoteBox {
@@ -131,7 +181,7 @@
 
 .promoteItem {
     color: #333;
-    font-size: 22rpx;
+    font-size: 28rpx;
     text-align: center;
     margin-top: 28rpx;
 }
@@ -168,7 +218,7 @@
 
 .botlist {
     color: #333;
-    font-size: 28rpx;
+    font-size: 32rpx;
     /* font-family: PingFang-SC-Medium;
     font-weight: 500; */
 }
@@ -233,4 +283,62 @@
     font-size: 30rpx;
     color: rgba(255, 255, 255, 1);
     line-height: 68rpx;
+}
+
+/* 邀请浮窗 */
+.yaoqingfuchuang{
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color:rgba(0,0,0,0.6);
+}
+
+.fuchuangTop{
+	width: 100%;
+	height: 242rpx;
+	box-sizing: border-box;
+	font-size: 24rpx;
+	text-align: center;
+	color: #797979;
+	padding: 56rpx 80rpx 58rpx 80rpx;
+	background-color:#FFFFFF;
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+#shareBtn{
+	padding: 0;
+	background-color: rgba(255, 255, 255, 0);
+	font-size: 24rpx;
+	color: #797979;
+	line-height: inherit;
+}
+
+.cloaseBtn{
+	width:54rpx;
+	height:54rpx;
+	position: absolute;
+	right: 30rpx;
+	bottom: 262rpx;
+}
+
+.qpreviewImage{
+	margin: 116rpx auto 0;
+}
+
+.qpreviewImage,.qpreviewImage image{
+	width: 470rpx;
+	height: 600rpx;
+}
+
+.qPerviewTxt{
+	font-size:26rpx;
+	color: #fff;
+	text-align: center;
+	margin-top: 22rpx;
 }

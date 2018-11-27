@@ -1,18 +1,4 @@
-.notice {
-    width: 100%;
-    height: 66rpx;
-    background: rgba(255, 231, 230, 0.7);
-    line-height: 66rpx;
-    font-size: 24rpx;
-    text-align: center;
-    color: #e02e24;
-}
 
-.notice image {
-    width: 28rpx;
-    height: 24rpx;
-    vertical-align: middle;
-}
 
 /* 列表 */
 

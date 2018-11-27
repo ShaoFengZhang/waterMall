@@ -121,3 +121,21 @@
 #scrollView{
 	overflow: hidden;
 }
+
+.noData {
+    margin: 30vh auto 0;
+}
+
+.noData, .noData image {
+    width: 467rpx;
+    height: 400rpx;
+}
+
+.nodataTxt{
+	color: #333333;
+	font-size: 26rpx;
+	text-align: center;
+	position:relative;
+	top: -60rpx;
+}
+

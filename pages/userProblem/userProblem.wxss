@@ -40,13 +40,13 @@ image {
 }
 
 .itemTitle {
-    font-size: 30rpx;
+    font-size: 34rpx;
     font-weight: bold;
 }
 
 .problemItem {
     padding: 0 60rpx;
-    font-size: 28rpx;
+    font-size: 30rpx;
 }
 
 .bigBox view:last-child {
@@ -61,7 +61,7 @@ image {
     height: 106rpx;
     line-height: 106rpx;
     margin: 0 auto;
-    font-size: 30rpx;
+    font-size: 34rpx;
     font-weight: bold;
     color: rgba(51, 51, 51, 1);
     border-bottom: 2rpx solid #eaeaea;
@@ -91,7 +91,7 @@ image {
     width: 630rpx;
     height: 106rpx;
     margin: 20rpx auto;
-    font-size: 28rpx;
+    font-size: 32rpx;
     color: rgba(51, 51, 51, 1);
     line-height: 48rpx;
 }

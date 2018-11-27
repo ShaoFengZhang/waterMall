@@ -1,0 +1,258 @@
+.notice {
+    width: 100%;
+    height: 66rpx;
+    background: rgba(255, 231, 230, 0.7);
+    line-height: 66rpx;
+    font-size: 24rpx;
+    text-align: center;
+    color: #e02e24;
+}
+
+.notice image {
+    width: 28rpx;
+    height: 24rpx;
+    vertical-align: middle;
+}
+
+.userData {
+    width: 100%;
+    height: 146rpx;
+    box-sizing: border-box;
+    background-size: cover;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-image: url("https://tp.datikeji.com/a/15408073818367/2ITWGi8qqb9u95CElSg2a4QqLQa8rBxTQXX9CYK0.png");
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.userData .bothView {
+    width: 50%;
+    height: 146rpx;
+    color: #fff;
+    box-sizing: border-box;
+    padding-top: 20rpx;
+}
+
+.bothView view {
+    text-align: center;
+    margin-bottom: 10rpx;
+}
+
+.verticalBar {
+    width: 2rpx;
+    height: 34rpx;
+    background: rgba(237, 97, 89, 1);
+    border-radius: 2rpx;
+    margin-top: 50rpx;
+}
+
+.topClass {
+    width: 100%;
+    height: 88rpx;
+    border-bottom: 2rpx solid #eaeaea;
+    line-height: 84rpx;
+    display: flex;
+    justify-content: space-around;
+    font-size: 32rpx;
+    text-align: center;
+}
+
+.topClass view {
+    height: 88rpx;
+}
+
+.noselect {
+    color: #797979;
+}
+
+.select {
+    color: #e02e24;
+}
+
+view.selectline {
+    width: 24rpx;
+    height: 4rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 2rpx;
+    margin: 0 auto;
+}
+
+/* 订单 */
+
+.orderItem {
+    width: 690rpx;
+    height: 180rpx;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 3rpx 20rpx 0px rgba(111, 105, 103, 0.16);
+    border-radius: 8rpx;
+    margin: 30rpx auto 0;
+    box-sizing: border-box;
+    padding: 36rpx 20rpx 20rpx;
+}
+
+.orderItemInfo {
+    width: 100%;
+    height: 50rpx;
+    line-height: 30rpx;
+}
+
+.orderItemInfo text {
+    display: inline-block;
+}
+
+.haoyoubangtxt {
+    background: rgba(224, 46, 36, 0.1);
+    border-radius: 16rpx;
+    padding: 4rpx 10rpx;
+    margin-right: 10rpx;
+}
+
+.leixingtxt {
+    font-size: 22rpx;
+    color: #fff;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 2rpx;
+    padding: 4rpx 10rpx;
+    float: right;
+}
+
+.orderItemUserInfo {
+    width: 100%;
+    height: 68rpx;
+    line-height: 68rpx;
+    position: relative;
+    margin-top: 18rpx;
+}
+
+.picView view {
+    display: inline-block;
+}
+
+.picView {
+	width: 100%;
+    height: 68rpx;
+    overflow: hidden;
+	position: relative;
+}
+
+.orderItemUserInfo image {
+    width: 68rpx;
+    height: 68rpx;
+    background: rgba(255, 255, 255, 1);
+    border: 2rpx solid rgba(255, 255, 255, 1);
+    box-shadow: 0px 3rpx 10rpx 0px rgba(121, 121, 121, 0.3);
+    border-radius: 50%;
+    margin-right: 12rpx;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.userName {
+	display: inline-block;
+    width: 200rpx;
+    height: 68rpx;
+    font-size: 26rpx;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+	position: absolute;
+	top: 0;
+	left: 80rpx;
+
+}
+
+.creatAt {
+    height: 68rpx;
+    color: #797979;
+    font-size: 22rpx;
+    float: right;
+    line-height: 72rpx;
+}
+
+/* 弹窗 */
+
+.tanchaung {
+    width: 750rpx;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.tanchangBody {
+    width: 530rpx;
+    height: 600rpx;
+    background: rgba(254, 252, 253, 1);
+    border-radius: 32rpx;
+    margin: 290rpx auto;
+    overflow: hidden;
+    color: #333;
+    position: relative;
+}
+
+.wenxintishi {
+    text-align: center;
+    margin-top: 60rpx;
+}
+
+.tanchuangwenan {
+    box-sizing: border-box;
+    padding: 0 45rpx;
+    line-height: 61rpx;
+    margin-top: 40rpx;
+}
+
+.bodyBtn {
+    width: 100%;
+    height: 68rpx;
+    padding: 0 40rpx;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin-top: 36rpx;
+}
+
+.IKnow {
+    width: 214rpx;
+    height: 68rpx;
+    border: 2rpx solid rgba(224, 46, 36, 1);
+    border-radius: 34rpx;
+    color: #e02e24;
+    line-height: 68rpx;
+    text-align: center;
+}
+
+#sharebtn {
+    width: 214rpx;
+    height: 68rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 34rpx;
+    padding: 0;
+    line-height: 68rpx;
+    color: #fff;
+}
+
+.noData {
+    margin: 124rpx auto 0;
+}
+
+.noData, .noData image {
+    width: 467rpx;
+    height: 400rpx;
+}
+
+.nodataTxt {
+    color: #333;
+    font-size: 26rpx;
+    text-align: center;
+    position: relative;
+    top: -60rpx;
+}

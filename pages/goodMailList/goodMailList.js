@@ -9,6 +9,7 @@ Page({
         YOrder: '1',
         XOrder: '1',
         defaultList: [],
+		ifloadingup:false,
     },
 
     onLoad: function(options) {
@@ -79,6 +80,7 @@ Page({
 			}
             _this.setData({
                 defaultList: _this.defaultList,
+				ifloadingup:true,
             });
         })
     },
@@ -109,16 +111,16 @@ Page({
     // 分享
     onShareAppMessage: function() {
         if (this.dataType == 0) {
-            var title = "9块9包邮了还返现，这价格是标错了么？快来抢啊…";
-        } else {
-            var title = "最近这些卖的超级火爆的东西居然被我找到了优惠券，嘿嘿… ";
-        };
-        let path = `/pages/index/index?user_openId=${wx.getStorageSync('user_openID')}`;
-        let img = '/assets/shareIcon.png';
+            var title = "9块9包邮了还返现，这价格是标错了么？大家快来抢啊…";
+		} else if (this.dataType == 1) {
+			var title = "最近卖得超级火爆的东西居然被我找到了优惠券，嘿嘿…";
+        }else{
+			var title = "好东西都是靠抢来的，只不过有些明抢，这些可以白拿。";
+		}
+		let path = `/pages/index/index?user_openId=${wx.getStorageSync('u_id')}`;
         return {
             title: title,
             path: path,
-            imageUrl: img,
         }
     },
 

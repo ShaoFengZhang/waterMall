@@ -48,69 +48,6 @@
     bottom: 26rpx;
 }
 
-/* 搜索框 */
-
-.searchInput {
-    width: 530rpx;
-    height: 68rpx;
-    border-radius: 78rpx;
-    box-sizing: border-box;
-    line-height: 68rpx;
-    z-index: 10;
-    background-color: #f1f1f1;
-    position: relative;
-}
-
-.searchIcon {
-    width: 42rpx;
-    height: 44rpx;
-    position: absolute;
-    top: 12rpx;
-    left: 30rpx;
-}
-
-.errorIcon {
-    width: 62rpx;
-    height: 62rpx;
-    position: absolute;
-    right: 18rpx;
-    top: 4rpx;
-}
-
-input {
-    width: 378rpx;
-    height: 68rpx;
-    color: #333;
-    font-size: 24rpx;
-    margin: 0 auto;
-    line-height: 68rpx;
-}
-
-.placeClass {
-    color: #797979;
-}
-
-.searchBox {
-    width: 100%;
-    height: 68rpx;
-    padding: 0 30rpx;
-	display: flex;
-	justify-content: space-around;
-	box-sizing: border-box;
-	margin-top: 10rpx;
-}
-
-.searchBtn {
-    width: 130rpx;
-    height: 68rpx;
-    background: rgba(224, 46, 36, 1);
-    border-radius: 34rpx;
-	line-height: 68rpx;
-	color: #ffffff;
-	text-align: center;
-	font-size: 26rpx;
-}
-
 /* 数据列表 */
 
 .dataList {
@@ -236,6 +173,89 @@ input {
 	box-sizing: border-box;
 }
 
+
+
+/* 搜索框 */
+
+.searchInput {
+    width: 690rpx;
+    height: 68rpx;
+    background-color: rgba(241, 241, 241, 1);
+    border-radius: 68rpx;
+    box-sizing: border-box;
+    line-height: 68rpx;
+    position: relative;
+    margin: 10rpx auto 0;
+}
+
+.posSearchInput {
+    position: absolute;
+    top: 314rpx;
+    left: 30rpx;
+}
+
+.searchBtn {
+    width: 126rpx;
+    height: 68rpx;
+    background: rgba(255, 41, 29, 0.68);
+    border-radius: 0px 34rpx 34rpx 0px;
+    line-height: 68rpx;
+    color: #fff;
+    text-align: center;
+    font-size: 28rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+image.searchIcon {
+    width: 42rpx;
+    height: 44rpx;
+    position: absolute;
+    top: 12rpx;
+    left: 30rpx;
+}
+
+.errorIcon {
+    width: 62rpx;
+    height: 62rpx;
+    position: absolute;
+    right: 144rpx;
+    top: 3rpx;
+}
+
+input {
+    width: 412rpx;
+    height: 68rpx;
+    color: #333;
+    font-size: 24rpx;
+    line-height: 68rpx;
+    position: absolute;
+    top: 0;
+    left: 72rpx;
+}
+
+.placeClass {
+    color: #797979;
+}
+
 .hover-class1{
 	background-color: rgba(224,46,36,0.8)
+}
+
+.noData {
+    margin: 30vh auto 0;
+}
+
+.noData, .noData image {
+    width: 467rpx;
+    height: 400rpx;
+}
+
+.nodataTxt{
+	color: #333333;
+	font-size: 26rpx;
+	text-align: center;
+	position:relative;
+	top: -60rpx;
 }

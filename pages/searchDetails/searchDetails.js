@@ -14,11 +14,12 @@ Page({
 		ifShowSearchIcon:true,
 		inputValue:'',
 		placeholderTxt: "搜索商品名/复制拼多多商品标题",
+		ifloadingup:false,
     },
 
     onLoad: function(options) {
 		this.setData({
-			scrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 156
+			scrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 168
 		})
 		this.pageIndex = 0;
 		this.defaultList = [];
@@ -181,6 +182,14 @@ Page({
 			sort_type: sort_type ? sort_type : ''
 		}
 		wxAPIF.wxRequest(app, getIndexListUrl, "POST", data, function (res) {
+			if (res.data.error_response){
+				wx.showToast({
+					title: '请输入有效内容',
+					icon: "none",
+					duration: 2200,
+				});
+				return;
+			}
 			if (res.data.goods_search_response.total_count==0){
 				wx.showToast({
 					title: '请输入有效内容',
@@ -199,6 +208,7 @@ Page({
 			_this.defaultList = _this.defaultList.concat(res.data.goods_search_response.goods_list);
 			_this.setData({
 				defaultList: _this.defaultList,
+				ifloadingup:true,
 			});
 			wx.hideLoading();
 		})
@@ -219,13 +229,11 @@ Page({
 
 	// 分享
 	onShareAppMessage: function () {
-		var title = "购物之前先领券，省钱省到乐翻天";
-		var img = '';
-		var path = `/pages/index/index?user_openId=${wx.getStorageSync('user_openID')}`;
+		var title = "我必须实力推荐这些宝贝，领券返现还能赚钱";
+		var path = `/pages/index/index?user_openId=${wx.getStorageSync('u_id')}`;
 		return {
 			title: title,
 			path: path,
-			imageUrl: img,
 		}
 	},
 })

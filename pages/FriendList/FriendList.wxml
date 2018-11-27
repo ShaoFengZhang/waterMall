@@ -1,0 +1,68 @@
+<view class="bg">
+
+    <view class='notice'>
+        <image src='/assets/horn.png' /> 邀请越多新用户成为你的好友，帮你赚钱的人就越多
+    </view>
+
+    <view class='parentInfo' wx:if="{{father_pic}}">
+        <view>
+            <image src='{{father_pic}}' />
+        </view>
+
+        <view class='parentName'>
+            <view style='font-size:30rpx;'>{{father_name}}</view>
+            <view style='font-size:26rpx;'>我的邀请人</view>
+        </view>
+    </view>
+
+    <view class='friendNumber'>
+        <view class='haoyoushu'>我邀请的好友数:
+            <text style='color:#E02E24;font-size:34rpx;'>{{firend_num}}</text>
+        </view>
+        <view class='line'></view>
+        <view class='leijishu'>好友累计为我赚:
+            <text style='color:#E02E24;font-size:34rpx;'>{{all_money}}元</text>
+        </view>
+        <button id='shareID' open-type='share'>继续邀请</button>
+    </view>
+
+    <view class='haoyougongxian'>好友贡献榜</view>
+
+    <scroll-view wx:if="{{friendList.length}}" scroll-y style="height:{{scrolloheight}}rpx;background-color: #fff;">
+        <view class='friendItem' wx:for="{{friendList}}" wx:key="{{index}}">
+            <view class='friendItemInfo'>
+                <view>
+                    <image wx:if="{{item.pic}}" src='{{item.pic}}' />
+                    <image wx:if="{{!item.pic}}" src='/assets/shareIcon.png' />
+                </view>
+                <view>
+                    <view wx:if="{{item.pic}}" class='friendName' style='font-size:28rpx;color:#333333'>{{item.userName}}</view>
+                    <view  wx:if="{{!item.pic}}"class='friendName' style='font-size:28rpx;color:#333333'>未授权用户</view>
+                    <view style='font-size:24rpx;color:#797979'>邀请时间:{{item.created_at}}</view>
+                </view>
+            </view>
+            <view class='longLine'></view>
+
+            <view class='friendItenNum' style='position: relative'>
+                <view class='haoyoushu haoyoushu2' style='font-size:26rpx;'>帮我赚钱:
+                    <text style='color:#E02E24;margin-left:0;'> {{item.firend_money}} </text> 元
+                </view>
+                <view class='line'></view>
+                <view class='leijishu leijishu2' style='font-size:26rpx;'>好友个数:
+                    <text style='color:#E02E24;margin-left:0;'> {{item.firend_count}} </text>个
+                </view>
+                <button id='friendShareID' open-type='share'>召回赚钱</button>
+            </view>
+			<view class='segment'></view>
+        </view>
+
+		<view class='botLineTxt'>
+			人家是有底线的哦~
+		</view>
+    </scroll-view>
+
+	<view class='noData' wx:if="{{!friendList.length&&ifloadingup}}">
+		<image src='/assets/friendNoData.png' />
+	</view>
+	<view class='nodataTxt' wx:if="{{!friendList.length&&ifloadingup}}">暂无好友,邀请好友可获得好友永久提成贡献哦~</view>
+</view>

@@ -1,12 +1,21 @@
 <view class="bg">
 
     <view class='searchBox'>
-        <view class='searchInput'>
+        <!-- <view class='searchInput'>
             <image wx:if="{{ifShowSearchIcon}}" class='searchIcon' src='/assets/index/searchIcon.png' />
             <input value='{{inputValue}}' placeholder='{{placeholderTxt}}' placeholder-class='placeClass' bindinput="bindinput"  bindconfirm="bindconfirm"></input>
             <image wx:if="{{!ifShowSearchIcon}}" class='errorIcon' src='/assets/error.png' bindtap='clearInputTxt' />	
         </view>
-		<view class='searchBtn' bindtap='bindconfirm' hover-class="hover-class1">搜索</view>
+		<view class='searchBtn' bindtap='bindconfirm' hover-class="hover-class1">搜索</view> -->
+
+        <view class='searchInput'>
+            <image wx:if="{{ifShowSearchIcon}}" class='searchIcon' src='/assets/index/searchIcon.png' />
+            <input value='{{inputValue}}' placeholder='{{placeholderTxt}}' placeholder-class='placeClass' bindinput="bindinput" bindconfirm="bindconfirm"></input>
+            <image wx:if="{{!ifShowSearchIcon}}" class='errorIcon' src='/assets/error.png' bindtap='clearInputTxt' />
+            <view class='searchBtn' bindtap='bindconfirm' hover-class="hover-class1">搜索</view>
+        </view>
+
+
     </view>
 
     <view class='orderMenu' wx:if="{{ifShowMenu}}">
@@ -31,9 +40,9 @@
     </view>
 
     <view class='dataList' style="height:{{scrollHeight}}rpx;">
-        <scroll-view id='scrollView' scroll-y style="height: {{scrollHeight-30}}rpx;" bindscrolltolower="dropDownRefresh" scroll-into-view="{{toView}}">
+        <scroll-view wx:if="{{defaultList.length}}" id='scrollView' scroll-y style="height: {{scrollHeight-30}}rpx;" bindscrolltolower="dropDownRefresh" scroll-into-view="{{toView}}">
             <view hover-class="hover-class" wx:for="{{defaultList}}" id='scrollView{{index}}' wx:key="{{index}}" class='dataItem' data-goodID="{{item.goods_id}}" bindtap='goTodetail'>
-                <image src='{{item.goods_thumbnail_url}}'/>
+                <image src='{{item.goods_thumbnail_url}}' />
                 <view class='ItemTitle'>{{item.goods_name}}</view>
                 <view class='preferential'>
                     <text>拼多多 </text>
@@ -52,10 +61,15 @@
                 </view>
             </view>
         </scroll-view>
+
+		<view class='noData' wx:if="{{!defaultList.length && ifloadingup}}">
+            <image src='/assets/babyNoData.png' />
+        </view>
+        <view class='nodataTxt' wx:if="{{!defaultList.length && ifloadingup}}">暂时没有数据哦~,快去看看别的吧~</view>
     </view>
 
-	<view class='gotop' bindtap='goToTop'>
-		<image src='/assets/goTop.png' />
-		<view class='gotoTopTxt'>顶部</view>
-	</view>
+    <view class='gotop' bindtap='goToTop'>
+        <image src='/assets/goTop.png' />
+        <view class='gotoTopTxt'>顶部</view>
+    </view>
 </view>

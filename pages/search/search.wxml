@@ -1,61 +1,135 @@
+
 <view class="bg">
-    <view class='searchInput'>
-        <image wx:if="{{ifShowSearchIcon}}" class='searchIcon' src='/assets/index/searchIcon.png' />
-        <input value='{{inputValue}}' placeholder='{{placeholderTxt}}' placeholder-class='placeClass' bindinput="bindinput" bindconfirm="bindconfirm"></input>
-        <image wx:if="{{!ifShowSearchIcon}}" class='errorIcon' src='/assets/error.png' bindtap='clearInputTxt' />
-    </view>
-    <view class='searchBtn' bindtap='bindconfirm' hover-class="hover-class">搜索</view>
-    <view class='scrollBox'>
-        <view class='topIcon'>
-            <image src='/assets/search.png' />
+    <!-- 顶部分类 -->
+    <view class='topClassBar'>
+        <view class='topClassBarItem {{TopselectIndex==1?"topClassBarSelect":"topClassBarNoSelect"}}' data-index='1' bindtap='topClassClick'>
+            分类省钱
+            <view class='topClassBarLine' wx:if="{{TopselectIndex==1}}"></view>
         </view>
-        <scroll-view scroll-y class='newUserPromt' style='height:{{botBoxHeight}}rpx'>
-            <view class='promtTxt '>
-                <view class='toptitle'>一 如何查找拼多多优惠券 一</view>
-                <view class='smallTitle'>你用拼多多购物，我帮你省钱</view>
-                <view class=' step stepOne'>
-                    <image class='radiousIcon' src='/assets/search/radius.png' />
-                    <view class='stepTxt'>第一步</view>
-                    <view class='stepDesc'>直接搜索商品或者打开拼多多App、小程序、网页。找到心仪的商品
-                        <text style='color:#E02E24;'>【长按商品名称】</text>复制拷贝或记住商品关键字
-                    </view>
-                    <image class='stepIcon' src='/assets/search/one.png' />
-                </view>
-
-                <view class=' step stepTwo'>
-                    <image class='radiousIcon' src='/assets/search/radius.png' />
-                    <view class='stepTxt'>第二步</view>
-                    <view class='stepDesc'>再次打开我们的
-                        <text style='color:#E02E24;'>“省钱买分享赚”</text>小程序，在首页或者本页面点击搜索框或手动输入到搜索框进行搜索</view>
-                    <image class='stepIcon' src='/assets/search/two.png' />
-                </view>
-
-                <view class=' step stepThree'>
-                    <image class='radiousIcon' src='/assets/search/radius.png' />
-                    <view class='stepTxt'>第三步</view>
-                    <view class='stepDesc'>点开搜索到的对应商品，点击
-                        <text style='color:#E02E24;'>【立即领券】</text>
-                    </view>
-                    <image class='stepIcon' src='/assets/search/three.png' />
-                </view>
-
-                <view class=' step stepFour'>
-                    <image class='radiousIcon' src='/assets/search/radius.png' />
-                    <view class='stepTxt'>第四步</view>
-                    <view class='stepDesc'>跳转至拼多多小程序，系统会自动弹出领取优惠券界面，点击
-                        <text style='color:#E02E24;'>【一键抢券】</text>进入详情</view>
-                    <image class='stepIcon' src='/assets/search/four.png' />
-                </view>
-
-                <view class=' step stepFive'>
-                    <image class='radiousIcon' src='/assets/search/radius.png' />
-                    <view class='stepTxt'>第五步</view>
-                    <view class='stepDesc'>选择好商品的属性和类型，下单即可
-                        <text style='color:#E02E24;'>立即优惠</text>。 是不是比直接在拼多多购买更加优惠了</view>
-                    <image class='stepIcon' src='/assets/search/five.png' />
-                </view>
-
-            </view>
-        </scroll-view>
+        <view class='topClassBarItem {{TopselectIndex==2?"topClassBarSelect":"topClassBarNoSelect"}}' data-index='2' bindtap='topClassClick'>
+            精准省钱
+            <view class='topClassBarLine' wx:if="{{TopselectIndex==2}}"></view>
+        </view>
     </view>
+
+    <!-- 清除浮动 -->
+    <view class='clearFloat' wx:if="{{ifShowTopClassBar}}"></view>
+
+    <!-- 分类省钱 -->
+    <view class='classSave' wx:if="{{ifShowTopClassBar}}">
+
+        <view class='searchInput'>
+            <image wx:if="{{ifShowSearchIcon}}" class='searchIcon' src='/assets/index/searchIcon.png' />
+            <input value='{{inputValue}}' placeholder='{{placeholderTxt}}' placeholder-class='placeClass' bindinput="bindinput" bindconfirm="bindconfirm"></input>
+            <image wx:if="{{!ifShowSearchIcon}}" class='errorIcon' src='/assets/error.png' bindtap='clearInputTxt' />
+            <view class='searchBtn' bindtap='bindconfirm' hover-class="hover-class">搜索</view>
+        </view>
+
+        <view class='HotSearch'>
+            <view class='HotSearchTopItem'>
+                <text class='everySerchTxt'>大家都在搜：</text>
+                <view bindtap='bindconfirm' hover-class="hover-class1" data-content='{{item.title}}' wx:for="{{HotSearchTopArray}}" wx:key="index" class='HotSearchItem'>{{item.title}}</view>
+            </view>
+            <view class='HotSearchBotItem'>
+                <view bindtap='bindconfirm' hover-class="hover-class1" data-content='{{item.title}}' wx:for="{{HotSearchBotArray}}" wx:key="index" class='HotSearchItem'>{{item.title}}</view>
+            </view>
+        </view>
+
+        <view class='departmentBox' style='height:{{departmentBoxHeight}}rpx'>
+
+            <view class='departmentLeft'>
+                <scroll-view scroll-y style="height: 100%;">
+                    <view bindtap='departMentClick' data-index='{{index}}' data-array='{{item}}'   wx:for="{{departmentLeftArray}}" wx:key="{{index}}" class="departmentLeft-item {{departCurrent==index?'departmentLeftSelect-item':'departmentLeftNoSelect-item'}} ">
+                        {{item.title}}
+                        <view class='scrollLine' wx:if="{{departCurrent==index}}"></view>
+                    </view>
+                </scroll-view>
+            </view>
+
+            <view class='departmentRight'>
+                <view class='classTitle'>
+                    <text></text> 
+					{{departTitleTxt}}
+                    <text></text>
+                </view>
+                <scroll-view id='botScroll' scroll-y style="height: {{classScrollHeight}}rpx;">
+
+                    <view hover-class="hover-class2" class='classItem' bindtap='goToGoodsList' data-content="{{item}}" wx:for="{{classItemArray}}" wx:key="{{index}}">
+                        <view>
+                            <image src='{{item.icon}}' />
+                        </view>
+                        <view style='margin-top:12rpx;'>{{item.name}}</view>
+                    </view>
+
+                </scroll-view>
+            </view>
+
+        </view>
+
+    </view>
+
+    <!-- 精准省钱 -->
+    <view class='accurateSave' wx:if="{{!ifShowTopClassBar}}">
+        <view class='scrollBox'>
+            <view class='topIcon'>
+                <image class='searchBigimg' src='/assets/search.png' />
+                <view class='searchInput posSearchInput'>
+                    <image wx:if="{{ifShowSearchIcon}}" class='searchIcon' src='/assets/index/searchIcon.png' />
+                    <input value='{{inputValue}}' placeholder='{{placeholderTxt}}' placeholder-class='placeClass' bindinput="bindinput" bindconfirm="bindconfirm"></input>
+                    <image wx:if="{{!ifShowSearchIcon}}" class='errorIcon' src='/assets/error.png' bindtap='clearInputTxt' />
+                    <view class='searchBtn' bindtap='bindconfirm' hover-class="hover-class">搜索</view>
+                </view>
+            </view>
+
+            <scroll-view scroll-y class='newUserPromt' style='height:{{botBoxHeight}}rpx'>
+                <view class='promtTxt '>
+                    <view class='toptitle'>一 如何查找拼多多优惠券 一</view>
+                    <view class='smallTitle'>你用拼多多购物，我帮你省钱</view>
+                    <view class=' step stepOne'>
+                        <image class='radiousIcon' src='/assets/search/radius.png' />
+                        <view class='stepTxt'>第一步</view>
+                        <view class='stepDesc'>直接搜索商品或者打开拼多多App、小程序、网页。找到心仪的商品
+                            <text style='color:#E02E24;'>【长按商品名称】</text>复制拷贝或记住商品关键字
+                        </view>
+                        <image class='stepIcon' src='/assets/search/one.png' />
+                    </view>
+
+                    <view class=' step stepTwo'>
+                        <image class='radiousIcon' src='/assets/search/radius.png' />
+                        <view class='stepTxt'>第二步</view>
+                        <view class='stepDesc'>再次打开我们的
+                            <text style='color:#E02E24;'>“省钱买分享赚”</text>小程序，在首页或者本页面点击搜索框或手动输入到搜索框进行搜索</view>
+                        <image class='stepIcon' src='/assets/search/two.png' />
+                    </view>
+
+                    <view class=' step stepThree'>
+                        <image class='radiousIcon' src='/assets/search/radius.png' />
+                        <view class='stepTxt'>第三步</view>
+                        <view class='stepDesc'>点开搜索到的对应商品，点击
+                            <text style='color:#E02E24;'>【立即领券】</text>
+                        </view>
+                        <image class='stepIcon' src='/assets/search/three.png' />
+                    </view>
+
+                    <view class=' step stepFour'>
+                        <image class='radiousIcon' src='/assets/search/radius.png' />
+                        <view class='stepTxt'>第四步</view>
+                        <view class='stepDesc'>跳转至拼多多小程序，系统会自动弹出领取优惠券界面，点击
+                            <text style='color:#E02E24;'>【一键抢券】</text>进入详情</view>
+                        <image class='stepIcon' src='/assets/search/four.png' />
+                    </view>
+
+                    <view class=' step stepFive'>
+                        <image class='radiousIcon' src='/assets/search/radius.png' />
+                        <view class='stepTxt'>第五步</view>
+                        <view class='stepDesc'>选择好商品的属性和类型，下单即可
+                            <text style='color:#E02E24;'>立即优惠</text>。 是不是比直接在拼多多购买更加优惠了</view>
+                        <image class='stepIcon' src='/assets/search/five.png' />
+                    </view>
+
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+
 </view>

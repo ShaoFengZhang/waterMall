@@ -10,7 +10,12 @@
 		"pages/orderManagement/orderManagement",
 		"pages/payPage/payPage",
 		"pages/userProblem/userProblem",
-		"pages/searchDetails/searchDetails"
+		"pages/searchDetails/searchDetails",
+		"pages/goodsList/goodsList",
+		"pages/FriendList/FriendList",
+		"pages/FriendOrderPage/FriendOrderPage",
+		"pages/shareFriendGuide/shareFriendGuide",
+		"pages/howInvite/howInvite"
 	],
 	"window": {
 		"backgroundTextStyle": "light",

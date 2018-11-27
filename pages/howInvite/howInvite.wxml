@@ -1,0 +1,9 @@
+<view class='bg'>
+    <scroll-view scroll-y style="height:100vh;">
+
+        <view class='scrollBox bgicon'>
+			<image bindload="imageload" src='https://tp.datikeji.com/a/15427745048063/4ifvtTcgVg2OhcjmIt6TZ0kDplCMF9ugeEL5PWRJ.png' />
+        </view>
+    </scroll-view>
+
+</view>

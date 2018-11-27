@@ -1,0 +1,113 @@
+<view class='bg'>
+    <scroll-view scroll-y style="height:100vh;">
+
+        <view class='scrollBox bgicon'>
+
+            <view class='threeStep bgicon'>
+
+                <view class='stepTitle'>
+                    <image src='/assets/shareFriend/redPointLeft.png' />
+                    <text>简单三步 赢取现金</text>
+                    <image src='/assets/shareFriend/redPointRight.png' />
+                </view>
+
+                <view class='oneLine'>
+                    <view class='quan'>1</view>
+                    <view class='quanline'></view>
+                    <view class='quan'>2</view>
+                    <view class='quanline'></view>
+                    <view class='quan'>3</view>
+                </view>
+
+                <view class='oneLineTxt'>
+                    <view>分享小程序 给新人好友</view>
+                    <view>好友登录成 功领取红包</view>
+                    <view>自己获得最 高2元奖励</view>
+                </view>
+
+                <view class='bgline'></view>
+
+                <view class='stepTitle'>
+                    <image src='/assets/shareFriend/redPointLeft.png' />
+                    <text>再来三步 永久提成</text>
+                    <image src='/assets/shareFriend/redPointRight.png' />
+                </view>
+
+                <view class='oneLine'>
+                    <view class='quan'>1</view>
+                    <view class='quanline'></view>
+                    <view class='quan'>2</view>
+                    <view class='quanline'></view>
+                    <view class='quan'>3</view>
+                </view>
+
+                <view class='oneLineTxt'>
+                    <view>好友只要购 买任意商品</view>
+                    <view>好友获得商 品返现奖励</view>
+                    <view>你可永久获 得30%提成</view>
+                </view>
+
+                <view class='steptost'>· 好友订单
+                    <text style='color:#E02E24;'>确认收货15天后</text> 奖励会自动发放到你的账户，好友必须要从未使用过本小程序你才能获得永久30%奖励。
+                </view>
+
+                <view class='stepTitle' style='margin-top:100rpx;'>
+                    <image src='/assets/shareFriend/redPointLeft.png' />
+                    <text>快去邀请新人赚钱</text>
+                    <image src='/assets/shareFriend/redPointRight.png' />
+                </view>
+
+                <view class='botBtn'>
+                    <view bindtap='ShowCollection'>添加收藏</view>
+                    <view bindtap='invitationNewUser'>马上邀请</view>
+                </view>
+
+            </view>
+
+            <view class='stepTitle botStepTitle'>
+                <image src='/assets/shareFriend/whitePointLeft.png' />
+                <text>我有问题</text>
+                <image src='/assets/shareFriend/whitePointRight.png' />
+            </view>
+
+            <view class='botTxt'>有任何问题可以到“省钱福利群”或“赚钱公众号”留言</view>
+
+            <image class='botImg' src='https://tp.datikeji.com/a/15427700744360/YOk2f6Xnpzqt78ErjrlX0vjSuSNra12DHeRd5gYF.png' />
+
+        </view>
+
+    </scroll-view>
+
+    <view class='yaoqingfuchuang' wx:if="{{ifShowBotFuchang}}">
+        <view class='qpreviewImage'>
+            <image src='https://tp.datikeji.com/a/15422777079759/XXCMgMe8voRNI72EvTJiygtGkSTXSF3y4kcbNnxa.png' />
+        </view>
+        <view class='qPerviewTxt'>你发红包我出钱，邀请好友帮你赚</view>
+        <view class='fuchuangTop'>
+            <view hover-class="hover-class" bindtap='generateImages'>
+                <image style='width:80rpx;height:80rpx;' src='/assets/userContent/friendQun.png' />
+                <view>朋友圈邀请</view>
+            </view>
+
+            <view hover-class="hover-class" bindtap='goToPromptPages'>
+                <image style='width:80rpx;height:80rpx;' src='/assets/userContent/ruhefa.png' />
+                <view>如何发朋友圈？</view>
+            </view>
+
+            <view hover-class="hover-class">
+                <button id='shareBtn' open-type='share'>
+                    <image style='width:80rpx;height:80rpx;' src='/assets/userContent/yaoqinghaoyou.png' />
+                    <view>邀请群好友</view>
+                </button>
+            </view>
+
+            <image bindtap='cloaseMask' class='cloaseBtn' src='/assets/userContent/close.png' />
+        </view>
+    </view>
+
+	<view class='collection' wx:if="{{ifShowCollection}}">
+			<image src='https://tp.datikeji.com/a/15427908407668/YNF51Ks0IzsP8uXY8tZKBGKcQkC0ooI2cqyPW1yU.png' />
+			<view  bindtap='ShowCollection' class='imgbtn'></view>
+		</view>
+</view>
+<canvas canvas-id="canvas" style="width:{{bgimgW}}px;height:{{bgimgH}}px;display:block;position:absolute; bottom:1500px" />

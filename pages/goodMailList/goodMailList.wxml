@@ -22,6 +22,12 @@
                 </view>
             </view>
         </scroll-view>
+
+		<view class='noData' wx:if="{{!defaultList.length && ifloadingup}}">
+            <image src='/assets/babyNoData.png' />
+        </view>
+        <view class='nodataTxt' wx:if="{{!defaultList.length && ifloadingup}}">暂时没有数据哦~,快去看看别的吧~</view>
+		
     </view>
 
 	<view class='gotop' bindtap='goToTop' hover-class="hover-class">

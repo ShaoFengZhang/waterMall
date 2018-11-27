@@ -89,8 +89,7 @@
     line-height: 54rpx;
     font-family: PingFang-SC-Bold;
     font-weight: bold;
-
-	overflow: hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -395,30 +394,163 @@
     height: 26rpx;
 }
 
-#formID1 {
+
+.hover-class {
+    background-color: #f2f2f2;
+}
+
+.hover-class1 {
+    background-color: rgba(224, 46, 36, 0.3);
+}
+
+/* 邀请浮窗 */
+
+.yaoqingfuchuang {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.fuchuangTop {
+    width: 100%;
+    height: 242rpx;
+    box-sizing: border-box;
+    font-size: 24rpx;
+    text-align: center;
+    color: #797979;
+    padding: 56rpx 80rpx 58rpx 80rpx;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+#shareBtn {
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 24rpx;
+    color: #797979;
+    line-height: inherit;
+}
+
+.cloaseBtn {
+    width: 54rpx;
+    height: 54rpx;
+    position: absolute;
+    right: 30rpx;
+    bottom: 262rpx;
+}
+
+/* 分享弹窗 */
+.qpreviewImage {
+    margin: 138rpx auto 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.qpreviewImage, .rectBodyIcon {
+    width: 576rpx;
+    height: 666rpx;
+}
+
+.qPerviewTxt {
+    font-size: 26rpx;
+    color: #fff;
+    text-align: center;
+    margin-top: 22rpx;
+}
+
+.shareTitle{
+	width: 510rpx;
+	height: 68rpx;
+	position:absolute;
+	top: 0rpx;
+	left: 32rpx;
+	color: #333333;
+	font-size: 24rpx;
+	font-weight:bold;
+}
+
+.strap{
+	width: 40rpx;
+	height: 72rpx;
+}
+
+.hand{
+	width: 32rpx;
+	height: 38rpx;
+}
+
+.straptxt{
+	color: #fff;
+	font-size: 20rpx;
+	position: absolute;
+	left: 10rpx;
+	top: 0;
+}
+
+.straptxtSecond{
+	top: 20rpx;
+}
+
+.straptxtThree{
+	top: 40rpx;
+}
+
+.shareGoodsIcon{
+	width: 482rpx;
+	height: 482rpx;
+	position: absolute;
+	left: 47rpx;
+	bottom: 54rpx;
+}
+
+.shareGoodsIcon image{
+	width: 482rpx;
+	height: 482rpx;
+}
+
+/* 收集formid */
+
+.Hbtn {
+    width: 8rpx;
+    height: 8rpx;
+    margin: 0;
+    padding: 0;
+    border-radius: 8rpx;
+    position: absolute;
+    background-color: #fff;
+    opacity: 0;
+    top: 0;
+    left: 0;
+}
+
+.Haa {
     width: 106rpx;
     height: 106rpx;
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0);
     position: absolute;
+    border-radius: 8rpx;
     top: 0;
     left: 0;
 }
 
-#formID2 {
+.Yaa {
     width: 320rpx;
     height: 92rpx;
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0);
     position: absolute;
+    border-radius: 8rpx;
     top: 0;
     left: 0;
 }
 
-.hover-class{
-	background-color:#f2f2f2;
-}
-
-.hover-class1{
-	background-color:rgba(224,46,36,0.3);
+#Hbtn1, #Hbtn2, #Hbtn3, #Hbtn4, #Hbtn5, #Ybtn1, #Ybtn2, #Ybtn3, #Ybtn4, #Ybtn5,
+#Xbtn1, #Xbtn2, #Xbtn3, #Xbtn4, #Xbtn5 {
+    overflow: visible;
 }

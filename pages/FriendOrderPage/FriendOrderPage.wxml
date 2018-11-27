@@ -1,0 +1,92 @@
+<view class="bg">
+
+    <view class='notice'>
+        <image src='/assets/horn.png' /> 好友订单确认收货后15天待返现金额自动到账，无效订单除外
+    </view>
+
+    <view class='userData' wx:if="{{ifShowUserData}}">
+        <view class='bothView'>
+            <view style='font-size:36rpx;'>{{all_with_drow}}</view>
+            <view style='color:#FFE5E4;font-size:26rpx;'>累计帮赚</view>
+        </view>
+        <view class='verticalBar'></view>
+        <view class='bothView'>
+            <view style='font-size:36rpx;'>{{all_no_with_drow}}</view>
+            <view style='color:#FFE5E4;font-size:26rpx;'>等待帮赚</view>
+        </view>
+    </view>
+
+    <view class='topClass'>
+        <view class='noselect' data-index="1" bindtap='topSelectClick'>
+            全部
+            <view class='selectline' wx:if="{{selcetIndex==1}}"></view>
+        </view>
+        <view class='noselect' data-index="7" bindtap='topSelectClick'>
+            待返现
+            <view class='selectline' wx:if="{{selcetIndex==7}}"></view>
+        </view>
+        <view class='noselect' data-index="3" bindtap='topSelectClick'>
+            已返现
+            <view class='selectline' wx:if="{{selcetIndex==3}}"></view>
+        </view>
+        <view class='noselect' data-index="4" bindtap='topSelectClick'>
+            无效订单
+            <view class='selectline' wx:if="{{selcetIndex==4}}"></view>
+        </view>
+    </view>
+
+    <scroll-view wx:if="{{orderList.length}}" scroll-y style="height:{{scrolloheight}}rpx;overflow: hidden;">
+        <view class='orderItem' bindtap='hidetanchaung' wx:for="{{orderList}}" wx:key="{{index}}" wx:if="{{item.order_status!=-1}}" id='orderListItem{{index}}'>
+            <view class='orderItemInfo'>
+                <text class='haoyoubangtxt' style='font-size:20rpx;color:#E02E24;'>好友帮赚</text>
+                <text class='dingdantxt' style='font-size:22rpx;color:#797979;'>订单号{{item.order_sn}}</text>
+                <text class='leixingtxt' wx:if="{{item.order_status==3}}">已返现 ¥{{item.cashBack}}</text>
+                <text class='leixingtxt' wx:if="{{item.order_status==1 || item.order_status==2}}">待返现 ¥{{item.cashBack}}</text>
+                <text style='color:#797979;background-color:#EAEAEA;' class='leixingtxt' wx:if="{{item.order_status==4}}" id='invalid'>无效订单</text>
+                <text class='leixingtxt' wx:if="{{item.order_status==-1}}" id='invalid'>未支付</text>
+                <text class='leixingtxt' wx:if="{{item.order_status==0}}" id='invalid'>已支付</text>
+                <text class='leixingtxt' wx:if="{{item.order_status==5}}" id='invalid'>已结算</text>
+                <text class='leixingtxt' wx:if="{{item.order_status==8}}" id='invalid'>无佣金订单</text>
+            </view>
+
+            <view class='orderItemUserInfo'>
+                <view class='picView'>
+                    <image src='{{item.pic}}' />
+                    <view class='userName'>{{item.userName}}</view>
+                    <view class='creatAt'>好友帮赚时间 {{item.created_at}}</view>
+                </view>
+
+            </view>
+
+        </view>
+        <view class='orderPrometTxt'>订单信息偶尔有延迟,请您不必担心哦~</view>
+    </scroll-view>
+
+
+    <scroll-view wx:if="{{!orderList.length && ifloadingup}}" scroll-y style="height:{{scrollHeight}};" bindscrolltolower="dropDownRefresh1">
+
+        <view class='noData' wx:if="{{!orderList.length&&ifloadingup}}">
+            <image src='/assets/orderNoData.png' />
+        </view>
+        <view class='nodataTxt' wx:if="{{!orderList.length&&ifloadingup}}">您还没有相关订单哦~</view>
+        <view class='orderPrometTxt'>订单信息偶尔有延迟,请您不必担心哦~</view>
+    </scroll-view>
+
+
+    <view class='tanchaung' wx:if="{{ifShowTanchaung}}">
+
+        <view class='tanchangBody'>
+
+            <view class='wenxintishi' style='font-size:40rpx;font-weight:bold;'>温馨提示</view>
+            <view class='tanchuangwenan' style='font-size:24rpx;'>好友订单和普通订单一样，只要确认 收货15天后，好友帮赚、分享帮赚订 单的待返现金额就会自动转为已返现。 到时候就可以提现了，邀请新用户越 多帮你赚钱的人就越多！
+            </view>
+
+            <view class='bodyBtn'>
+                <view class='IKnow' bindtap='hidetanchaung'>我知道了</view>
+                <button id='sharebtn' open-type='share'>马上邀请</button>
+            </view>
+        </view>
+
+    </view>
+
+</view>

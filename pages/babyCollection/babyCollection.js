@@ -5,7 +5,8 @@ import wxAPIF from '../../utils/wxApiFun.js';
 Page({
 
     data: {
-        defaultList: []
+        defaultList: [],
+		ifloadingup:false,
     },
 
     onLoad: function(options) {
@@ -67,7 +68,8 @@ Page({
                 }
                 _this.defaultList = _this.defaultList.concat(_this.data.defaultList);
                 _this.setData({
-                    defaultList: _this.defaultList
+                    defaultList: _this.defaultList,
+					ifloadingup:true,
                 });
                 if (_this.data.defaultList.length == 0) {
                     wx.hideLoading();
@@ -84,8 +86,7 @@ Page({
 
     // 下拉刷新数据
     dropDownRefresh: function() {
-        // this.getDefaultList();
-        console.log(12121212)
+        this.getDefaultList();
     },
 
     // 跳转商品详情事件
@@ -121,12 +122,12 @@ Page({
         if (e.from == 'button') {
             var good_id = e.target.dataset.goodid;
             var img = e.target.dataset.img;
-            var path = `/pages/goodsDetails/goodsDetails?user_openId=${wx.getStorageSync('user_openID')}&good_id=${good_id}`;
-            var title = "快看这些实力推荐的宝贝，限时领券购买还返现，简直是疯了！";
+			var path = `/pages/index/index?user_openId=${wx.getStorageSync('u_id')}&good_id=${good_id}`;
+			var title = "我必须实力推荐这个宝贝，领券返现还能赚钱";
         } else {
-            var title = "据说这些宝贝会不定期0元购，我得赶快加入购物车了。";
-            var img = '/assets/shareIcon.png';
-            var path = `/pages/index/index?user_openId=${wx.getStorageSync('user_openID')}`;
+			var title = "据说这些宝贝会不定期0元送，你也赶快来加入购物车。";
+            var img = '';
+			var path = `/pages/index/index?user_openId=${wx.getStorageSync('u_id')}`;
         };
         return {
             title: title,
