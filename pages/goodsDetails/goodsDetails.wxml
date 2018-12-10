@@ -62,45 +62,50 @@
                 <view class='youNum'>
                     <text class='dollerIcon'>￥</text>
                     <text class='youPrice'>{{GoodDetai.goods_detail.coupon_discount/100 || "0"}}</text>
-                    <!-- <text class='lingTxt'>领</text> -->
-                    <navigator hover-class="hover-class" class='lingTxt' target="miniProgram" open-type="navigate" app-id="wx32540bd863b27570" path="{{gotopath}}" extra-data="" version="release">领
-
-                        <form bindsubmit="formSubmit" report-submit="{{true}}">
-                            <button formType="submit" class='Hbtn' id='Xbtn1'>
-                                <view class='Haa' hover-class="hover-class">
-                                    <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                        <button formType="submit" class='Hbtn' id='Xbtn2'>
-                                            <view class='Haa' hover-class="hover-class">
-                                                <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                    <button formType="submit" class='Hbtn' id='Xbtn3'>
-                                                        <view class='Haa' hover-class="hover-class">
-                                                            <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                                <button formType="submit" class='Hbtn' id='Xbtn4'>
-                                                                    <view class='Haa' hover-class="hover-class">
-                                                                        <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                                            <button formType="submit" class='Hbtn' id='Xbtn5'>
-                                                                                <view hover-class="hover-class" class='Haa'>
-                                                                                </view>
-                                                                            </button>
-                                                                        </form>
-                                                                    </view>
-                                                                </button>
-                                                            </form>
-                                                        </view>
-                                                    </button>
-                                                </form>
-                                            </view>
-                                        </button>
-                                    </form>
-                                </view>
-                            </button>
-                        </form>
-
-
-                    </navigator>
+                    <text class='lingTxt'>领</text>
                 </view>
                 <view class='youDate'>有效期:{{GoodDetai.starttTime || "0"}}-{{GoodDetai.endtTime || "0"}}</view>
+                <navigator id='navigateBtn' hover-class="hover-class" class='lingTxt' target="miniProgram" open-type="navigate" app-id="wx32540bd863b27570" path="{{gotopath}}" extra-data="" version="release">
+
+                    <form bindsubmit="formSubmit" report-submit="{{true}}">
+                        <button formType="submit" class='Hbtn' id='Xbtn1'>
+                            <view class='Haa' hover-class="hover-class">
+                                <form bindsubmit="formSubmit" report-submit="{{true}}">
+                                    <button formType="submit" class='Hbtn' id='Xbtn2'>
+                                        <view class='Haa' hover-class="hover-class">
+                                            <form bindsubmit="formSubmit" report-submit="{{true}}">
+                                                <button formType="submit" class='Hbtn' id='Xbtn3'>
+                                                    <view class='Haa' hover-class="hover-class">
+                                                        <form bindsubmit="formSubmit" report-submit="{{true}}">
+                                                            <button formType="submit" class='Hbtn' id='Xbtn4'>
+                                                                <view class='Haa' hover-class="hover-class">
+                                                                    <form bindsubmit="formSubmit" report-submit="{{true}}">
+                                                                        <button formType="submit" class='Hbtn' id='Xbtn5'>
+                                                                            <view hover-class="hover-class" class='Haa'>
+                                                                            </view>
+                                                                        </button>
+                                                                    </form>
+                                                                </view>
+                                                            </button>
+                                                        </form>
+                                                    </view>
+                                                </button>
+                                            </form>
+                                        </view>
+                                    </button>
+                                </form>
+                            </view>
+                        </button>
+                    </form>
+
+
+                </navigator>
+
+                <view class='userInofBtn1' wx:if="{{!hasUserInfo && canIUse}}">
+                    <button id='userInofBtn1' lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+                </view>
             </view>
+
         </view>
 
         <view class='photo'>
@@ -116,7 +121,7 @@
 
     </scroll-view>
 
-    <view class='bottomTap'>
+    <view class='bottomTap' style=''>
         <view class='homeIconBox' bindtap='goToIndex' hover-class="hover-class">
             <image src='/assets/goodDetail/homeIcon.png' />
             <view>首页</view>
@@ -136,7 +141,7 @@
             <view class='shareBtn' bindtap='invitationNewUser'>
                 <button id='shareGoodBtn' data-goodID='{{GoodDetai.goods_detail.goods_id}}' data-img="{{GoodDetai.goods_detail.goods_thumbnail_url}}">
                 </button>
-                分享赚钱
+                分享赚{{GoodDetai.goods_detail.parentCashBack}}元
             </view>
             <view>
                 <navigator hover-class="hover-class1" class='buyCashback' target="miniProgram" open-type="navigate" app-id="wx32540bd863b27570" path="{{gotopath}}" extra-data="" version="release">自购返现{{GoodDetai.goods_detail.cashBack}}元
@@ -172,7 +177,6 @@
                         </button>
                     </form>
 
-
                 </navigator>
             </view>
             <view class='userInofBtn' wx:if="{{!hasUserInfo && canIUse}}">
@@ -192,27 +196,29 @@
         <view class='qpreviewImage'>
             <image class='rectBodyIcon' src='/assets/goodDetail/rectBody.png' />
             <view class='shareTitle'>
-				<image class='strap' src='/assets/goodDetail/strap.png'></image>
-				<view class='straptxt'>超</view>
-				<view class='straptxt straptxtSecond'>省</view>
-				<view class='straptxt straptxtThree'>钱</view>
-                在这里领券购买 <image class='hand' src='/assets/goodDetail/hand.png' />  这个<image class='hand' src='/assets/goodDetail/hand.png' />宝贝可以省钱也就算了，居然还可以赚钱。
+                <image class='strap' src='/assets/goodDetail/strap.png'></image>
+                <view class='straptxt'>超</view>
+                <view class='straptxt straptxtSecond'>省</view>
+                <view class='straptxt straptxtThree'>钱</view>
+                在这里领券购买
+                <image class='hand' src='/assets/goodDetail/hand.png' /> 这个
+                <image class='hand' src='/assets/goodDetail/hand.png' />宝贝可以省钱也就算了，居然还可以赚钱。
 
             </view>
-			<view class='shareGoodsIcon'>
-				<image src='{{GoodDetai.goods_detail.goods_gallery_urls[0]}}' />
-			</view>
+            <view class='shareGoodsIcon'>
+                <image src='{{GoodDetai.goods_detail.goods_gallery_urls[0]}}' />
+            </view>
         </view>
         <view class='qPerviewTxt'>分享好友购买成功后，你即可赚取提成奖励。</view>
         <view class='fuchuangTop'>
             <view hover-class="hover-class" bindtap='generateImages'>
                 <image style='width:80rpx;height:80rpx;' src='/assets/userContent/friendQun.png' />
-                <view>分享朋友圈</view>
+                <view>分享{{pyq}}</view>
             </view>
 
             <view hover-class="hover-class" bindtap='goToPromptPages'>
                 <image style='width:80rpx;height:80rpx;' src='/assets/userContent/ruhefa.png' />
-                <view>如何发朋友圈？</view>
+                <view>如何发{{pyq}}？</view>
             </view>
 
             <view hover-class="hover-class">
@@ -223,11 +229,16 @@
             </view>
 
             <image bindtap='cloaseMask' class='cloaseBtn' src='/assets/userContent/close.png' />
+
+            <view class='shareBotIcon ani'>
+                <image src='/assets/shareBotIcon.png' />
+                <view>分享预计可赚 {{GoodDetai.goods_detail.parentCashBack}} + {{2}}元</view>
+            </view>
         </view>
     </view>
 
 
-	    <!-- 新人红包 -->
+    <!-- 新人红包 -->
     <view class='newUserRewardMask' wx:if="{{ifShowFirstBao}}" bindtap='firstClick'>
         <view class='RewardMaskBody'>
             <view class='gongXiWenAn'>恭喜您获得新人红包</view>
@@ -288,23 +299,23 @@
             </view>
         </view>
 
-		<view class='closeBtn' bindtap='hideMask'>
-			<image src='/assets/userContent/close.png' />
-		</view>
+        <view class='closeBtn' bindtap='hideMask'>
+            <image src='/assets/userContent/close.png' />
+        </view>
     </view>
 
     <!-- 授权成功后弹窗 -->
     <view class='newUserRewardMask' wx:if="{{ifShowlastBao}}">
         <view class='RewardMaskBody rewardLastMask'>
             <view class='gongXiWenAn lingquchenggong'>领取成功待激活</view>
-            <view class='MaskRuleTxt'>现在只要在商城任意下单（金额大于0.1元） 红包将实时发送到钱包，下单仅作为新人验证,红包到账后可取消订单</view>
+            <view class='MaskRuleTxt'>现在只要领券下单购买任意一笔，红包将激活发送到钱包。平台提供拼多多官方内部优惠券，激活红包后可取消订单</view>
 
             <view class='rewardsBtn'>
                 <view class='woxianguang' data-title='一分钱好货' data-id='591' bindtap='goToGoodsList'>
 
                     <image src='/assets/index/yifenqian.png' />
 
-					<form bindsubmit="formSubmit" report-submit="{{true}}">
+                    <form bindsubmit="formSubmit" report-submit="{{true}}">
                         <button formType="submit" class='Hbtn' id='Ybtn1'>
                             <view class='Haa' hover-class="hover-class">
                                 <form bindsubmit="formSubmit" report-submit="{{true}}">
@@ -341,7 +352,7 @@
 
                     <image src='/assets/index/xiadan.png' />
 
-					<form bindsubmit="formSubmit" report-submit="{{true}}">
+                    <form bindsubmit="formSubmit" report-submit="{{true}}">
                         <button formType="submit" class='Hbtn' id='Xbtn1'>
                             <view class='Haa' hover-class="hover-class">
                                 <form bindsubmit="formSubmit" report-submit="{{true}}">
@@ -375,9 +386,9 @@
                 </view>
             </view>
         </view>
-		<view class='closeBtn' bindtap='hideMask'>
-			<image src='/assets/userContent/close.png' />
-		</view>
+        <view class='closeBtn' bindtap='hideMask'>
+            <image src='/assets/userContent/close.png' />
+        </view>
     </view>
 </view>
 <canvas canvas-id="canvas" style="width:{{bgimgW}}px;height:{{bgimgH}}px;display:block;position:absolute; bottom:1500px" />

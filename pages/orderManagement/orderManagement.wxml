@@ -4,6 +4,7 @@
         <image src='/assets/horn.png' /> 拼多多订单确认收货后15天待返现金额自动到账，无效订单除外
     </view>
 
+    <!-- 顶部数据展示 -->
     <view class='userData' wx:if="{{ifShowUserData}}">
         <view class='bothView'>
             <view style='font-size:36rpx;'>{{no_withdrow}}</view>
@@ -16,6 +17,7 @@
         </view>
     </view>
 
+    <!-- 分类tab -->
     <view class='topClass'>
         <view class='noselect' data-index="1" bindtap='topSelectClick'>
             全部
@@ -35,11 +37,13 @@
         </view>
     </view>
 
+    <!-- 订单列表 -->
     <view class='orderList' style='height:{{scrollHeight}}' wx:if="{{orderList.length}}">
         <scroll-view scroll-y style="height:{{scrollHeight}};" bindscrolltolower="dropDownRefresh" scroll-into-view="{{topview}}">
             <view hover-class="hover-class" wx:if="{{item.order_status!=-1}}" id='orderListItem{{index}}' class='orderListItem' wx:for="{{orderList}}" wx:key="{{index}}">
                 <view class='orderDetails'>
                     <text>拼多多</text>
+                    <!-- <text wx:if="{{}}">0元购</text> -->
                     <text>订单号:{{item.order_sn}}</text>
                     <text wx:if="{{item.order_status==3}}">已返现 ¥{{item.cashBack}}</text>
                     <text wx:if="{{item.order_status==1 || item.order_status==2}}">待返现 ¥{{item.cashBack}}</text>
@@ -71,11 +75,14 @@
                     下单时间 {{item.created_at}}
                 </view>
 
-                <navigator class='buyCashback' target="miniProgram" open-type="navigate" app-id="wx32540bd863b27570" path="/pages/index/index" extra-data="" version="release">
-                    <form bindsubmit="collectFormId" report-submit>
-                        <button id='formID2' formType="submit" class='buyCashback'></button>
-                    </form>
-                </navigator>
+				<!-- 跳转详情和拼多多 -->
+                <view catchtap='goTodetail' data-goodid='{{item.goods_id}}' class='gotoDetail'>
+                    <navigator catchtap='catchtap' class='buyCashback' target="miniProgram" open-type="navigate" app-id="wx32540bd863b27570" path="/pages/index/index" extra-data="" version="release">
+                        <form bindsubmit="collectFormId" report-submit>
+                            <button id='formID2' formType="submit" class='buyCashback'></button>
+                        </form>
+                    </navigator>
+                </view>
 
             </view>
 
@@ -84,14 +91,13 @@
         </scroll-view>
     </view>
 
-    <scroll-view wx:if="{{!orderList.length && ifloadingup}}" scroll-y style="height:{{scrollHeight}};" bindscrolltolower="dropDownRefresh1">
-        <view class='noData' wx:if="{{!orderList.length && ifloadingup}} ">
-            <image src='/assets/orderNoData.png' />
-        </view>
-        <view class='nodataTxt' wx:if="{{!orderList.length && ifloadingup}} ">您还没有相关订单哦~</view>
-        <view class='orderPrometTxt'>订单信息偶尔有延迟,请您不必担心哦~</view>
-    </scroll-view>
+    <!-- 没有数据 -->
+    <view class='noData' wx:if="{{!orderList.length && ifloadingup}} ">
+        <image src='/assets/orderNoData.png' />
+    </view>
+    <view class='nodataTxt' wx:if="{{!orderList.length && ifloadingup}} ">您还没有相关订单哦~</view>
 
+    <!-- 返回首页 -->
     <view class='goToHome' bindtap='goToHome' wx:if="{{!ifShowUserData}}">
         <image src='/assets/Home.png' />
         <text>返回首页</text>

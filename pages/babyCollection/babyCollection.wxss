@@ -1,5 +1,4 @@
 
-
 /* 列表 */
 
 .dataListBox {
@@ -130,11 +129,11 @@
 }
 
 .noData {
-    margin: 30vh auto 0;
+    margin: 358rpx auto 0;
 }
 
 .noData, .noData image {
-    width: 467rpx;
+    width: 466rpx;
     height: 400rpx;
 }
 
@@ -147,17 +146,14 @@
 	font-size: 30rpx;
 	color: #333333;
 	line-height: 58rpx;
-	margin: 0 auto;
-	position: relative;
-	top: -20rpx;
+	margin: 32rpx auto 0;
 }
 
 .nodataTxt{
 	color: #333333;
 	font-size: 26rpx;
 	text-align: center;
-	position:relative;
-	top: -60rpx;
+	margin-top: -60rpx;
 }
 
 .hover-class{

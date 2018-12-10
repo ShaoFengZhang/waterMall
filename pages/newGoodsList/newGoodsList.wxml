@@ -1,0 +1,55 @@
+<view class="bg">
+    <scroll-view id='goodsScrool' scroll-y style="height:100vh;" bindscrolltolower="dropDownRefresh" scroll-into-view="{{toView}}" lower-threshold="{{330}}">
+
+        <view data-goodID="{{item.goods_id}}" id='scroll{{index}}' bindtap='goTodetail' wx:for="{{defaultList}}" wx:if="{{defaultList.length}}" wx:key="{{index}}" class="goodsIteam" hover-class="hover-class">
+
+            <view class='goodsIcon'>
+                <image src='{{item.goods_thumbnail_url}}' bindload="imageLoad" />
+            </view>
+
+            <view class='goodsDesc'>
+
+                <view class='goodstitle'>
+                    {{item.goods_name}}
+                </view>
+
+                <view class='goodsPrice'>
+                    <view class='lastPrice'>
+                        <text style='font-size:26rpx;'>￥</text>{{(item.min_group_price-item.coupon_discount)/100}}
+                    </view>
+
+                    <view class='normalPrice'>￥{{item.min_group_price/100}}</view>
+                </view>
+
+                <view class='shareCommissionTxt'>分享新人可多赚2元+永久30%提成</view>
+
+                <!-- <view class='commissionPrice'>
+                    <text style='font-size:20rpx;'>￥</text>{{item.parentCashBack}}
+                </view> -->
+
+                <view class='shareGood' catchtap='catchtap'>
+                    <button id='shareGoodBtn' data-goodID='{{item.goods_id}}' data-img="{{item.goods_thumbnail_url}}" open-type="share">
+                        <image lazy-load="{{true}}" src='/assets/index/shareIcon.png' />
+                        分享可赚： {{item.parentCashBack}} 元
+                    </button>
+                </view>
+
+            </view>
+
+            <!-- <view class='shareGood' catchtap='catchtap'>
+                <button id='shareGoodBtn' data-goodID='{{item.goods_id}}' data-img="{{item.goods_thumbnail_url}}" open-type="share">
+                    <image lazy-load="{{true}}" src='/assets/index/shareIcon.png' />
+                    <text>分享赚</text>
+                </button>
+            </view> -->
+        </view>
+
+        <view class='botBox'></view>
+    </scroll-view>
+
+    <!-- 返回顶部按钮 -->
+    <view class='gotop' bindtap='goToTop' hover-class="hover-class">
+        <image src='/assets/goTop.png' />
+        <view class='gotoTopTxt'>顶部</view>
+    </view>
+</view>

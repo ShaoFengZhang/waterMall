@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 15,
+			"current": 20,
 			"list": [
 				{
 					"id": 0,
@@ -133,6 +133,36 @@
 					"name": "微信小技巧",
 					"pathName": "pages/howInvite/howInvite",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "省钱",
+					"pathName": "pages/shareMakes/shareMakes",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "新列表",
+					"pathName": "pages/newGoodsList/newGoodsList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "zero",
+					"pathName": "pages/zeroShopping/zeroShopping",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "makeway",
+					"pathName": "pages/makeMoneyWay/makeMoneyWay",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "newGoodsList",
+					"pathName": "pages/newGoodsList/newGoodsList",
+					"query": "goodsid=0&title=123&opt_type=1"
 				}
 			]
 		}

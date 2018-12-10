@@ -1,0 +1,163 @@
+<view class="bg">
+    <scroll-view id='scroolBg' scroll-y style="height:100vh;">
+
+        <view class='topBg'>
+
+            <!-- 左边的云 -->
+            <view class='leftCloud' animation="{{leftCloudAnimations}}">
+                <image src='https://tp.datikeji.com/a/15439026968859/ixyEtSDnsQbbdxbvOazzyOwuiVR0EZBD6o1asqZm.png' />
+            </view>
+
+            <!-- 右边的云 -->
+            <view class='rightCloud' animation="{{rightCloudAnimations}}">
+                <image src='https://tp.datikeji.com/a/15439026716185/z5F18vdEg5rFM8CmqbVNKGCmyiDA5Hpl911aFuOC.png' />
+            </view>
+
+            <!-- 树木 -->
+            <view class='tresss'>
+                <image src='https://tp.datikeji.com/a/15439029271953/PEreeTFJ6FBHB7gZvASlyIwrNYJBT4BhahJYTcHu.png' />
+            </view>
+
+            <!-- 签到能量圈 -->
+            <view wx:if="{{ifShowClock}}" class='energyBox ClockCircle {{clockani}}' bindtap='saveClock'>签到</view>
+
+            <!-- 新人能量圈 -->
+            <view class='energyBox NewUserCircle ani2' bindtap='goToSharePage'>
+                <view style='font-size:22rpx;font-weight:bold;'>邀请新人赚</view>
+                <view style='font-weight:bold;'>
+                    <text style='font-size:34rpx;'>2</text>元/人
+                </view>
+            </view>
+
+            <!-- OneCircle -->
+            <view bindtap='collectEnergy' data-num="one" data-goodsId='{{orderList[0].id}}' wx:if="{{ifShowOne && orderList.length>=1?true:false}}" class='energyBox OneCircle Circlequan {{nAni1}}'>
+                <view wx:if="{{orderList[0].order_status==1 || orderList[0].order_status==2}}">等待提成</view>
+                <view wx:if="{{orderList[0].order_status==3}}">领取提成</view>
+                <view wx:if="{{orderList[0].order_status==-1}}">未支付</view>
+                <view wx:if="{{orderList[0].order_status==0}}">已支付</view>
+                <view wx:if="{{orderList[0].order_status==5}}">已结算</view>
+                <view wx:if="{{orderList[0].order_status==8}}">无佣金订单</view>
+                <view>
+                    <text style='font-size:34rpx;font-weight:bold;'>{{orderList[0].cashBack}}</text>元
+                </view>
+            </view>
+
+            <!-- TwoCircle -->
+            <view bindtap='collectEnergy' data-num="two" data-goodsId='{{orderList[1].id}}' wx:if="{{ifShowTwo && orderList.length>=2?true:false}}" class='energyBox TwoCircle Circlequan {{nAni2}}'>
+                <view wx:if="{{orderList[0].order_status==1 || orderList[0].order_status==2}}">等待提成</view>
+                <view wx:if="{{orderList[0].order_status==3}}">领取提成</view>
+                <view wx:if="{{orderList[0].order_status==-1}}">未支付</view>
+                <view wx:if="{{orderList[0].order_status==0}}">已支付</view>
+                <view wx:if="{{orderList[0].order_status==5}}">已结算</view>
+                <view wx:if="{{orderList[0].order_status==8}}">无佣金订单</view>
+                <view>
+                    <text style='font-size:34rpx;font-weight:bold;'>{{orderList[1].cashBack}}</text>元
+                </view>
+            </view>
+
+            <!-- ThreeCircle -->
+            <view bindtap='collectEnergy' data-num="three" data-goodsId='{{orderList[2].id}}' wx:if="{{ifShowThree && orderList.length>=3?true:false}}" class='energyBox ThreeCircle Circlequan {{nAni3}}'>
+                <view wx:if="{{orderList[0].order_status==1 || orderList[0].order_status==2}}">等待提成</view>
+                <view wx:if="{{orderList[0].order_status==3}}">领取提成</view>
+                <view wx:if="{{orderList[0].order_status==-1}}">未支付</view>
+                <view wx:if="{{orderList[0].order_status==0}}">已支付</view>
+                <view wx:if="{{orderList[0].order_status==5}}">已结算</view>
+                <view wx:if="{{orderList[0].order_status==8}}">无佣金订单</view>
+                <view>
+                    <text style='font-size:34rpx;font-weight:bold;'>{{orderList[2].cashBack}}</text>元
+                </view>
+            </view>
+
+            <!-- 分享赚攻略 -->
+            <view class='shareGoodWay' bindtap='goToGoodWay'>分享赚攻略 ></view>
+            <!-- <view class='shareGoodWay treeRule' bindtap='goToGoodWay'>能量树规则 ></view> -->
+
+            <!-- 顶部swiper -->
+            <swiper id='topSwiper' autoplay="{{true}}" vertical="{{true}}" interval="{{3000}}" duration="{{500}}" circular="{{true}}">
+                <swiper-item wx:for="{{barrageArr}}" wx:key="{{index}}">
+                    <view class='topSwiperItemView'>
+                        <image src='{{item.pic || "/assets/defaultIcon.png"}}' />
+                        <view wx:if="{{item.type==2}}">{{item.userName}}通过红包任务赚了{{item.amount/100}}元</view>
+                        <view wx:if="{{item.type==3}}">{{item.userName}}通过邀请好友赚了{{item.amount/100}}元</view>
+                        <view wx:if="{{item.type==6}}">{{item.userName}}通过分享商品赚了{{item.amount/100}}元</view>
+                        <view wx:if="{{item.type==10}}">{{item.userName}}</view>
+                    </view>
+                </swiper-item>
+            </swiper>
+
+            <!-- 用户信息 -->
+            <view class='userInfo'>
+
+                <view class='userInfoTop'>
+                    <view class='infoAvatarUrl'>
+                        <open-data type="userAvatarUrl"></open-data>
+                    </view>
+
+                    <view class='infoDOller' bindtap='gotoFriendOrder'>
+                        <view class='all_money'>
+							<text class='point'></text>
+                            好友已累计消费
+                            <text style='color:#E02E24;font-size:30rpx;'>{{all_money}}</text> 元
+                        </view>
+                        <view class='all_royalty'>
+							<text class='point'></text>
+                            我从中获得提成
+                            <text style='color:#E02E24;font-size:30rpx;'>{{all_royalty}}</text> 元
+                        </view>
+                    </view>
+
+                    <view class='myqr' bindtap='showNormolBg'>
+                        <image style='width:38rpx;height:38rpx;margin-right:30rpx;' src='/assets/grayQr.png' />
+                        <image style='width:14rpx;height:24rpx;' src='/assets/grayRow.png' />
+                        <button catchtap='catchtap' wx:if="{{!hasUserInfo && canIUse}}" id='baoBtn' lang='zh_CN' open-type='getUserInfo' bindgetuserinfo="getUserInfo"></button>
+                    </view>
+
+					<view class='myQrCode'>我的邀请码</view>
+                </view>
+
+                <view class='infoLine'></view>
+
+                <view class='userInfoBot'>
+                    <view class='friendNum'> 好友数量:
+                        <text style='color:#E02E24;font-size:34rpx;'> {{firend_num}} 人</text> </view>
+                    <button id='shareID' open-type='share'>继续邀请</button>
+                </view>
+            </view>
+
+        </view>
+
+        <!-- 零元购物按钮 -->
+        <view class='centerShareBtnBox'  bindtap='GotoZeroBuy'>
+            <image class='breath1' src='https://tp.datikeji.com/a/15439121724616/IqjXvoKTOxbOHAgy9PDpqEqkQY1IwbBxAc1MrNIz.png' />
+        </view>
+
+        <view class='zhenduixing'>针对性分享：赚的更多，提成更高</view>
+
+        <view class='botSwiperBox' wx:for="{{botSwiper}}" wx:key="index">
+            <view class='botSwiperTex'>
+                <text></text>
+                <text>{{item.title}}</text>
+            </view>
+            <view id='botSwipr' current="{{botSwiperCurrent}}" display-multiple-items="{{2}}" next-margin="160rpx">
+                <view id="botSwiperItem" wx:for="{{item.botSwiperOne}}" wx:key="index">
+                    <view bindtap='goToNewList' class='botSwiperimage' data-optType="{{item.opt_type}}" data-title="{{item.text}}" data-goodsId="{{item.opt_id}}">
+                        <image src="{{item.icon}}" class="botSwiperimage" />
+                    </view>
+                    <view class='botSwiperTxt'>{{item.text}}</view>
+                </view>
+            </view>
+        </view>
+        <view class='botBox'></view>
+    </scroll-view>
+
+	<view class='clockMask' wx:if="{{ifshowClockMask}}">
+		<view class='clockMaskBody'>
+			<view class='redBaoNum'>获得{{clockprice/100}}元红包</view>
+			<view class='qiandao'>签到成功</view>
+			<view class='clockBtnBox'>
+				<view class='clockBtnLeft' bindtap='checkprice'>查看钱包</view>
+				<view class='clockBtnRight' bindtap='IKnowClick'>我知道了</view>
+			</view>
+		</view>
+	</view>
+</view>

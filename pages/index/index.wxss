@@ -30,26 +30,17 @@
 
 .topSwiperBox {
     width: 690rpx;
-    height: 110rpx;
-    margin: 0 auto;
+    height: 44rpx;
+    margin: 38rpx auto 30rpx;
     position: relative;
 }
 
-.promteTxt {
-    height: 110rpx;
-    line-height: 110rpx;
-    position: absolute;
-    top: 0rpx;
-    right: -10rpx;
-    color: red;
-}
-
 #topswiper {
-    height: 110rpx;
+    height: 44rpx;
 }
 
 .topSwiperBox swiper-item {
-    line-height: 110rpx;
+    line-height: 38rpx;
     text-align: center;
     color: #333;
 }
@@ -61,7 +52,7 @@
 
 .select {
     position: relative;
-    font-size:34rpx;
+    font-size: 32rpx;
     font-weight: 700;
 }
 
@@ -71,6 +62,16 @@
 
 .selectMenu {
     color: #e02e24;
+}
+
+.line {
+    width: 24rpx;
+    height: 4rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 2rpx;
+    position: absolute;
+    left: 38rpx;
+    bottom: 0rpx;
 }
 
 .orderMenu {
@@ -90,16 +91,6 @@
     width: 10rpx;
     height: 14rpx;
     vertical-align: middle;
-}
-
-.line {
-    width: 24rpx;
-    height: 4rpx;
-    background: rgba(224, 46, 36, 1);
-    border-radius: 2rpx;
-    position: absolute;
-    left: 38rpx;
-    bottom: 26rpx;
 }
 
 /* 轮播图Swiper */
@@ -147,25 +138,26 @@
 
 .adAreaBox {
     width: 100%;
-    height: 140rpx;
+    /* height: 140rpx; */
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
     align-items: center;
-	margin-bottom: 40rpx;
+	margin-top: 40rpx;
+    margin-bottom: 38rpx;
 }
 
 .adIteam {
     width: 124rpx;
-    height: 140rpx;
+    /* height: 140rpx; */
     text-align: center;
 }
 
 .adIteam view {
-    font-size: 28rpx;
+    font-size: 26rpx;
     color: #333;
     text-align: center;
-    margin-top: -10rpx;
+    margin-top: 0rpx;
 }
 
 .adIteam image {
@@ -222,10 +214,10 @@ navigator {
 
 .goodDescribe {
     width: 100%;
-    height: 100rpx;
+    height: 84rpx;
     font-size: 28rpx;
     color: #333;
-    line-height: 50rpx;
+    line-height: 44rpx;
     word-wrap: break-word;
     word-break: break-all;
     overflow: hidden;
@@ -310,7 +302,6 @@ navigator {
     z-index: 999;
 }
 
-
 .suspension {
     position: fixed;
     right: 30rpx;
@@ -320,18 +311,16 @@ navigator {
 .suspension, .suspension image {
     width: 132rpx;
     height: 124rpx;
-	z-index: 1000;
+    z-index: 1000;
 }
 
 /* 二级分类 */
 
 .secondClass {
     width: 690rpx;
-    height: 312rpx;
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 16rpx 12rpx 0;
-	/* background-color:yellow; */
+    padding: 0rpx 12rpx 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -339,31 +328,32 @@ navigator {
 
 .secondClassItem {
     width: 138rpx;
-    height: 148rpx;
+    height: 152rpx;
     color: #797979;
-    font-size: 28rpx;
+    font-size: 26rpx;
     text-align: center;
     line-height: 30rpx;
-	margin-right: 38rpx;
+    margin-right: 38rpx;
+	margin-bottom: 16rpx;
 }
 
-.secondClassItem:nth-child(4n+0){
-	margin-right: 0rpx;
+.secondClassItem:nth-child(4n+0) {
+    margin-right: 0rpx;
 }
 
 .secondClassItem image {
     width: 94rpx;
     height: 94rpx;
-    /* background: rgba(224, 46, 36, 1); */
     border-radius: 50%;
-    margin-bottom: 10rpx;
+    margin-bottom: 12rpx;
 }
 
 /* 分享新人 */
+
 .shareNewUser {
     width: 690rpx;
     height: 160rpx;
-    margin: 22rpx auto 32rpx;
+    margin: 12rpx auto 0rpx;
     position: relative;
 }
 
@@ -372,20 +362,20 @@ navigator {
     height: 160rpx;
 }
 
-.GoIcon{
-	width: 134rpx;
+.GoIcon {
+    width: 134rpx;
     height: 134rpx;
-	position: absolute;
-	top: 24rpx;
-	right: 17rpx;
+    position: absolute;
+    top: 24rpx;
+    right: 17rpx;
 }
 
-.closeBtn{
-	margin-top: 20rpx;
-	text-align: center;
+.closeBtn {
+    margin-top: 20rpx;
+    text-align: center;
 }
 
-.closeBtn image{
-	width: 54rpx;
-	height: 54rpx;
+.closeBtn image {
+    width: 54rpx;
+    height: 54rpx;
 }

@@ -1,13 +1,12 @@
-
 <view class="bg">
     <!-- 顶部分类 -->
     <view class='topClassBar'>
         <view class='topClassBarItem {{TopselectIndex==1?"topClassBarSelect":"topClassBarNoSelect"}}' data-index='1' bindtap='topClassClick'>
-            分类省钱
+            分类搜索
             <view class='topClassBarLine' wx:if="{{TopselectIndex==1}}"></view>
         </view>
         <view class='topClassBarItem {{TopselectIndex==2?"topClassBarSelect":"topClassBarNoSelect"}}' data-index='2' bindtap='topClassClick'>
-            精准省钱
+            精准搜索
             <view class='topClassBarLine' wx:if="{{TopselectIndex==2}}"></view>
         </view>
     </view>
@@ -58,8 +57,10 @@
                         <view>
                             <image src='{{item.icon}}' />
                         </view>
-                        <view style='margin-top:12rpx;'>{{item.name}}</view>
+                        <view style='margin-top:12rpx;'>{{item.title}}</view>
                     </view>
+
+					<view class='botLineBox'></view>
 
                 </scroll-view>
             </view>

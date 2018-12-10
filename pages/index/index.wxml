@@ -4,17 +4,16 @@
     <view class='topLine'></view>
     <view class='topSearchInput' bindtap='goToSearch'>
         <image src='/assets/index/searchIcon.png' />
-        <text>搜索商品名/复制拼多多商品标题</text>
+        <text>搜索商品关键字/比拼多多还便宜</text>
     </view>
     <!-- 顶部分类Swiper -->
     <view class='topSwiperBox' wx:if="{{!ifShowMenu}}">
-        <swiper id='topswiper' current="{{selectIndex>3?(selectIndex>12?selectIndex-6:selectIndex-3):0}}" indicator-dots="{{false}}" autoplay="{{false}}" display-multiple-items="{{7}}">
+        <swiper id='topswiper' current="{{selectIndex>3?selectIndex-3:0}}" indicator-dots="{{false}}" circular="{{true}}" autoplay="{{false}}" display-multiple-items="{{7}}">
             <swiper-item wx:for="{{TopClassData}}" wx:key="index" data-optID="{{item.opt_id}}" data-index="{{index}}" class="{{selectIndex==index?'select':'noSelect'}}" bindtap='topClassClick'>
                 <text>{{item.title}}</text>
                 <view class='line' wx:if="{{selectIndex==index}}"></view>
             </swiper-item>
         </swiper>
-        <!-- <view class='promteTxt'> > </view> -->
     </view>
 
     <view class='orderMenu' wx:if="{{ifShowMenu}}">
@@ -40,36 +39,20 @@
 
     <!-- 轮播以下 -->
     <scroll-view scroll-y style="height: 85vh;" bindscroll="topScrollChange" bindscrolltolower="dropDownRefresh" scroll-into-view="{{toView}}" lower-threshold="{{330}}">
-        <!-- 顶部轮播图 -->
-        <!-- <view class='topShufflingBox' id='topShuff'>
-            <swiper id="shuffSwiper" bindchange="shuffChangeEvent" indicator-dots="{{false}}" autoplay="{{autoplay}}" duration="{{500}}" interval="{{3000}}">
-                <swiper-item bindtap="goTodetail" data-goodID="{{item.goods_id}}" wx:for="{{ShuffList}}" wx:key="index">
-                    <image src="{{item.goods_image_url}}" wx:if="{{item.goods_image_url}}" />
-                    <image src="/assets/index/normole.png" wx:if="{{!item.goods_image_url}}" />
-                </swiper-item>
-            </swiper>
-        </view>
-
-        <view class='test'>
-            <text class='{{shuffCurrent==index?"selectShuff":"noShuff"}}' wx:for="{{ShuffList}}" wx:key="index"></text>
-        </view> -->
-
-        <!-- 二级分类 -->
+        
         <view class='secondClass' id='secondClass'>
-            <view hover-class="hover-class" class='secondClassItem' wx:for="{{SecondTopClassData.classArray}}" wx:key="index" data-title='{{item.name}}' data-id='{{item.opt_id}}' bindtap='goToGoodsList'>
-                <image src='{{item.icon}}' />
-                <view>{{item.name}}</view>
+            <view hover-class="hover-class" class='secondClassItem' wx:for="{{SecondTopClassData.classArray}}" wx:key="index" data-title='{{item.title}}' data-id='{{item.opt_id}}' bindtap='goToGoodsList'>
+                <image lazy-load="{{true}}" src='{{item.icon}}' />
+                <view>{{item.title}}</view>
             </view>
             
         </view>
 
-        <!-- 分享新人 -->
         <view class='shareNewUser' bindtap='goToSharePage'>
             <image class='shareNewFriend' src='/assets/index/shareNewFriend.png' />
             <image class='GoIcon breath' src='/assets/index/go.png' />
         </view>
 
-        <!-- 四个广告位 -->
         <view class='adAreaBox'>
 
             <view class='adIteam' hover-class="hover-class" data-type='0' data-title='9.9包邮' bindtap='gotoMailList'>
@@ -88,18 +71,17 @@
             </view>
 
             <view class='adIteam' hover-class="hover-class">
-                <navigator target="miniProgram" open-type="navigate" app-id="wx2ed91bb84c56fe04" path="" extra-data="" version="release">
+                <navigator target="miniProgram" open-type="navigate" app-id="wx316552261ac875d8" path="" extra-data="" version="release">
                     <image src='/assets/index/chou.png' />
                     <view>免费抽奖</view>
                 </navigator>
             </view>
         </view>
 
-        <!-- 数据列表 -->
         <view class='dataListBox' id='dataListBox' data-IIII='123'>
             <view class='dataIteam' wx:for="{{defaultList}}" wx:key="index" data-goodID="{{item.goods_id}}" bindtap='goTodetail'>
                 <view class='dataIcon'>
-                    <image src='{{item.goods_thumbnail_url}}' bindload="imageLoad" />
+                    <image lazy-load="{{true}}" src='{{item.goods_thumbnail_url}}' bindload="imageLoad" />
                 </view>
 
                 <view class='details'>
@@ -122,7 +104,7 @@
 
                     <view class='shareGood' catchtap='catchtap'>
                         <button id='shareGoodBtn' data-goodID='{{item.goods_id}}' data-img="{{item.goods_thumbnail_url}}" open-type="share">
-                            <image src='/assets/index/shareIcon.png' />
+                            <image lazy-load="{{true}}" src='/assets/index/shareIcon.png' />
                             <text>分享赚</text>
                         </button>
                     </view>
@@ -165,10 +147,10 @@
     </scroll-view>
 
     <!-- 返回顶部按钮 -->
-    <view class='gotop' bindtap='goToTop' hover-class="hover-class">
+    <!-- <view class='gotop' bindtap='goToTop' hover-class="hover-class">
         <image src='/assets/goTop.png' />
         <view class='gotoTopTxt'>顶部</view>
-    </view>
+    </view> -->
 
     <!-- 新人红包 -->
     <view class='newUserRewardMask' wx:if="{{ifShowFirstBao}}" bindtap='firstClick'>
@@ -240,10 +222,10 @@
     <view class='newUserRewardMask' wx:if="{{ifShowlastBao}}">
         <view class='RewardMaskBody rewardLastMask'>
             <view class='gongXiWenAn lingquchenggong'>领取成功待激活</view>
-            <view class='MaskRuleTxt'>现在只要在商城任意下单（金额大于0.1元） 红包将实时发送到钱包，下单仅作为新人验证,红包到账后可取消订单</view>
+            <view class='MaskRuleTxt'>现在只要成功下单，红包将即刻激活到账。（ 红包到账后可选择取消订单 ）</view>
 
             <view class='rewardsBtn'>
-                <view class='woxianguang' data-title='一分钱好货' data-id='591' bindtap='goToGoodsList'>
+                <view class='woxianguang' data-title='一分钱好货' data-id='590' bindtap='goToGoodsList'>
 
                     <image src='/assets/index/yifenqian.png' />
 

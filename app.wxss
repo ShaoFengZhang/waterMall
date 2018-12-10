@@ -38,6 +38,9 @@ button::after {
 .breath {
     animation: breath 1.5s ease-in-out infinite;
 }
+.breath1 {
+    animation: breath 0.6s ease-in-out infinite;
+}
 
 @keyframes breath {
     0% {
@@ -50,6 +53,34 @@ button::after {
 
     100% {
         transform: scale(0.8);
+    }
+}
+
+/* 动效 */
+
+.ani {
+    animation: ani 2s linear 0.5s infinite;
+}
+
+@keyframes ani {
+    0% {
+        transform: translateY(0px);
+    }
+
+    25% {
+        transform: translateY(5px);
+    }
+
+    50% {
+        transform: translateY(0px);
+    }
+
+	75% {
+        transform: translateY(-5px);
+    }
+
+	100% {
+        transform: translateY(0px);
     }
 }
 
@@ -125,7 +156,7 @@ button::after {
     line-height: 66rpx;
     font-size: 24rpx;
     text-align: center;
-    color: #e02e24;
+    color: #E02E24;
 }
 
 .notice image {
@@ -144,6 +175,7 @@ button::after {
 	font-size: 22rpx;
 	color: #797979;
 	margin-top: 30rpx;
+	margin-bottom: 24rpx;
 }
 
 
@@ -303,6 +335,54 @@ button::after {
 	width: 54rpx;
 	height: 54rpx;
 }
+
+/* 引导收藏 */
+
+.collection {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.collection image {
+    width: 750rpx;
+    height: 1206rpx;
+}
+
+.imgbtn {
+    width: 268rpx;
+    height: 146rpx;
+	position: absolute;
+	top: 986rpx;
+	left: 442rpx;
+}
+
+/* 新增shareBotIcon */
+.shareBotIcon,.shareBotIcon image{
+	width: 268rpx;
+	height: 44rpx;
+}
+
+.shareBotIcon{
+	position: absolute;
+	right: 30rpx;
+	bottom: 186rpx;
+	line-height: 38rpx;
+	color: #ffffff;
+	font-size: 20rpx;
+}
+
+.shareBotIcon view{
+	width: 268rpx;
+	height: 38rpx;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
 
 
 

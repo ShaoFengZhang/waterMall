@@ -15,14 +15,6 @@ Page({
 		this.getConfigData();
     },
 
-    onReady: function() {
-
-    },
-
-    onShow: function() {
-
-    },
-
 	// 分享
 	onShareAppMessage: function () {
 		return {
@@ -47,7 +39,6 @@ Page({
 			if(res.code==0){
 				for (let i = 0; i < res.data.length; i++){
 					res.data[i].amount = (parseFloat(res.data[i].amount) / 100).toFixed(2);
-					console.log(res.data[i].amount)
 				};
 				_this.setData({
 					payMentList:res.data,
@@ -70,6 +61,7 @@ Page({
 				app.globalData.firstTimeWidthDraw = res.data.one;
 				app.globalData.subsequenWidthDraw = res.data.three;
 				app.globalData.singleTopWidthDraw = res.data.two;
+				app.pyq = res.data.pyq;
 			}
 		})
 	},

@@ -1,0 +1,163 @@
+<view class="bg">
+    <scroll-view id='scroolBg' scroll-y style="height:100vh;">
+
+        <view class='topBg'>
+
+            <view class='shareInfoBox'>
+
+                <view class='childInfoBox'>
+                    <!-- <view class='childNoinfo'>?</view> -->
+                    <image src='/assets/defaultIcon.png' />
+                    <view class='addicon'>+</view>
+
+                    <!-- <view class='childNoinfo'>?</view> -->
+                    <image src='/assets/defaultIcon.png' />
+                    <view class='addicon'>+</view>
+
+                    <!-- <view class='childNoinfo'>?</view> -->
+                    <image src='/assets/defaultIcon.png' />
+                    <view class='addicon'>+</view>
+
+                    <!-- <view class='childNoinfo'>?</view> -->
+                    <image src='/assets/defaultIcon.png' />
+                    <view class='addicon'>+</view>
+
+                    <view class='childNoinfo'>?</view>
+                    <!-- <image src='/assets/defaultIcon.png' /> -->
+                    <view class='addicon'>+</view>
+
+                    <view class='childNoinfo'>?</view>
+                    <!-- <image src='/assets/defaultIcon.png' /> -->
+                </view>
+
+                <view class='ShareBtn'>
+                    <text>{{shareBtnTxt}}</text>
+                    <button id='contineShare' open-type='share'></button>
+                </view>
+
+                <view class='remainingTxt'>
+                    您现在还剩下
+                    <text style='color:#E02E24;'>{{iniviteNumber}}</text> 次机会
+                </view>
+            </view>
+
+			<view class='activityRules' bindtap='goToRulerPage'></view>
+
+        </view>
+
+		<view class='zeroGouTxt'>0元购物 可选商品</view>
+
+		<view class="goodsIteam" hover-class="hover-class">
+
+            <view class='goodsIcon'>
+                <image src='/assets/defaultIcon.png' bindload="imageLoad" />
+            </view>
+
+            <view class='goodsDesc'>
+
+                <view class='goodstitle'>
+                    【限时亏本】七格格高领连衣裙2018冬季新哈哈哈哈哈款条……
+                </view>
+
+                <view class='goodsPrice'>
+                    <view class='lastPrice'>
+                        <text style='font-size:26rpx;'>￥</text>1239.99
+                    </view>
+
+                    <view class='normalPrice'>￥1269.99</view>
+                </view>
+
+                <view class='shareCommissionTxt'>当前商品邀请新人可享受0元购</view>
+
+            </view>
+
+			<view class='VIPbox'>
+				<view class='VIPtxt'>VIP</view>
+				<view class='zerotxt'>0元购</view>
+			</view>
+
+            <view class='shareGood' catchtap='catchtap'>
+                <button id='shareGoodBtn' data-goodID='{{item.goods_id}}' data-img="{{item.goods_thumbnail_url}}" open-type="share">
+                    <image lazy-load="{{true}}" src='/assets/index/shareIcon.png' />
+                    <text>分享赚</text>
+                </button>
+            </view>
+        </view>
+
+		<view class="goodsIteam" hover-class="hover-class">
+
+            <view class='goodsIcon'>
+                <image src='/assets/defaultIcon.png' bindload="imageLoad" />
+            </view>
+
+            <view class='goodsDesc'>
+
+                <view class='goodstitle'>
+                    【限时亏本】七格格高领连衣裙2018冬季新哈哈哈哈哈款条……
+                </view>
+
+                <view class='goodsPrice'>
+                    <view class='lastPrice'>
+                        <text style='font-size:26rpx;'>￥</text>1239.99
+                    </view>
+
+                    <view class='normalPrice'>￥1269.99</view>
+                </view>
+
+                <view class='shareCommissionTxt'>当前商品邀请新人可享受0元购</view>
+
+            </view>
+
+			<view class='VIPbox'>
+				<view class='VIPtxt'>VIP</view>
+				<view class='zerotxt'>0元购</view>
+			</view>
+
+            <view class='shareGood' catchtap='catchtap'>
+                <button id='shareGoodBtn' data-goodID='{{item.goods_id}}' data-img="{{item.goods_thumbnail_url}}" open-type="share">
+                    <image lazy-load="{{true}}" src='/assets/index/shareIcon.png' />
+                    <text>分享赚</text>
+                </button>
+            </view>
+        </view>
+
+		<view class="goodsIteam" hover-class="hover-class">
+
+            <view class='goodsIcon'>
+                <image src='/assets/defaultIcon.png' bindload="imageLoad" />
+            </view>
+
+            <view class='goodsDesc'>
+
+                <view class='goodstitle'>
+                    【限时亏本】七格格高领连衣裙2018冬季新哈哈哈哈哈款条……
+                </view>
+
+                <view class='goodsPrice'>
+                    <view class='lastPrice'>
+                        <text style='font-size:26rpx;'>￥</text>1239.99
+                    </view>
+
+                    <view class='normalPrice'>￥1269.99</view>
+                </view>
+
+                <view class='shareCommissionTxt'>当前商品邀请新人可享受0元购</view>
+
+            </view>
+
+			<view class='VIPbox'>
+				<view class='VIPtxt'>VIP</view>
+				<view class='zerotxt'>0元购</view>
+			</view>
+
+            <view class='shareGood' catchtap='catchtap'>
+                <button id='shareGoodBtn' data-goodID='{{item.goods_id}}' data-img="{{item.goods_thumbnail_url}}" open-type="share">
+                    <image lazy-load="{{true}}" src='/assets/index/shareIcon.png' />
+                    <text>分享赚</text>
+                </button>
+            </view>
+        </view>
+
+        <view class='botBox'></view>
+    </scroll-view>
+</view>

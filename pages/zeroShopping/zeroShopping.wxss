@@ -1,0 +1,296 @@
+.botBox {
+    width: 100%;
+    height: 30rpx;
+}
+
+.topBg {
+    width: 750rpx;
+    height: 1056rpx;
+    box-sizing: border-box;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15439890949975/KcgUwAwgSBCyPR3s6UxpegopuYfladorq6S3mxT7.png');
+    background-size: 750rpx 828rpx;
+}
+
+.shareInfoBox {
+    width: 724rpx;
+    height: 462rpx;
+    box-sizing: border-box;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15439892363966/X1fnnMO1JrVluCOxnJ25cR2g9R9HGY0UZKJx8KsE.png');
+    background-size: 724rpx 462rpx;
+    margin: 592rpx auto 0;
+}
+
+.childInfoBox {
+    width: 690rpx;
+    height: 70rpx;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    margin: 146rpx auto 0;
+    display: flex;
+    justify-content: center;
+}
+
+.childInfoBox image {
+    width: 70rpx;
+    height: 70rpx;
+    background: rgba(255, 255, 255, 1);
+    border: 4rpx solid rgba(240, 60, 50, 1);
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.childNoinfo {
+    width: 70rpx;
+    height: 70rpx;
+    background: rgba(255, 255, 255, 1);
+    border: 4rpx dashed rgba(188, 188, 188, 1);
+    border-radius: 50%;
+    font-size: 30rpx;
+    line-height: 70rpx;
+    text-align: center;
+    color: #bcbcbc;
+    box-sizing: border-box;
+}
+
+.addicon {
+    width: 46rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 36rpx;
+    text-align: center;
+    color: #bcbcbc;
+}
+
+.ShareBtn {
+    width: 500rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    color: #fff;
+    text-align: center;
+    font-size: 30rpx;
+    box-sizing: border-box;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15440102336473/Fl2U2LCeOmnBAp74uPE1ybA8mHuXFluVTGhTtNTg.png');
+    background-size: 500rpx 88rpx;
+    margin: 40rpx auto 0;
+}
+
+#contineShare {
+    width: 500rpx;
+    height: 88rpx;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.remainingTxt {
+    width: 100%;
+    height: 23rpx;
+    font-size: 24rpx;
+    font-family: PingFang-SC-Medium;
+    color: rgba(121, 121, 121, 1);
+    text-align: center;
+    margin: 30rpx auto 0;
+}
+
+.activityRules {
+    width: 134rpx;
+    height: 40rpx;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 20rpx;
+    position: absolute;
+    top: 30rpx;
+    right: 30rpx;
+}
+
+.zeroGouTxt {
+    color: #333;
+    font-size: 34rpx;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 24rpx;
+	margin-bottom: 28rpx;
+}
+
+/* 底部列表 */
+
+.goodsIteam {
+    width: 690rpx;
+    height: 330rpx;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 20rpx 0px rgba(111, 105, 103, 0.16);
+    border-radius: 8rpx;
+    margin: 6rpx auto 30rpx;
+    padding: 24rpx 34rpx 30rpx 30rpx;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.goodsIcon {
+    margin-top: 6rpx;
+}
+
+.goodsIcon, .goodsIcon image {
+    width: 270rpx;
+    height: 270rpx;
+}
+
+.goodsDesc {
+    width: 328rpx;
+}
+
+.goodstitle {
+    height: 76rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #333;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.goodsPrice {
+    margin-top: 22rpx;
+    margin-bottom: 6rpx;
+}
+
+.goodsPrice view {
+    display: inline-block;
+}
+
+.lastPrice {
+    color: #e02e24;
+    font-size: 36rpx;
+    margin-right: 28rpx;
+}
+
+.normalPrice {
+    color: #797979;
+    font-size: 22rpx;
+    text-decoration: line-through;
+}
+
+.shareCommissionTxt {
+    display: inline-block;
+    font-size: 20rpx;
+    color: #e02e24;
+    height: 30rpx;
+    line-height: 30rpx;
+    /* border: 2rpx solid rgba(224, 46, 36, 1); */
+    border-radius: 2rpx;
+    padding: 0 10rpx;
+}
+
+.commissionPrice {
+    width: 164rpx;
+    height: 44rpx;
+    border-radius: 8rpx;
+    font-size: 26rpx;
+    color: #fff;
+    line-height: 44rpx;
+    box-sizing: border-box;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-size: 164rpx 44rpx;
+    background-image: url('https://tp.datikeji.com/a/15439796911196/o0UN8CncP32m6OH54zkythzONW42qZmvpNqQXLD8.png');
+    padding-left: 34rpx;
+    margin-top: 28rpx;
+}
+
+/* 分享按钮 */
+
+.shareGood {
+    width: 160rpx;
+    height: 54rpx;
+    background-color: #e02e24;
+    position: absolute;
+    bottom: 30rpx;
+    right: -30rpx;
+    border-radius: 54rpx 0 0 54rpx;
+    z-index: 999;
+}
+
+#shareGoodBtn {
+    width: 160rpx;
+    height: 54rpx;
+    background-color: #e02e24;
+    border-radius: 54rpx 0 0 54rpx;
+    padding: 0;
+    color: white;
+    font-size: 24rpx;
+    line-height: 50rpx;
+    position: relative;
+}
+
+.shareGood image {
+    width: 42rpx;
+    height: 42rpx;
+    vertical-align: middle;
+}
+
+.shareGood text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* VIP标签 */
+
+.VIPbox {
+    width: 142rpx;
+    height: 36rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    font-size: 22rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 36rpx;
+}
+
+.VIPtxt {
+    display: inline-block;
+    width: 62rpx;
+    height: 36rpx;
+    background: rgba(93, 93, 93, 1);
+    border-radius: 8rpx 0px 0px 0px;
+    font-style: oblique;
+}
+
+.zerotxt {
+    display: inline-block;
+    width: 80rpx;
+    height: 36rpx;
+    background: rgba(224, 46, 36, 0.5);
+    border-radius: 0rpx 18rpx 18rpx 0rpx;
+}
+
+.hover-class {
+    background-color: #f2f2f2;
+}

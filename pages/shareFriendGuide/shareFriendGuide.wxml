@@ -74,6 +74,15 @@
 
             <image class='botImg' src='https://tp.datikeji.com/a/15427700744360/YOk2f6Xnpzqt78ErjrlX0vjSuSNra12DHeRd5gYF.png' />
 
+            <view class='customerService'>
+                <button id='contact' open-type='contact'></button>
+            </view>
+
+            <view class='handRow LeftRightAni' >
+                <image src='https://tp.datikeji.com/a/15441700608349/VNLrGLVSRb5MS8xp4mYzyACMXa2HcVMdHWa49FXA.png' />
+				留言试试
+            </view>
+
         </view>
 
     </scroll-view>
@@ -86,12 +95,12 @@
         <view class='fuchuangTop'>
             <view hover-class="hover-class" bindtap='generateImages'>
                 <image style='width:80rpx;height:80rpx;' src='/assets/userContent/friendQun.png' />
-                <view>朋友圈邀请</view>
+                <view>{{pyq}}邀请</view>
             </view>
 
             <view hover-class="hover-class" bindtap='goToPromptPages'>
                 <image style='width:80rpx;height:80rpx;' src='/assets/userContent/ruhefa.png' />
-                <view>如何发朋友圈？</view>
+                <view>如何发{{pyq}}？</view>
             </view>
 
             <view hover-class="hover-class">
@@ -102,12 +111,17 @@
             </view>
 
             <image bindtap='cloaseMask' class='cloaseBtn' src='/assets/userContent/close.png' />
+
+            <view class='shareBotIcon ani'>
+                <image src='/assets/shareBotIcon.png' />
+                <view>每邀请一人预计可赚{{2}}元</view>
+            </view>
         </view>
     </view>
 
-	<view class='collection' wx:if="{{ifShowCollection}}">
-			<image src='https://tp.datikeji.com/a/15427908407668/YNF51Ks0IzsP8uXY8tZKBGKcQkC0ooI2cqyPW1yU.png' />
-			<view  bindtap='ShowCollection' class='imgbtn'></view>
-		</view>
+    <view class='collection' wx:if="{{ifShowCollection}}">
+        <image src='https://tp.datikeji.com/a/15427908407668/YNF51Ks0IzsP8uXY8tZKBGKcQkC0ooI2cqyPW1yU.png' />
+        <view bindtap='ShowCollection' class='imgbtn'></view>
+    </view>
 </view>
 <canvas canvas-id="canvas" style="width:{{bgimgW}}px;height:{{bgimgH}}px;display:block;position:absolute; bottom:1500px" />

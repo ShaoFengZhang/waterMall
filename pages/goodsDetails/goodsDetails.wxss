@@ -153,7 +153,7 @@
 .preferential {
     color: #797979;
     font-size: 24rpx;
-    margin-top: 20rpx;
+    margin-top: 18rpx;
     padding-left: 30rpx;
 }
 
@@ -176,12 +176,11 @@
 
 .bottomTap {
     width: 100%;
-    height: 92rpx;
+    height: 98rpx;
     background-color: #fff;
     position: fixed;
     bottom: 0;
     left: 0;
-    /* box-sizing: border-box; */
     padding: 0rpx 0rpx 0 30rpx;
 }
 
@@ -197,7 +196,7 @@
     color: rgba(51, 51, 51, 1);
     text-align: center;
     margin-right: 58rpx;
-    margin-top: 8rpx;
+    margin-top: 16rpx;
     position: relative;
 }
 
@@ -208,14 +207,12 @@
 .shareGood {
     display: inline-block;
     width: 542rpx;
-    height: 92rpx;
-    /* border-radius: 78rpx; */
+    height: 98rpx;
     font-size: 30rpx;
     color: rgba(254, 254, 254, 1);
     position: absolute;
     right: 30rpx;
-    /* top: 10rpx; */
-    line-height: 92rpx;
+    line-height: 98rpx;
     text-align: center;
     overflow: hidden;
     background-color: #fc756e;
@@ -223,34 +220,42 @@
 
 .shareGood view {
     display: inline-block;
-    height: 92rpx;
+    height: 98rpx;
 }
 
 .shareBtn {
-    width: 222rpx;
+    width: 272rpx;
     background-color: #fc756e;
     position: relative;
 }
 
 .buyCashback {
-    width: 320rpx;
+    width: 270rpx;
     background-color: #e02e24;
     position: relative;
 }
 
 #shareGoodBtn {
-    width: 222rpx;
-    height: 92rpx;
+    width: 272rpx;
+    height: 98rpx;
     background-color: #fc756e;
     padding: 0;
     opacity: 0;
     position: absolute;
 }
 
+.userInofBtn1, #userInofBtn1 {
+    width: 642rpx;
+    height: 254rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+	opacity: 0;
+}
+
 .userInofBtn, #userInofBtn {
     width: 542rpx;
-    height: 92rpx;
-    /* border-radius: 92rpx; */
+    height: 98rpx;
     position: absolute;
     top: 0;
     left: 0;
@@ -263,7 +268,7 @@
 
 #botStar, .botStarBtn {
     width: 44rpx;
-    height: 92rpx;
+    height: 98rpx;
     position: absolute;
     top: 0;
     left: 0;
@@ -338,7 +343,7 @@
     text-align: center;
     position: absolute;
     top: 0;
-    right: 78rpx;
+    right: 20rpx;
 }
 
 .youDate {
@@ -394,7 +399,6 @@
     height: 26rpx;
 }
 
-
 .hover-class {
     background-color: #f2f2f2;
 }
@@ -439,18 +443,19 @@
 }
 
 .cloaseBtn {
-    width: 54rpx;
-    height: 54rpx;
+    width: 64rpx;
+    height: 64rpx;
     position: absolute;
     right: 30rpx;
     bottom: 262rpx;
 }
 
 /* 分享弹窗 */
+
 .qpreviewImage {
     margin: 138rpx auto 0;
-	position: relative;
-	overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .qpreviewImage, .rectBodyIcon {
@@ -465,54 +470,54 @@
     margin-top: 22rpx;
 }
 
-.shareTitle{
-	width: 510rpx;
-	height: 68rpx;
-	position:absolute;
-	top: 0rpx;
-	left: 32rpx;
-	color: #333333;
-	font-size: 24rpx;
-	font-weight:bold;
+.shareTitle {
+    width: 510rpx;
+    height: 68rpx;
+    position: absolute;
+    top: 0rpx;
+    left: 32rpx;
+    color: #333;
+    font-size: 24rpx;
+    font-weight: bold;
 }
 
-.strap{
-	width: 40rpx;
-	height: 72rpx;
+.strap {
+    width: 40rpx;
+    height: 72rpx;
 }
 
-.hand{
-	width: 32rpx;
-	height: 38rpx;
+.hand {
+    width: 32rpx;
+    height: 38rpx;
 }
 
-.straptxt{
-	color: #fff;
-	font-size: 20rpx;
-	position: absolute;
-	left: 10rpx;
-	top: 0;
+.straptxt {
+    color: #fff;
+    font-size: 20rpx;
+    position: absolute;
+    left: 10rpx;
+    top: 0;
 }
 
-.straptxtSecond{
-	top: 20rpx;
+.straptxtSecond {
+    top: 20rpx;
 }
 
-.straptxtThree{
-	top: 40rpx;
+.straptxtThree {
+    top: 40rpx;
 }
 
-.shareGoodsIcon{
-	width: 482rpx;
-	height: 482rpx;
-	position: absolute;
-	left: 47rpx;
-	bottom: 54rpx;
+.shareGoodsIcon {
+    width: 482rpx;
+    height: 482rpx;
+    position: absolute;
+    left: 47rpx;
+    bottom: 54rpx;
 }
 
-.shareGoodsIcon image{
-	width: 482rpx;
-	height: 482rpx;
+.shareGoodsIcon image {
+    width: 482rpx;
+    height: 482rpx;
 }
 
 /* 收集formid */
@@ -531,8 +536,8 @@
 }
 
 .Haa {
-    width: 106rpx;
-    height: 106rpx;
+    width: 642rpx;
+    height: 254rpx;
     background: rgba(0, 0, 0, 0);
     position: absolute;
     border-radius: 8rpx;
@@ -541,8 +546,8 @@
 }
 
 .Yaa {
-    width: 320rpx;
-    height: 92rpx;
+    width: 270rpx;
+    height: 98rpx;
     background: rgba(0, 0, 0, 0);
     position: absolute;
     border-radius: 8rpx;
@@ -553,4 +558,12 @@
 #Hbtn1, #Hbtn2, #Hbtn3, #Hbtn4, #Hbtn5, #Ybtn1, #Ybtn2, #Ybtn3, #Ybtn4, #Ybtn5,
 #Xbtn1, #Xbtn2, #Xbtn3, #Xbtn4, #Xbtn5 {
     overflow: visible;
+}
+
+#navigateBtn {
+    width: 642rpx;
+    height: 254rpx;
+    background-color: rgba(255, 255, 255, 0);
+	top: 0;
+	left: 0;
 }

@@ -17,8 +17,8 @@ Page({
         XOrder: '1',
         POrder: "1",
         ifShowMenu: false,
-		TopClassData: config.leftClass,
-		SecondTopClassData: config.leftClass[0],
+        TopClassData: config.leftClass,
+        SecondTopClassData: config.leftClass[0],
         ifShowFirstBao: false,
         ifShowlastBao: false,
         ifShowSuspension: false,
@@ -26,6 +26,7 @@ Page({
     onLoad: function(options) {
         let _this = this;
         this.pageCanAdd = true;
+		// _this.TopLeftClassData = config.leftClass;
         if (app.globalData.userInfo) {
             console.log('if');
             this.setData({
@@ -65,26 +66,26 @@ Page({
         this.pageIndex = 0;
         this.defaultList = [];
         this.getDefaultList();
-        // this.getTopClassData();
+        this.getTopClassData();
 
         // 获取配置信息,新人红包是否显示
         app.getConfigData = this.getConfigData;
 
-		// 模板消息路径配置
-		if (options && options.pay){
-			console.log("LLLLLLLLLLLLL")
-			app.goToPayMent = this.goToPayMent;
-			if (wx.getStorageSync('user_openID') && !app.callgoToPayMent) {
-				this.goToPayMent();
-			}
-		};
-		if (options && options.order) {
-			console.log("SSSSSSSSSSS")
-			app.goToOrderMent = this.goToOrderMent;
-			if (wx.getStorageSync('user_openID') && !app.callgoToOrderMent) {
-				this.goToOrderMent();
-			}
-		}
+        // 模板消息路径配置
+        if (options && options.pay) {
+            console.log("LLLLLLLLLLLLL")
+            app.goToPayMent = this.goToPayMent;
+            if (wx.getStorageSync('user_openID') && !app.callgoToPayMent) {
+                this.goToPayMent();
+            }
+        };
+        if (options && options.order) {
+            console.log("SSSSSSSSSSS")
+            app.goToOrderMent = this.goToOrderMent;
+            if (wx.getStorageSync('user_openID') && !app.callgoToOrderMent) {
+                this.goToOrderMent();
+            }
+        }
 
         // 首页参数处理
         if (options && options.user_openId) {
@@ -94,17 +95,17 @@ Page({
             });
             this.parentId = options.user_openId;
             this.shareGoodsId = options.good_id ? options.good_id : 'no';
-			console.log("LLLLLLLLL", app.callArgsDealWith)
+            console.log("LLLLLLLLL", app.callArgsDealWith)
             if (wx.getStorageSync('user_openID') && !app.callArgsDealWith) {
                 this.argsDealWith();
             }
             app.argsDealWith = this.argsDealWith;
         }
-		console.log('????????',options);
+        console.log('????????', options);
         if (options && options.scene) {
-			console.log('SCENE');
+            console.log('SCENE');
             wx.showLoading({
-				title: '精品宝贝挑选中',
+                title: '精品宝贝挑选中',
                 mask: true,
             });
             let scene = decodeURIComponent(options.scene);
@@ -112,9 +113,9 @@ Page({
             let goodsid = scene.split('@')[1];
             this.parentId = parentId;
             this.shareGoodsId = goodsid;
-			console.log(this.parentId);
-			console.log(this.shareGoodsId);
-			console.log("LLLLLLLLL", app.callArgsDealWith)
+            console.log(this.parentId);
+            console.log(this.shareGoodsId);
+            console.log("LLLLLLLLL", app.callArgsDealWith)
             if (wx.getStorageSync('user_openID') && !app.callArgsDealWith) {
                 this.argsDealWith();
             }
@@ -175,7 +176,7 @@ Page({
         };
 
         wx.showLoading({
-			title: '精品宝贝挑选中',
+            title: '精品宝贝挑选中',
             mask: true,
         });
         let _this = this;
@@ -221,18 +222,25 @@ Page({
     // 得到顶部分类数据
     getTopClassData: function() {
         let _this = this;
-        let getTopClassDataUrl = wxAPIF.domin + 'getCatergotyList';
-        let firstData = {
-            level: 0,
-            opt_id: 0,
-            opt_name: '推荐'
-        }
+        let getTopClassDataUrl = wxAPIF.domin + 'getCategory';
         wxAPIF.wxRequest(app, getTopClassDataUrl, "POST", {}, function(res) {
-            let dataList = res[0].goods_opt_get_response.goods_opt_list;
-            dataList.unshift(firstData);
-            _this.setData({
-                TopClassData: dataList
-            })
+            console.log(res);
+            if (res.code == 0) {
+				_this.TopLeftClassData = res.data;
+				app.TopLeftClassData = res.data;
+                _this.setData({
+                    TopClassData: res.data,
+                    SecondTopClassData: res.data[0],
+                })
+            } else {
+				_this.TopLeftClassData = config.leftClass;
+				app.TopLeftClassData = config.leftClass;
+				_this.setData({
+					TopClassData: config.leftClass,
+					SecondTopClassData: config.leftClass[0],
+				})
+            }
+
         })
     },
 
@@ -249,7 +257,7 @@ Page({
             selectIndex: index,
             toView: 'secondClass',
             optID: optID == 0 ? "" : optID,
-			SecondTopClassData: config.leftClass[index]
+			SecondTopClassData: this.TopLeftClassData[index]
         });
         this.defaultList = [];
         if (index == 0) {
@@ -312,9 +320,9 @@ Page({
 
     // 跳转到搜索页
     goToSearch: function() {
-        wx.switchTab({
-            url: '/pages/search/search',
-        });
+		wx.switchTab({
+			url: '/pages/search/search',
+		});
     },
 
     //轮播图改变事件 
@@ -370,16 +378,16 @@ Page({
 
     // 跳转商品详情事件
     goTodetail: function(e) {
-		wx.showLoading({
-			title: 'loading',
-			mask: true,
-		});
+        wx.showLoading({
+            title: 'loading',
+            mask: true,
+        });
         let good_id = e.currentTarget.dataset.goodid;
         setTimeout(function() {
             wx.navigateTo({
                 url: `/pages/goodsDetails/goodsDetails?good_id=${good_id}`,
             });
-			wx.hideLoading();
+            wx.hideLoading();
         }, 1000)
 
     },
@@ -406,12 +414,12 @@ Page({
         if (e.from == 'button') {
             var good_id = e.target.dataset.goodid;
             var img = e.target.dataset.img;
-			var path = `/pages/index/index?user_openId=${wx.getStorageSync('u_id')}&good_id=${good_id}`;
-			var title = "我必须实力推荐这个宝贝，领券返现还能赚钱";
+            var path = `/pages/index/index?user_openId=${wx.getStorageSync('u_id')}&good_id=${good_id}`;
+            var title = "我必须实力推荐这个宝贝，领券返现还能赚钱";
         } else {
-			var title = "@所有人 省钱秘籍等你拿，动动手指就到家。";
-			var img = 'https://tp.datikeji.com/a/15428752701695/e90GTmiwG1LWaPF6K8UQLoiZtLjI2LA0Okwn2EEx.png';
-			var path = `/pages/index/index?user_openId=${wx.getStorageSync('u_id')}`;
+            var title = "@所有人 省钱秘籍等你拿，动动手指就到家。";
+            var img = 'https://tp.datikeji.com/a/15428752701695/e90GTmiwG1LWaPF6K8UQLoiZtLjI2LA0Okwn2EEx.png';
+            var path = `/pages/index/index?user_openId=${wx.getStorageSync('u_id')}`;
         };
         return {
             title: title,
@@ -448,23 +456,23 @@ Page({
 
     // goToGoodsList
     goToGoodsList: function(e) {
-		console.log(e);
+        console.log(e);
         this.setData({
             ifShowFirstBao: false,
             ifShowlastBao: false,
             ifShowSuspension: true,
         });
-		let goods_id = e.currentTarget.dataset.id;
-		let goodsName = e.currentTarget.dataset.title;
-		wx.navigateTo({
-			url: `/pages/goodsList/goodsList?goodsName=${goodsName}&goods_id=${goods_id}`,
-		})
+        let goods_id = e.currentTarget.dataset.id;
+        let goodsName = e.currentTarget.dataset.title;
+        wx.navigateTo({
+            url: `/pages/goodsList/goodsList?goodsName=${goodsName}&goods_id=${goods_id}`,
+        })
     },
 
     // 红包弹窗处理 隐藏
     hideMask: function(e) {
-		console.log(e);
-		console.log("hideMask");
+        console.log(e);
+        console.log("hideMask");
         this.setData({
             ifShowFirstBao: false,
             ifShowlastBao: false,
@@ -492,28 +500,28 @@ Page({
                 app.globalData.firstTimeWidthDraw = res.data.one;
                 app.globalData.subsequenWidthDraw = res.data.three;
                 app.globalData.singleTopWidthDraw = res.data.two;
-
+				app.pyq=res.data.pyq;
                 // 处理显示不显示红包
 
                 if (res.data.user_order > 0) {
-					app.globalData.user_order = res.data.user_order;
+                    app.globalData.user_order = res.data.user_order;
                     _this.setData({
                         ifShowSuspension: false,
                         ifShowFirstBao: false,
-						ifShowlastBao: false,
+                        ifShowlastBao: false,
                     })
                 } else {
                     if (wx.getStorageSync('clickFirst')) {
                         _this.setData({
                             ifShowSuspension: true,
-							ifShowFirstBao: false,
-							ifShowlastBao: false,
+                            ifShowFirstBao: false,
+                            ifShowlastBao: false,
                         })
                     } else {
                         _this.setData({
                             ifShowFirstBao: true,
-							ifShowSuspension: false,
-							ifShowlastBao: false,
+                            ifShowSuspension: false,
+                            ifShowlastBao: false,
                         });
                     }
                 }
@@ -533,16 +541,16 @@ Page({
 
     // 显示第一个红包
     showFirstBao: function() {
-		if (this.data.hasUserInfo){
-			this.setData({
-				ifShowlastBao: true,
-			})
-		}else{
-			this.setData({
-				ifShowFirstBao: true,
-			})
-		}
-        
+        if (this.data.hasUserInfo) {
+            this.setData({
+                ifShowlastBao: true,
+            })
+        } else {
+            this.setData({
+                ifShowFirstBao: true,
+            })
+        }
+
     },
 
     // 首页参数处理函数
@@ -552,9 +560,9 @@ Page({
         console.log(this.parentId);
         console.log(app.user_OpenId);
         console.log(this.parentId == app.user_OpenId);
-		console.log(this.shareGoodsId);
-		// 判断两个ID是否相等
-		if (this.parentId != app.u_id) {
+        console.log(this.shareGoodsId);
+        // 判断两个ID是否相等
+        if (this.parentId != app.u_id) {
             // 绑定父子关系
             this.bindParent();
         } else {
@@ -623,10 +631,10 @@ Page({
                     },
                 })
             } else {
-				// if (!_this.data.ifShowFirstBao) {
-                    wx.navigateTo({
-                        url: `/pages/goodsDetails/goodsDetails?good_id=${_this.shareGoodsId}&&origin=index`,
-                    })
+                // if (!_this.data.ifShowFirstBao) {
+                wx.navigateTo({
+                    url: `/pages/goodsDetails/goodsDetails?good_id=${_this.shareGoodsId}&&origin=index`,
+                })
                 // }
                 return;
             }
@@ -648,24 +656,24 @@ Page({
 
     //跳转如何分享页
     goToSharePage: function() {
-		wx.navigateTo({
-			url: '/pages/shareFriendGuide/shareFriendGuide',
-		})
+        wx.navigateTo({
+            url: '/pages/shareFriendGuide/shareFriendGuide',
+        })
     },
 
-	// 跳转收支明细
-	goToPayMent:function(){
-		app.callgoToPayMent = false;
-		wx.navigateTo({
-			url: '/pages/paymentDetails/paymentDetails',
-		})
-	},
+    // 跳转收支明细
+    goToPayMent: function() {
+        app.callgoToPayMent = false;
+        wx.navigateTo({
+            url: '/pages/paymentDetails/paymentDetails',
+        })
+    },
 
-	//跳转我的订单
-	goToOrderMent:function(){
-		app.callgoToOrderMent = false;
-		wx.navigateTo({
-			url: `/pages/orderManagement/orderManagement?templateInfo=123`,
-		})
-	},
+    //跳转我的订单
+    goToOrderMent: function() {
+        app.callgoToOrderMent = false;
+        wx.navigateTo({
+            url: `/pages/orderManagement/orderManagement?templateInfo=123`,
+        })
+    },
 })

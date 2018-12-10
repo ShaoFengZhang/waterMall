@@ -4,6 +4,19 @@
 
         <view id='scrollBox'>
 
+            <view class='topPrompt' bindtap='ShowCollection' wx:if="{{ifShowTopPrompt}}">
+                <image src='/assets/toppromote.png' />
+                <view>添加到我的小程序
+                    <text catchtap='ifShowTopPrompt'>X</text>
+                </view>
+            </view>
+
+            <view class='myqr' bindtap='showNormolBg'>
+                <image style='width:38rpx;height:38rpx;margin-right:30rpx;' src='/assets/userSmallQr.png' />
+                <image style='width:14rpx;height:24rpx;' src='/assets/userContent/arrow.png' />
+                <button catchtap='catchtap' wx:if="{{!hasUserInfo && canIUse}}" id='baoBtn' lang='zh_CN' open-type='getUserInfo' bindgetuserinfo="getUserInfo"></button>
+            </view>
+
             <view class='userInfo'>
                 <view class='infoLeft'>
                     <open-data type="userAvatarUrl"></open-data>
@@ -22,19 +35,19 @@
             <view class='userData'>
                 <view class='userDataItem' bindtap='goToWithDraw' hover-class="hover-class">
                     <view style='color:#E02E24;font-size:36rpx;margin-bottom:6rpx;'>{{amount}}</view>
-                    <view style='color:#333333;font-size:28rpx'>钱包</view>
+                    <view style='color:#333333;font-size:26rpx'>钱包</view>
                 </view>
                 <view class='userDataItem' bindtap='goToWithDraw' hover-class="hover-class">
                     <view style='color:#E02E24;font-size:36rpx;margin-bottom:6rpx;'>{{no_amount}}</view>
-                    <view style='color:#333333;font-size:28rpx'>待返现</view>
+                    <view style='color:#333333;font-size:26rpx'>待返现</view>
                 </view>
                 <view class='userDataItem' bindtap='goToCollection' hover-class="hover-class">
                     <view style='color:#E02E24;font-size:36rpx;margin-bottom:6rpx;'>{{user_collection}}</view>
-                    <view style='color:#333333;font-size:28rpx'>收藏</view>
+                    <view style='color:#333333;font-size:26rpx'>收藏</view>
                 </view>
             </view>
 
-            <view class='orderTxt' >订单管理</view>
+            <view class='orderTxt'>订单管理</view>
 
             <view class='orderItem'>
                 <view class='orderDataItem' data-index='1' bindtap='goToOrder' hover-class="hover-class">
@@ -55,8 +68,8 @@
                 <view class='shareFriendIcon' bindtap='goToFriendList'>
 
                     <view class='shareFriendLeftIcon'>
-                        <view style='width:200rpx;font-size:30rpx;margin-top:20rpx;'>{{count}}</view>
-                        <view style='width:200rpx;font-size:26rpx;margin-top:2rpx;'>好友数量/个</view>
+                        <view style='width:200rpx;font-size:30rpx;margin-top:22rpx;'>{{count}}</view>
+                        <view style='width:200rpx;font-size:24rpx;margin-top:2rpx;'>好友数量/个</view>
                         <image class='leftArrow' src='/assets/userContent/arrow.png' />
                     </view>
 
@@ -65,8 +78,8 @@
                     </view>
 
                     <view class='shareFriendRightIcon'>
-                        <view style='width:200rpx;font-size:30rpx;margin-top:20rpx;'>{{all_with_drow}}</view>
-                        <view style='width:200rpx;font-size:26rpx;margin-top:2rpx;'>好友帮赚/元</view>
+                        <view style='width:200rpx;font-size:30rpx;margin-top:22rpx;'>{{all_with_drow}}</view>
+                        <view style='width:200rpx;font-size:24rpx;margin-top:2rpx;'>好友帮赚/元</view>
                         <image class='rightArrow' src='/assets/userContent/arrow.png' />
                     </view>
                 </view>
@@ -115,19 +128,19 @@
     </scroll-view>
 
     <view class='yaoqingfuchuang' wx:if="{{ifShowBotFuchang}}">
-		<view class='qpreviewImage'>
-			<image src='https://tp.datikeji.com/a/15422777079759/XXCMgMe8voRNI72EvTJiygtGkSTXSF3y4kcbNnxa.png' />
-		</view>
-		<view class='qPerviewTxt'>你发红包我出钱，邀请好友帮你赚</view>
+        <view class='qpreviewImage'>
+            <image src='https://tp.datikeji.com/a/15422777079759/XXCMgMe8voRNI72EvTJiygtGkSTXSF3y4kcbNnxa.png' />
+        </view>
+        <view class='qPerviewTxt'>你发红包我出钱，邀请好友帮你赚</view>
         <view class='fuchuangTop'>
             <view hover-class="hover-class" bindtap='generateImages'>
                 <image style='width:80rpx;height:80rpx;' src='/assets/userContent/friendQun.png' />
-                <view>朋友圈邀请</view>
+                <view>{{pyq}}邀请</view>
             </view>
 
             <view hover-class="hover-class" bindtap='goToPromptPages'>
                 <image style='width:80rpx;height:80rpx;' src='/assets/userContent/ruhefa.png' />
-                <view>如何发朋友圈？</view>
+                <view>如何发{{pyq}}？</view>
             </view>
 
             <view hover-class="hover-class">
@@ -138,7 +151,17 @@
             </view>
 
             <image bindtap='cloaseMask' class='cloaseBtn' src='/assets/userContent/close.png' />
+
+            <view class='shareBotIcon ani'>
+                <image src='/assets/shareBotIcon.png' />
+                <view>每邀请一人预计可赚{{2}}元</view>
+            </view>
         </view>
+    </view>
+
+    <view class='collection' wx:if="{{ifShowCollection}}">
+        <image src='https://tp.datikeji.com/a/15427908407668/YNF51Ks0IzsP8uXY8tZKBGKcQkC0ooI2cqyPW1yU.png' />
+        <view bindtap='ShowCollection' class='imgbtn'></view>
     </view>
 
 </view>

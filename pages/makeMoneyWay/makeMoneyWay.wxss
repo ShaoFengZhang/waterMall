@@ -1,0 +1,248 @@
+.botBox {
+    width: 100%;
+    height: 30rpx;
+}
+
+.topcoin {
+    width: 52rpx;
+    height: 52rpx;
+    position: absolute;
+    top: 24rpx;
+    left: 30rpx;
+}
+
+#scroolBg {
+    background-color: #ff5d2c;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.TopBox {
+    width: 690rpx;
+    height: 984rpx;
+    margin: 50rpx auto 0;
+}
+
+.usericon {
+    width: 148rpx;
+    height: 148rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0 auto;
+    border: 4rpx solid rgba(255, 255, 255, 0.71);
+    box-shadow: 0px 0px 20rpx 0px rgba(121, 121, 121, 0.4);
+}
+
+.topBody {
+    width: 690rpx;
+    height: 910rpx;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 20rpx 0px rgba(111, 105, 103, 0.16);
+    border-radius: 36rpx;
+    margin-top: -74rpx;
+    overflow: hidden;
+}
+
+.fourHeadBox {
+    width: 100%;
+    height: 98rpx;
+    box-sizing: border-box;
+    padding: 0 52rpx;
+    margin-top: 102rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fourIcon:last-child {
+    color: #bcbcbc;
+    font-size: 44rpx;
+    line-height: 98rpx;
+    text-align: center;
+    border: 4rpx dashed rgba(188, 188, 188, 1);
+}
+
+.fourIcon image, .fourIcon {
+    width: 98rpx;
+    height: 98rpx;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.fourIcon image {
+    border: 4rpx solid rgba(243, 243, 243, 1);
+}
+
+.addIcon {
+    color: #bcbcbc;
+    font-size: 50rpx;
+    line-height: 98rpx;
+}
+
+.ShareBtn {
+    width: 500rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    color: #fff;
+    text-align: center;
+    font-size: 30rpx;
+    box-sizing: border-box;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15440102336473/Fl2U2LCeOmnBAp74uPE1ybA8mHuXFluVTGhTtNTg.png');
+    background-size: 500rpx 88rpx;
+    margin: 40rpx auto 0;
+}
+
+#contineShare {
+    width: 500rpx;
+    height: 88rpx;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.shareTxt {
+    width: 603rpx;
+    height: 136rpx;
+    line-height: 48rpx;
+    font-size: 30rpx;
+    font-family: PingFang-SC-Medium;
+    color: rgba(51, 51, 51, 1);
+    margin: 26rpx auto 0;
+}
+
+.lineHeight {
+    width: 690rpx;
+    height: 20rpx;
+    background: rgba(242, 242, 242, 1);
+    margin-top: 42rpx;
+}
+
+.shareRule {
+    width: 614rpx;
+    font-size: 26rpx;
+    font-family: PingFang-SC-Medium;
+    color: #333;
+    margin: 28rpx auto 0;
+}
+
+.shareRule text:first-child {
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+    background: rgba(240, 60, 50, 1);
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: 30rpx;
+    margin-right: 12rpx;
+}
+
+.lastShareRule {
+    margin-top: 10rpx;
+    box-sizing: border-box;
+    padding-left: 44rpx;
+}
+
+.centerBoin {
+    margin: -6rpx 30rpx 0;
+}
+
+.centerBoin, .centerBoin image {
+    width: 54rpx;
+    height: 54rpx;
+}
+
+.ranklist {
+    width: 690rpx;
+    height: 1314rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 36rpx;
+    margin: 0 auto;
+}
+
+.ranklistTitle {
+    width: 690rpx;
+    height: 124rpx;
+    background: rgba(255, 236, 232, 1);
+    border-radius: 36rpx 36rpx 0 0;
+    color: #f03c32;
+    font-size: 38rpx;
+    line-height: 124rpx;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+}
+
+.ranklistTitle text {
+    margin: 0 30rpx;
+}
+
+.ranklistTitle image {
+    width: 12rpx;
+    height: 14rpx;
+    vertical-align: middle;
+}
+
+.ranklistTitle image:last-child {
+    width: 36rpx;
+    height: 30rpx;
+    position: absolute;
+    left: 627rpx;
+    bottom: -8rpx;
+}
+
+.shareUserItem {
+    width: 610rpx;
+    height: 118rpx;
+    margin: 0 auto;
+    line-height: 118rpx;
+    font-size: 26rpx;
+    color: #333;
+    overflow: hidden;
+    border-bottom: 1rpx solid #eaeaea;
+}
+
+.shareUserItem:last-child {
+    border-bottom: none;
+}
+
+.lasttxt {
+    margin-left: 28rpx;
+}
+
+.medals {
+    width: 34rpx;
+    height: 44rpx;
+    vertical-align: middle;
+    margin-right: 34rpx;
+}
+
+.userAURL {
+    width: 74rpx;
+    height: 76rpx;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 28rpx;
+}
+
+.ranking {
+    display: inline-block;
+    width: 34rpx;
+    height: 34rpx;
+    background: rgba(204, 204, 204, 1);
+    border-radius: 50%;
+    line-height: 34rpx;
+    color: #fff;
+    text-align: center;
+    font-size: 24rpx;
+    margin-right: 34rpx;
+}

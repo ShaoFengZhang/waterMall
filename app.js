@@ -7,18 +7,19 @@ App({
             success(res) {
                 _this.pix = res.pixelRatio;
                 _this.windowHeight = res.windowHeight;
+                _this.windowwidth = res.windowWidth;
                 _this.sysWidth = res.windowWidth;
                 _this.Bheight = res.screenHeight - res.windowHeight - res.statusBarHeight - 44;
                 var tempB = parseInt(`${res.version.split(".")[0]}${res.version.split(".")[1]}${res.version.split(".")[2]}`) //判断版本
             }
         })
-		this.callArgsDealWith = true;
-		this.callgoToPayMent = true;
-		this.callgoToOrderMent = true;
-		console.log("this.callArgsDealWith123");
+        this.callArgsDealWith = true;
+        this.callgoToPayMent = true;
+        this.callgoToOrderMent = true;
+        console.log("this.callArgsDealWith123");
         wxAPIF.wxloginfnc(this);
 
-		// 强制更新
+        // 强制更新
         const updateManager = wx.getUpdateManager()
 
         updateManager.onCheckForUpdate(function(res) {

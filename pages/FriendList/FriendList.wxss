@@ -1,50 +1,87 @@
-.parentInfo {
-    width: 100%;
-    height: 120rpx;
-    box-sizing: border-box;
-    padding: 0 30rpx;
-    margin: 30rpx 0 0;
-    display: flex;
-    justify-content: flex-start;
+.bg {
+    background-image: url('https://tp.datikeji.com/a/15433128679466/ujVyWQWwJQcNXJH8RFMoV4owhXWaDHRcoxPLTjii.png');
+    background-size: 750rpx 392rpx;
+    background-repeat: no-repeat;
+    background-origin: border-box;
 }
 
-.parentInfo image {
-    width: 120rpx;
-    height: 120rpx;
-    border-radius: 50%;
-    box-sizing: border-box;
-    border: 4rpx solid #fff;
-    margin-right: 20rpx;
-    box-shadow: 0px 3rpx 20rpx 0px rgba(121, 121, 121, 0.4);
+.notice {
+    background: rgba(255, 255, 255, 0.9);
 }
 
-.parentName {
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    box-sizing: border-box;
-    padding: 20rpx 0;
-}
-
-.parentName view {
-    width: 540rpx;
-    height: 50rpx;
-    line-height: 50rpx;
+.myData {
+    width: 690rpx;
+    height: 404rpx;
+    background-color: #fff;
+    margin: 40rpx auto 0;
+    box-shadow: 0rpx 3rpx 20rpx 0rpx rgba(111, 105, 103, 0.16);
+    border-radius: 8rpx;
     overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+}
+
+.myNameInfo {
+    width: 100%;
+    height: 128rpx;
+    margin-top: 40rpx;
+    box-sizing: border-box;
+    padding: 0 40rpx 0 44rpx;
+    position: relative;
+}
+
+.myNameInfo view {
+    display: inline-block;
+    position: absolute;
+}
+
+.userImg {
+    width: 128rpx;
+    height: 128rpx;
+    background: rgba(255, 255, 255, 1);
+    border: 4rpx solid rgba(255, 255, 255, 1);
+    box-shadow: 0px 3rpx 20rpx 0px rgba(121, 121, 121, 0.4);
+    border-radius: 50%;
+    overflow: hidden;
+    left: 44rpx;
+    top: 0;
+    box-sizing: border-box;
+}
+
+.userName {
+    width: 360rpx;
+    font-size: 34rpx;
+    color: #333;
+    left: 198rpx;
+    top: 26rpx;
+    overflow: hidden;
+}
+
+.wodeyaoqingma {
+    color: #797979;
+    font-size: 26rpx;
+    left: 198rpx;
+    bottom: 14rpx;
+}
+
+.myqr {
+    top: 40rpx;
+    right: 40rpx;
+}
+
+.myqr image {
+    vertical-align: middle;
+}
+
+.myInfoLine {
+    width: 630rpx;
+    height: 1rpx;
+    background: rgba(234, 234, 234, 1);
+    margin: 40rpx auto 0;
 }
 
 .friendNumber {
     width: 690rpx;
     height: 196rpx;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0px 3rpx 20rpx 0px rgba(111, 105, 103, 0.16);
-    border-radius: 8rpx;
-    margin: 30rpx auto;
+    margin: 2rpx auto 0;
     box-sizing: border-box;
     padding-left: 50rpx;
     font-size: 26rpx;
@@ -110,7 +147,7 @@
     font-size: 24rpx;
     text-align: center;
     position: absolute;
-    bottom: 58rpx;
+    bottom: 96rpx;
     right: 30rpx;
 }
 
@@ -120,21 +157,21 @@
     font-size: 30rpx;
     box-sizing: border-box;
     padding-left: 30rpx;
+    margin-top: 40rpx;
 }
 
 .friendItem {
     width: 100%;
     box-sizing: border-box;
     padding: 0 58rpx 0 62rpx;
-    /* margin-bottom: 20rpx; */
     background-color: #fff;
 }
 
-.segment{
-	width: 750rpx;
-	height: 20rpx;
-	background-color: #f2f2f2;
-	margin-left: -62rpx;
+.segment {
+    width: 750rpx;
+    height: 20rpx;
+    background-color: #f2f2f2;
+    margin-left: -62rpx;
 }
 
 .friendItemInfo {
@@ -193,9 +230,99 @@
     height: 400rpx;
 }
 
-.nodataTxt{
-	text-align: center;
-	font-size: 26rpx;
-	color: #333333;
-	margin-top: -60rpx;
+.nodataTxt {
+    text-align: center;
+    font-size: 26rpx;
+    color: #333;
+    margin-top: -60rpx;
+}
+
+.qrBg {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    background-size: cover;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15433780946585/SnU9OS7huYS4rK1bQo6pR9EMHVnaEs9Xh6uSeUWr.png');
+}
+
+.qrBody {
+    width: 680rpx;
+    height: 996rpx;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 3rpx 20rpx 0px rgba(111, 105, 103, 0.16);
+    border-radius: 8rpx;
+    margin: 90rpx auto 0;
+    overflow: hidden;
+}
+
+.qrBodyMyData {
+    width: 680rpx;
+    height: 120rpx;
+    box-sizing: border-box;
+    margin-top: 40rpx;
+    position: relative;
+}
+
+.qrBodyMyData view {
+    position: absolute;
+}
+
+.qrBodyuserImg {
+    top: 0;
+    left: 55rpx;
+}
+
+.qrBodyuserName {
+    top: 26rpx;
+}
+
+.qrBodywodeyaoqingma {
+    bottom: 16rpx;
+}
+
+.qrBodyuserName, .qrBodywodeyaoqingma {
+    width: 420rpx;
+    left: 202rpx;
+}
+
+.myQr, .myQr image {
+    width: 530rpx;
+    height: 537rpx;
+}
+
+.myQr {
+    margin: 36rpx auto 0;
+}
+
+.Qrtxt {
+    width: 100%;
+    text-align: center;
+    font-size: 28rpx;
+    color: #797979;
+    margin-top: 50rpx;
+}
+
+.saveBtn {
+    width: 440rpx;
+    height: 88rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 44rpx;
+    margin: 34rpx auto 0;
+    text-align: center;
+    line-height: 88rpx;
+    color: #fff;
+}
+
+#baoBtn {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }

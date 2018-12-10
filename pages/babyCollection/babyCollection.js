@@ -11,15 +11,12 @@ Page({
 
     onLoad: function(options) {
         this.userID = wx.getStorageSync('user_openID');
-        // this.pageIndex = 0;
-        // this.defaultList = [];
-        // this.pageCanAdd = true;
-        // this.getBabyData();
     },
 
     onShow: function() {
 		this.setData({
-			defaultList: []
+			defaultList: [],
+			ifloadingup: false,
 		})
         this.pageIndex = 0;
         this.defaultList = [];
@@ -37,6 +34,11 @@ Page({
     // 获取数据
     getBabyData: function() {
         if (!this.pageCanAdd) {
+			wx.showToast({
+				title: '没有更多数据了',
+				icon:'none',
+				duration:800,
+			})
             return;
         }
         wx.showLoading({
@@ -56,7 +58,7 @@ Page({
                 for (let i = 0; i < res.data.length; i++) {
                     _this.data.defaultList.push(JSON.parse(res.data[i].goods_data));
                 };
-                if (_this.data.defaultList.length < 30) {
+				if (_this.data.defaultList.length < 30 || _this.data.defaultList.length==0) {
                     _this.pageCanAdd = false;
                 }
                 for (let i = 0; i < _this.data.defaultList.length; i++) {
@@ -78,7 +80,7 @@ Page({
                         icon: 'none',
                         duration: 1200,
                     })
-                }
+                };
             }
 
         })
@@ -86,7 +88,7 @@ Page({
 
     // 下拉刷新数据
     dropDownRefresh: function() {
-        this.getDefaultList();
+		this.getBabyData();
     },
 
     // 跳转商品详情事件
@@ -108,6 +110,7 @@ Page({
         wx.hideLoading();
     },
 
+	//回到首页
     goToIndex: function() {
         wx.switchTab({
             url: '/pages/index/index',

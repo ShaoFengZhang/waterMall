@@ -7,7 +7,7 @@ Page({
 
     data: {
         ifShowSearchIcon: true,
-        placeholderTxt: "搜索商品名/复制拼多多商品标题",
+        placeholderTxt: "输入商品关键字",
         inputValue: '',
         dataList: [],
         searchTop: 500,
@@ -18,14 +18,19 @@ Page({
         departCurrent: 0,
         departTitleTxt: "百货",
         classItemArray: config.leftClass[1].classArray,
+		departmentLeftArray: config.leftClass.slice(1),
     },
 
     onLoad: function(options) {
         this.setData({
             botBoxHeight: app.windowHeight * 750 / app.sysWidth - 488 + 16,
+			// botBoxHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 488 + 16,
             departmentBoxHeight: app.windowHeight * 750 / app.sysWidth - 388,
+			// departmentBoxHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 388,
             classScrollHeight: app.windowHeight * 750 / app.sysWidth - 386 - 110,
-            departmentLeftArray: config.leftClass.slice(1),
+			// classScrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 386 - 110,
+			departmentLeftArray: app.TopLeftClassData.slice(1),
+			classItemArray: app.TopLeftClassData[1].classArray,
         })
     },
 
@@ -38,7 +43,7 @@ Page({
         let value = e.detail.value;
         if (!value) {
             this.setData({
-                placeholderTxt: '搜索商品名/复制拼多多商品标题',
+				placeholderTxt: this.data.placeholderTxt,
                 ifShowSearchIcon: true,
                 inputValue: value,
             })
@@ -53,7 +58,7 @@ Page({
     // clear输入框内容时触发
     clearInputTxt: function() {
         this.setData({
-            placeholderTxt: '搜索商品名/复制拼多多商品标题',
+			placeholderTxt: this.data.placeholderTxt,
             inputValue: '',
             ifShowSearchIcon: true,
         })
@@ -100,6 +105,7 @@ Page({
         this.setData({
             TopselectIndex: index,
             ifShowTopClassBar: index == 1 ? true : false,
+			placeholderTxt: index == 1 ? "输入商品关键字" : "粘贴拼多多商品标题"
         });
     },
 
@@ -122,7 +128,7 @@ Page({
     goToGoodsList: function(e) {
         if (e.currentTarget.dataset.content) {
             let content = e.currentTarget.dataset.content;
-            let goodsName = content.name;
+			let goodsName = content.title;
             let goods_id = content.opt_id;
             wx.navigateTo({
                 url: `/pages/goodsList/goodsList?goodsName=${goodsName}&goods_id=${goods_id}`,

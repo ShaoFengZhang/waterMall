@@ -1,0 +1,96 @@
+<view calss="bg">
+    <scroll-view id='scroolBg' scroll-y style="height:100vh;">
+		<image class='topcoin' src='https://tp.datikeji.com/a/15440908253084/u1eFq8mr4ratNC1UWVv85miwW4x2FLsJo4u1bKOQ.png' />
+        <view class='TopBox'>
+
+            <view class='usericon'>
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
+
+            <view class='topBody'>
+
+                <view class='fourHeadBox'>
+                    <view class='fourIcon'>
+                        <image src='https://tp.datikeji.com/a/15440889614124/lLY5jf1DkFNFL8gSdJ50qxsmXTG6o4WfBdcTRXgB.png' />
+                    </view>
+                    <view class='addIcon'>+</view>
+                    <view class='fourIcon'>
+                        <image src='https://tp.datikeji.com/a/15440889779630/yJcK4oDBgRYXKoInktYFKFZ7rByJuCCLWnTR8Rna.png' />
+                    </view>
+                    <view class='addIcon'>+</view>
+                    <view class='fourIcon'>
+                        <image src='https://tp.datikeji.com/a/15440885832790/oU1qfKQzghVAGo9AyGM56beEASiztKj4RuDxpHbi.png' />
+                    </view>
+                    <view class='addIcon'>+</view>
+                    <view class='fourIcon'>
+                        ?
+                    </view>
+                </view>
+
+                <view class='ShareBtn'>
+                    <text>继续邀请</text>
+                    <button id='contineShare' open-type='share'></button>
+                </view>
+
+                <view class='shareTxt'>
+                    分享邀请新用户，你将获得最高<text style='color:#F03C32;'>2元/人次</text>的奖励和<text style='color:#F03C32;'>永久30%</text>提成，新用户也可以领取新人红包，现金红包由省钱买分享赚官方替你发。
+                </view>
+
+                <view class='lineHeight'></view>
+
+                <view class='shareRule'>
+                    <text>1</text> 每邀请一个新用户，随机获得最高2元（无上限）</view>
+                <view class='shareRule'>
+                    <text>2</text> 邀请成功的用户将永久成为你的子级</view>
+                <view class='shareRule'>
+                    <text>3</text> 拥有的子级只要购物，父级都可以获得30%提成</view>
+                <view class='shareRule'>
+                    <text>4</text> 如果用户已经有父级，分享后同样可以获得
+                    <text style='color:#F03C32;'>该用</text>
+                </view>
+                <view class='shareRule lastShareRule' style='color:#F03C32;'>户父级提成的30%，所以建议你分享给新用户。</view>
+            </view>
+        </view>
+
+        <view class='centerBoin'>
+            <image src='https://tp.datikeji.com/a/15440636418846/e9P2jfDcBj3hnX2mOQZupcwRdvo2S5ZbriXQn2mh.png' />
+        </view>
+
+        <view class='ranklist'>
+            <view class='ranklistTitle'>
+                <image src='https://tp.datikeji.com/a/15440641325467/bWAHPtIOAMmYUxA171AwNWBPHw2hfV4IHghcp5Ed.png' />
+                <text>分享赚榜单TOP10</text>
+				<image src='https://tp.datikeji.com/a/15440641325467/bWAHPtIOAMmYUxA171AwNWBPHw2hfV4IHghcp5Ed.png' />
+				<image src='https://tp.datikeji.com/a/15440646682067/Ntox1skh9GvnuaIQwxx9MH0V5V4MlavyuTSyKfAf.png' />
+            </view>
+
+			<view class='shareUserItem'>
+				<image class='medals' src='https://tp.datikeji.com/a/15440658065525/Ksi6jnarC6vHMcXR1gE6FhI6SDcPRipnIHkk2BlW.png' />
+				<image class='userAURL' src='{{shareUserFirstArr[0].icon}}' />
+				<text>累计赚<text style='color:#F03C32;'>{{shareUserFirstArr[0].money}}</text>元</text>
+				<text class='lasttxt'>邀请了<text style='color:#F03C32;'>{{shareUserFirstArr[0].friendNum}}</text>个好友</text>
+			</view>
+			<view class='shareUserItem'>
+				<image class='medals' src='https://tp.datikeji.com/a/15440674976653/NJRz8uc5VQncEpLDn4suCu6M40X6iM6NjIyXTWv7.png' />
+				<image class='userAURL' src='{{shareUserFirstArr[1].icon}}' />
+				<text>累计赚<text style='color:#F03C32;'>{{shareUserFirstArr[1].money}}</text>元</text>
+				<text class='lasttxt'>邀请了<text style='color:#F03C32;'>{{shareUserFirstArr[1].friendNum}}</text>个好友</text>
+			</view>
+			<view class='shareUserItem'>
+				<image class='medals' src='https://tp.datikeji.com/a/15440675149959/iSL31818RamHRCgKO03kwiXaBMBe3LSUlPdNS5qE.png' />
+				<image class='userAURL' src='{{shareUserFirstArr[2].icon}}' />
+				<text>累计赚<text style='color:#F03C32;'>{{shareUserFirstArr[2].money}}</text>元</text>
+				<text class='lasttxt'>邀请了<text style='color:#F03C32;'>{{shareUserFirstArr[2].friendNum}}</text>个好友</text>
+			</view>
+
+			<view class='shareUserItem' wx:for="{{shareUserLastArr}}" wx:key="{{index}}">
+				<text class='ranking'>{{index+4}}</text>
+				<image class='userAURL' src='{{item.icon}}' />
+				<text>累计赚<text style='color:#F03C32;'>{{item.money}}</text>元</text>
+				<text class='lasttxt'>邀请了<text style='color:#F03C32;'>{{item.friendNum}}</text>个好友</text>
+			</view>
+        </view>
+
+        <view class='botBox'></view>
+    </scroll-view>
+</view>

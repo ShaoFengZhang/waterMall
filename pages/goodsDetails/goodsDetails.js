@@ -18,6 +18,7 @@ Page({
         this.setData({
             scrolloheight: wx.getSystemInfoSync().windowHeight * 2 - 92,
             scrolloheight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 92,
+			pyq:app.pyq
         });
 
         if (app.globalData.userInfo) {
@@ -113,6 +114,7 @@ Page({
             let price = (GoodDetai.goods_detail.min_group_price - GoodDetai.goods_detail.coupon_discount) / 100;
 
             GoodDetai.goods_detail.cashBack = (price * rate / 1000 * app.globalData.comRote).toFixed(2);
+			GoodDetai.goods_detail.parentCashBack = (price * rate / 1000 * app.globalData.comRote*0.216).toFixed(2);
             _this.setData({
                 GoodDetai: GoodDetai,
                 selectStar: res.type,
@@ -322,7 +324,7 @@ Page({
             success: function() {
                 wx.showModal({
                     title: '宝贝准备就绪',
-                    content: '记得发送到朋友圈,发送技巧请看下方',
+					content: `记得发送到${app.pyq}哦~`,
                     showCancel: false,
                     success: function(data) {
                         wx.previewImage({
@@ -339,7 +341,7 @@ Page({
         })
     },
 
-    // 朋友圈按钮点击
+    // friendQUan按钮点击
     generateImages: function() {
         this.drawcanvs();
     },

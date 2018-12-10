@@ -223,6 +223,15 @@ text#invalid {
     opacity: 0;
 }
 
+.gotoDetail{
+	width: 690rpx;
+    height: 342rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
 .goToHome {
     width: 220rpx;
     height: 68rpx;

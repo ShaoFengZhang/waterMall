@@ -4,6 +4,7 @@
         <image src='/assets/horn.png' /> 好友订单确认收货后15天待返现金额自动到账，无效订单除外
     </view>
 
+    <!-- 顶部分类数据展示 -->
     <view class='userData' wx:if="{{ifShowUserData}}">
         <view class='bothView'>
             <view style='font-size:36rpx;'>{{all_with_drow}}</view>
@@ -16,6 +17,7 @@
         </view>
     </view>
 
+    <!-- 分类Tab -->
     <view class='topClass'>
         <view class='noselect' data-index="1" bindtap='topSelectClick'>
             全部
@@ -35,7 +37,8 @@
         </view>
     </view>
 
-    <scroll-view wx:if="{{orderList.length}}" scroll-y style="height:{{scrolloheight}}rpx;overflow: hidden;">
+    <!-- 订单列表 -->
+    <scroll-view bindscrolltolower="dropDownRefresh" wx:if="{{orderList.length}}" scroll-y style="height:{{scrolloheight}}rpx;overflow: hidden;">
         <view class='orderItem' bindtap='hidetanchaung' wx:for="{{orderList}}" wx:key="{{index}}" wx:if="{{item.order_status!=-1}}" id='orderListItem{{index}}'>
             <view class='orderItemInfo'>
                 <text class='haoyoubangtxt' style='font-size:20rpx;color:#E02E24;'>好友帮赚</text>
@@ -63,16 +66,15 @@
     </scroll-view>
 
 
-    <scroll-view wx:if="{{!orderList.length && ifloadingup}}" scroll-y style="height:{{scrollHeight}};" bindscrolltolower="dropDownRefresh1">
+	<!-- 没有数据 -->
+    <view class='noData' wx:if="{{!orderList.length&&ifloadingup}}">
+        <image src='/assets/orderNoData.png' />
+    </view>
+    <view class='nodataTxt' wx:if="{{!orderList.length&&ifloadingup}}">您还没有相关订单哦~</view>
 
-        <view class='noData' wx:if="{{!orderList.length&&ifloadingup}}">
-            <image src='/assets/orderNoData.png' />
-        </view>
-        <view class='nodataTxt' wx:if="{{!orderList.length&&ifloadingup}}">您还没有相关订单哦~</view>
-        <view class='orderPrometTxt'>订单信息偶尔有延迟,请您不必担心哦~</view>
-    </scroll-view>
+	<view class='refreshBtn' bindtap='dropDownRefresh' wx:if="{{!orderList.length&&ifloadingup}}">点击刷新</view>
 
-
+	<!-- 点击订单弹窗 -->
     <view class='tanchaung' wx:if="{{ifShowTanchaung}}">
 
         <view class='tanchangBody'>

@@ -61,18 +61,19 @@ Page({
                 app.globalData.firstTimeWidthDraw = res.data.one;
                 app.globalData.subsequenWidthDraw = res.data.three;
                 app.globalData.singleTopWidthDraw = res.data.two;
+				app.pyq = res.data.pyq;
             }
         })
     },
 
     //获取数据
     getDataList: function(navType) {
-		console.log(this.pageCanAdd);
+        console.log(this.pageCanAdd);
         if (!this.pageCanAdd) {
             wx.showToast({
                 title: '没有更多数据了',
-				icon:'none',
-				duration:800,
+                icon: 'none',
+                duration: 800,
             });
             return;
         };
@@ -117,6 +118,7 @@ Page({
 
     // 收集FormID
     collectFormId: function(e) {
+		console.log(1311313);
         let _this = this;
         let collectFormIdUrl = wxAPIF.domin + 'addForm';
         let form_id = e.detail.formId;
@@ -132,16 +134,25 @@ Page({
         this.getDataList(this.data.selcetIndex);
     },
 
-    dropDownRefresh1: function() {
-        this.pageIndex == 0;
-        this.pageCanAdd = true;
-        this.getDataList(this.data.selcetIndex);
-    },
-
+    // 返回首页
     goToHome: function() {
         wx.switchTab({
             url: '/pages/index/index',
         })
+    },
+
+    // 跳转商品详情事件
+    goTodetail: function(e) {
+        wx.showLoading({
+            title: 'loading',
+            mask: true,
+        });
+        let good_id = e.currentTarget.dataset.goodid;
+        wx.navigateTo({
+            url: `/pages/goodsDetails/goodsDetails?good_id=${good_id}`,
+        });
+        wx.hideLoading();
+
     },
 
     // 顶部选择类别点击事件
@@ -167,4 +178,7 @@ Page({
             path: `/pages/index/index?user_openId=${wx.getStorageSync('u_id')}`,
         }
     },
+
+    // 阻止分享按钮冒泡事件
+    catchtap: function() {},
 })

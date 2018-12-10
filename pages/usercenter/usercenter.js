@@ -5,6 +5,8 @@ import wxAPIF from '../../utils/wxApiFun.js';
 Page({
 
     data: {
+        hasUserInfo: false,
+        canIUse: wx.canIUse('button.open-type.getUserInfo'),
         extraData: {
             id: '41232'
         },
@@ -15,21 +17,87 @@ Page({
         withdrow: 0,
         ifShowServiceMask: false,
         ifShowBotFuchang: false,
+        ifShowCollection: false,
+        ifShowTopPrompt: true,
     },
 
     onLoad: function(options) {
+        if (app.globalData.userInfo) {
+            this.setData({
+                userInfo: app.globalData.userInfo,
+                hasUserInfo: true
+            })
+        } else if (this.data.canIUse) {
+            app.userInfoReadyCallback = res => {
+                this.setData({
+                    userInfo: res.userInfo,
+                    hasUserInfo: true
+                });
+            }
+        } else {
+            wx.getUserInfo({
+                success: res => {
+                    app.globalData.userInfo = res.userInfo
+                    this.setData({
+                        userInfo: res.userInfo,
+                        hasUserInfo: true
+                    });
+                }
+            })
+        };
+
         this.userID = wx.getStorageSync('user_openID');
-		this.qrcodeImg = wxAPIF.domin + `get_qrcode?page=pages/index/index&scene=${wx.getStorageSync('u_id')}@no`;
-		console.log(this.qrcodeImg);
+        this.qrcodeImg = wxAPIF.domin + `get_qrcode?page=pages/index/index&scene=${wx.getStorageSync('u_id')}@no`;
+        console.log(this.qrcodeImg);
+		this.setData({
+			pyq: app.pyq
+		})
     },
 
     onShow: function() {
         this.getDataFun();
-       
+
     },
 
     onHide: function() {
 
+    },
+
+    ifShowTopPrompt: function() {
+        this.setData({
+            ifShowTopPrompt: false,
+        })
+    },
+
+    showNormolBg: function() {
+        wx.navigateTo({
+            url: '/pages/FriendList/FriendList?nav=user',
+        })
+    },
+
+    // 获取用户信息
+    getUserInfo: function(e) {
+        let btnID = e.currentTarget.id;
+        if (e && e.detail.userInfo) {
+            app.globalData.userInfo = e.detail.userInfo
+            this.setData({
+                userInfo: e.detail.userInfo,
+                hasUserInfo: true
+            });
+            let iv = e.detail.iv;
+            let encryptedData = e.detail.encryptedData;
+            let session_key = app.globalData.session_key;
+            wxAPIF.checkUserInfo(app, e.detail, iv, encryptedData, session_key);
+            if (btnID == "baoBtn") {
+                this.showNormolBg();
+            };
+        } else {
+            wx.showToast({
+                title: '专属二维码需要授权哦~',
+                icon: 'none',
+                duration: 800,
+            })
+        }
     },
 
     // 获取数据
@@ -53,8 +121,8 @@ Page({
                     user_collection: res.data.user_collection,
                     no_withdrow: (parseFloat(res.data.no_withdrow) / 100).toFixed(2), //未提现/已返现
                     withdrow: (parseFloat(res.data.withdrow) / 100).toFixed(2),
-					all_with_drow: (parseFloat(res.data.all_with_drow) / 100).toFixed(2), //好友帮赚
-					count: res.data.count //好友数量
+                    all_with_drow: (parseFloat(res.data.all_with_drow) / 100).toFixed(2), //好友帮赚
+                    count: res.data.count //好友数量
                 })
             };
             wx.hideLoading();
@@ -105,20 +173,20 @@ Page({
         })
     },
 
-	// 跳转好友订单
-	goToFriendOrder:function(e){
-		let navType = e.currentTarget.dataset.index;
-		wx.navigateTo({
-			url: `/pages/FriendOrderPage/FriendOrderPage`,
-		})
-	},
+    // 跳转好友订单
+    goToFriendOrder: function(e) {
+        let navType = e.currentTarget.dataset.index;
+        wx.navigateTo({
+            url: `/pages/FriendOrderPage/FriendOrderPage`,
+        })
+    },
 
-	// 跳转好友列表
-	goToFriendList:function(){
-		wx.navigateTo({
-			url: `/pages/FriendList/FriendList`,
-		})
-	},
+    // 跳转好友列表
+    goToFriendList: function() {
+        wx.navigateTo({
+            url: `/pages/FriendList/FriendList`,
+        })
+    },
 
     // 跳转提现页面
     goToWithDraw: function() {
@@ -137,31 +205,31 @@ Page({
 
     // 分享
     onShareAppMessage: function(e) {
-		var path = `/pages/index/index?user_openId=${wx.getStorageSync('u_id')}`;
-		if (e.from == 'button') {
-			var img = 'https://tp.datikeji.com/a/15428757949870/wkkEhOYIpk4DpnLJ37bmDsHS4CuLQAip4qszaDlo.png';
-			var title = "送你一个现金红包，我已经拿到了，你也快来领取吧！";
-		} else {
-			var img = '';
-			var title = "[到账提醒]有这么好的事，购物领券还返现";
-			
-		};
-		return {
-			title: title,
-			path: path,
-			imageUrl: img,
-		}
+        var path = `/pages/index/index?user_openId=${wx.getStorageSync('u_id')}`;
+        if (e.from == 'button') {
+            var img = 'https://tp.datikeji.com/a/15428757949870/wkkEhOYIpk4DpnLJ37bmDsHS4CuLQAip4qszaDlo.png';
+            var title = "送你一个现金红包，我已经拿到了，你也快来领取吧！";
+        } else {
+            var img = '';
+            var title = "[到账提醒]有这么好的事，购物领券还返现";
+
+        };
+        return {
+            title: title,
+            path: path,
+            imageUrl: img,
+        }
     },
 
-	// 朋友圈按钮点击
-	generateImages: function () {
-		this.drawcanvs();
-	},
+    // FriendQUan按钮点击
+    generateImages: function() {
+        this.drawcanvs();
+    },
 
     // 绘制Canvas
     drawcanvs: function() {
         wx.showLoading({
-			title: '正在生成红包',
+            title: '正在生成红包',
             mask: true,
         });
         let _this = this;
@@ -178,28 +246,28 @@ Page({
                 });
                 ctx.setFillStyle('#ffffff');
                 ctx.fillRect(0, 0, res.width, res.height);
-				ctx.drawImage(res.path, 0, 0, res.width, res.height);
+                ctx.drawImage(res.path, 0, 0, res.width, res.height);
                 ctx.setFontSize(24);
                 ctx.setTextAlign('center');
                 ctx.fillText(toptxt, res.width / 2, 326);
                 ctx.fillText(bottxt, res.width / 2, 684);
                 wx.getImageInfo({
-                	src: _this.qrcodeImg,
-                	success: function (res1) {
-						ctx.beginPath();
-						ctx.setLineWidth(2);
-						ctx.arc(282, 498, 140, 0, 2 * Math.PI);
-						ctx.setStrokeStyle('#ffffff');
-						// ctx.stroke();
-						ctx.fill()
-                		ctx.drawImage(res1.path, 142, 358, 280, 280);
-                		ctx.draw();
-						setTimeout(function(){
-							wx.hideLoading();
-							_this.showOffRecord();
-						},1000)
-                		
-                	}
+                    src: _this.qrcodeImg,
+                    success: function(res1) {
+                        ctx.beginPath();
+                        ctx.setLineWidth(2);
+                        ctx.arc(282, 498, 140, 0, 2 * Math.PI);
+                        ctx.setStrokeStyle('#ffffff');
+                        // ctx.stroke();
+                        ctx.fill()
+                        ctx.drawImage(res1.path, 142, 358, 280, 280);
+                        ctx.draw();
+                        setTimeout(function() {
+                            wx.hideLoading();
+                            _this.showOffRecord();
+                        }, 1000)
+
+                    }
                 })
 
 
@@ -209,31 +277,31 @@ Page({
 
     // 生成临时图片
     showOffRecord: function() {
-		let _this=this;
-		wx.showLoading({
-			title: '正在给红包充钱',
-			mask: true,
-		});
+        let _this = this;
+        wx.showLoading({
+            title: '正在给红包充钱',
+            mask: true,
+        });
         wx.canvasToTempFilePath({
             destWidth: this.data.bgimgW * 2,
             destHeight: this.data.bgimgH * 2,
             canvasId: 'canvas',
             success: function(res) {
                 wx.hideLoading();
-				_this.canvasSaveArgs = res;
-				_this.saveCanvas(res)
+                _this.canvasSaveArgs = res;
+                _this.saveCanvas(res)
             }
         })
     },
 
-	// 保存图片
+    // 保存图片
     saveCanvas: function(res) {
         wx.saveImageToPhotosAlbum({
             filePath: res.tempFilePath,
             success: function() {
                 wx.showModal({
                     title: '红包准备就绪',
-                    content: '记得发送到朋友圈,发送技巧请看下方',
+					content: `记得发送到${app.pyq}哦~`,
                     showCancel: false,
                     success: function(data) {
                         wx.previewImage({
@@ -250,20 +318,29 @@ Page({
         })
     },
 
-	// 即将上线
-	theOnline: function () {
-		wx.showToast({
-			title: '关注公众号,申请体验资格',
-			icon: 'none',
-			duration: 800
-		})
-	},
+    // 即将上线
+    theOnline: function() {
+        wx.showToast({
+            title: '关注公众号,申请体验资格',
+            icon: 'none',
+            duration: 800
+        })
+    },
 
-	// 跳转微信小技巧
-	goToPromptPages: function () {
-		wx.navigateTo({
-			url: '/pages/howInvite/howInvite',
-		})
-	},
+    // 跳转微信小技巧
+    goToPromptPages: function() {
+        wx.navigateTo({
+            url: '/pages/howInvite/howInvite',
+        })
+    },
+
+    // 显示影藏收藏提示大图
+    ShowCollection: function() {
+        this.setData({
+            ifShowCollection: !this.data.ifShowCollection
+        })
+    },
+
+    catchtap: function() {},
 
 })

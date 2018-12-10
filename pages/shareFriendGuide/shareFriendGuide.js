@@ -11,6 +11,9 @@ Page({
 		this.userID = wx.getStorageSync('user_openID');
 		this.qrcodeImg = wxAPIF.domin + `get_qrcode?page=pages/index/index&scene=${wx.getStorageSync('u_id')}@no`;
 		console.log(this.qrcodeImg);
+		this.setData({
+			pyq: app.pyq
+		})
 	},
 
 	onShow: function () {
@@ -56,7 +59,7 @@ Page({
 		})
 	},
 
-	// 朋友圈按钮点击
+	// friendQuan按钮点击
 	generateImages: function () {
 		this.drawcanvs();
 	},
@@ -133,7 +136,7 @@ Page({
 			success: function () {
 				wx.showModal({
 					title: '红包准备就绪',
-					content: '记得发送到朋友圈,发送技巧请看下方',
+					content: `记得发送到${app.pyq},发送技巧请看下方`,
 					showCancel: false,
 					success: function (data) {
 						wx.previewImage({

@@ -15,7 +15,12 @@
 		"pages/FriendList/FriendList",
 		"pages/FriendOrderPage/FriendOrderPage",
 		"pages/shareFriendGuide/shareFriendGuide",
-		"pages/howInvite/howInvite"
+		"pages/howInvite/howInvite",
+		"pages/shareMakes/shareMakes",
+		"pages/howSaveMoney/howSaveMoney",
+		"pages/makeMoneyWay/makeMoneyWay",
+		"pages/newGoodsList/newGoodsList",
+		"pages/zeroShopping/zeroShopping"
 	],
 	"window": {
 		"backgroundTextStyle": "light",
@@ -24,7 +29,7 @@
 		"navigationBarTextStyle": "black"
 	},
 
-	"navigateToMiniProgramAppIdList":["wx2ed91bb84c56fe04","wx32540bd863b27570","wx8abaf00ee8c3202e"],
+	"navigateToMiniProgramAppIdList":["wx316552261ac875d8","wx32540bd863b27570","wx8abaf00ee8c3202e"],
 	
 	"tabBar": {
 		"color": "#BCBCBC",
@@ -34,15 +39,21 @@
 		"list": [
 			{
 				"pagePath": "pages/index/index",
-				"text": "首页",
+				"text": "省钱买",
 				"iconPath": "/assets/index/pkicon.png",
 				"selectedIconPath": "/assets/index/pkselect.png"
 			},
 			{
-				"pagePath": "pages/search/search",
-				"text": "省钱搜",
+				"pagePath": "pages/shareMakes/shareMakes",
+				"text": "分享赚",
 				"iconPath": "/assets/index/cupicon.png",
 				"selectedIconPath": "/assets/index/cupselect.png"
+			},
+			{
+				"pagePath": "pages/search/search",
+				"text": "超级搜",
+				"iconPath": "/assets/index/search.png",
+				"selectedIconPath": "/assets/index/searchSelect.png"
 			},
 			{
 				"pagePath": "pages/usercenter/usercenter",
