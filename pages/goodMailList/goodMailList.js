@@ -15,18 +15,24 @@ Page({
     onLoad: function(options) {
         this.setData({
             scrolloheight: wx.getSystemInfoSync().windowHeight * 2 - 88
-        })
+        });
+		this.pageIndex = 0;
+		this.defaultList = [];
+		this.pageCanAdd = true;
         if (options.navType) {
             var navTitle=options.navTitle;
             this.dataType = options.navType; //取数据参数
+			this.getDataFUn();
         };
+		if (options.storeId){
+			var navTitle = options.navTitle;
+			this.storeId = options.storeId; //取数据参数
+			this.getStoreDataFUn();
+		}
         wx.setNavigationBarTitle({
             title: navTitle
         });
-        this.pageIndex = 0;
-        this.defaultList = [];
-		this.pageCanAdd = true;
-        this.getDataFUn();
+        
     },
 
     onShow: function() {
@@ -95,7 +101,12 @@ Page({
 
     // 下拉刷新数据
     dropDownRefresh: function() {
-        this.getDataFUn();
+		if (this.storeId){
+			this.getStoreDataFUn();
+		}else{
+			this.getDataFUn();
+		}
+       
     },
 
     // 图片加载事件
@@ -124,4 +135,46 @@ Page({
         }
     },
 
+	// 获取店铺商品
+	getStoreDataFUn: function (args) {
+		if (!this.pageCanAdd) {
+			wx.showToast({
+				title: '没有更多的数据了!',
+				icon: "none",
+				duration: 1200,
+			});
+			return;
+		}
+		wx.showLoading({
+			title: '数据加载中',
+			mask: true,
+		});
+		let _this = this;
+		this.pageIndex++;
+		let getStoreDataFUnUrl = wxAPIF.domin + 'getStoregoods';
+		let data = {
+			page_size: 30,
+			page_number: this.pageIndex,
+			store_id: this.storeId,
+		};
+		wxAPIF.wxRequest(app, getStoreDataFUnUrl, "POST", data, function (res) {
+			if (res.data.goods_info_list_response.goods_list < 30 || res.data.goods_info_list_response.goods_list == 0) {
+				_this.pageCanAdd = false;
+			}
+			_this.defaultList = _this.defaultList.concat(res.data.goods_info_list_response.goods_list);
+			_this.total = res.data.goods_info_list_response.total;
+			if (_this.total == 0) {
+				wx.hideLoading();
+				wx.showToast({
+					title: '暂时没有数据!',
+					icon: "none",
+					duration: 1200,
+				});
+			}
+			_this.setData({
+				defaultList: _this.defaultList,
+				ifloadingup: true,
+			});
+		})
+	},
 })

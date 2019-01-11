@@ -124,7 +124,7 @@
             </view>
 
         </view>
-
+		<ad unit-id="adunit-3402937824dcce87" class="tecentAD"></ad>
     </scroll-view>
 
     <view class='yaoqingfuchuang' wx:if="{{ifShowBotFuchang}}">
@@ -162,6 +162,13 @@
     <view class='collection' wx:if="{{ifShowCollection}}">
         <image src='https://tp.datikeji.com/a/15427908407668/YNF51Ks0IzsP8uXY8tZKBGKcQkC0ooI2cqyPW1yU.png' />
         <view bindtap='ShowCollection' class='imgbtn'></view>
+    </view>
+
+    <!-- 引导 -->
+    <view class='guideMask' wx:if="{{ifShowGuide}}" bindtap='ifShowGuide'>
+        <view class='guideICon'>
+            <image src='https://tp.datikeji.com/a/15451065913152/svOaXlihIaUDnO83bQ5ktwECVqW6FO8thitKdBtN.png' />
+        </view>
     </view>
 
 </view>

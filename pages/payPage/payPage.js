@@ -106,4 +106,11 @@ Page({
 			path: `/pages/index/index?user_openId=${wx.getStorageSync('u_id')}`,
         }
     },
+
+	// gotoDetailRule
+	gotoDetailRule:function(){
+		wx.navigateTo({
+			url: '/pages/DetailRule/DetailRule',
+		})
+	},
 })

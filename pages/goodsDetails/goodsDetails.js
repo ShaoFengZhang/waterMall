@@ -11,6 +11,7 @@ Page({
         shuffCurrent: 0,
 		ifShowFirstBao: false,
 		ifShowlastBao: false,
+		ifShowNewUser:false,
     },
 
     onLoad: function(options) {
@@ -18,7 +19,11 @@ Page({
         this.setData({
             scrolloheight: wx.getSystemInfoSync().windowHeight * 2 - 92,
             scrolloheight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 92,
-			pyq:app.pyq
+			pyq:app.pyq,
+			ifShowNewUser: app.ifNewUser && (options.origin),
+			oneRandom: this.RandomNumBoth(45,50),
+			TwoRandom: this.RandomNumBoth(45,50),
+			ThreeRandom: this.RandomNumBoth(45,50),
         });
 
         if (app.globalData.userInfo) {
@@ -59,6 +64,7 @@ Page({
         this.userID = wx.getStorageSync('user_openID');
         if (options && options.good_id) {
             this.good_id = parseInt(options.good_id);
+			this.order_type = options.order_type ? options.order_type:0,
             this.getGoodDetail(this.good_id);
             this.qrcodeImg = wxAPIF.domin + `get_qrcode?page=pages/index/index&scene=${wx.getStorageSync('u_id')}@${this.good_id}`;
             console.log(this.qrcodeImg);
@@ -66,7 +72,6 @@ Page({
 				this.dealwithRedbao();
 			};
         };
-
     },
 
     onShow: function() {
@@ -95,6 +100,7 @@ Page({
         wxAPIF.wxRequest(app, getGoodDetailUrl, "POST", {
             id: good_id,
             open_id: this.userID,
+			order_type: this.order_type
         }, function(res) {
             let GoodDetai = res.data.goods_promotion_url_generate_response.goods_promotion_url_list[0];
             _this.GoodDetai = GoodDetai;
@@ -112,9 +118,11 @@ Page({
             // 处理佣金
             let rate = GoodDetai.goods_detail.promotion_rate;
             let price = (GoodDetai.goods_detail.min_group_price - GoodDetai.goods_detail.coupon_discount) / 100;
-
+			
             GoodDetai.goods_detail.cashBack = (price * rate / 1000 * app.globalData.comRote).toFixed(2);
-			GoodDetai.goods_detail.parentCashBack = (price * rate / 1000 * app.globalData.comRote*0.216).toFixed(2);
+			GoodDetai.goods_detail.parentCashBack = (price * rate / 1000 * app.globalData.comRote*app.globalData.shareRote).toFixed(2);
+			GoodDetai.lastPrice = ((GoodDetai.goods_detail.min_group_price / 100) - (GoodDetai.goods_detail.coupon_discount / 100) - (GoodDetai.goods_detail.cashBack)).toFixed(2);
+			GoodDetai.savePrice = ((GoodDetai.goods_detail.min_group_price / 100) - (GoodDetai.lastPrice) + 2).toFixed(2);
             _this.setData({
                 GoodDetai: GoodDetai,
                 selectStar: res.type,
@@ -166,6 +174,7 @@ Page({
 
     // 收集FormID
     formSubmit: function(e) {
+		console.log(1212121);
         let _this = this;
         let collectFormIdUrl = wxAPIF.domin + 'addForm';
         if (e.detail.formId == 'the formId is a mock one') {
@@ -354,7 +363,7 @@ Page({
     },
 
 
-	// goToGoodsList
+	// goToGoodsList 一分钱好货
 	goToGoodsList: function (e) {
 		console.log(e);
 		this.setData({
@@ -426,4 +435,21 @@ Page({
 			}
 		}
 	},
+
+	// 生成随机数
+	RandomNumBoth:function(Min, Max){
+		let Range = Max - Min;
+		let Rand = Math.random();
+		let num = ((Min + Math.round(Rand * Range))/10).toFixed(2);
+		return num;
+	},
+
+	// 跳转店铺
+	goGoStoreFun:function(e){
+		let storeId = e.currentTarget.dataset.storeid;
+		let navTitle = e.currentTarget.dataset.title;
+		wx.navigateTo({
+			url: `/pages/goodMailList/goodMailList?storeId=${storeId}&navTitle=${navTitle}`,
+		})
+	}
 })

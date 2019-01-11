@@ -16,6 +16,19 @@
     background-size: 750rpx 828rpx;
 }
 
+.topBgNew {
+    width: 750rpx;
+    height: 614rpx;
+    box-sizing: border-box;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15445106783437/l4KPpJOo6W2nwqxjTuVpvCqbXWXz699wQzdMpowM.png');
+    background-size: 750rpx 614rpx;
+}
+
 .shareInfoBox {
     width: 724rpx;
     height: 462rpx;
@@ -89,6 +102,10 @@
     margin: 40rpx auto 0;
 }
 
+.ShareBtnNew {
+    margin: 30rpx auto 18rpx;
+}
+
 #contineShare {
     width: 500rpx;
     height: 88rpx;
@@ -126,7 +143,17 @@
     font-weight: bold;
     text-align: center;
     margin-top: 24rpx;
-	margin-bottom: 28rpx;
+    margin-bottom: 28rpx;
+}
+
+.zeroGouTxt text {
+    margin: 0 16rpx;
+}
+
+.zeroGouTxt image {
+    width: 26rpx;
+    height: 14rpx;
+    vertical-align: middle;
 }
 
 /* 底部列表 */
@@ -287,10 +314,167 @@
     display: inline-block;
     width: 80rpx;
     height: 36rpx;
-    background: rgba(224, 46, 36, 0.5);
+    background-color: rgba(224, 46, 36, 0.5);
     border-radius: 0rpx 18rpx 18rpx 0rpx;
 }
 
 .hover-class {
     background-color: #f2f2f2;
+}
+
+/* 规则弹窗 */
+
+.newClockMask {
+    width: 750rpx;
+    height: 100vh;
+    background: rgba(51, 51, 51, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.RuleMaskBody {
+    width: 666rpx;
+    height: 896rpx;
+    box-sizing: border-box;
+    padding: 0 48rpx 0 44rpx;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15450174217481/hVTCfH8UJRWbOZO5f9rxJNeIYakkFRQRXuyUQGnc.png');
+    background-size: 666rpx 896rpx;
+    margin: 132rpx auto 0;
+}
+
+.RuleMaskTitle {
+    width: 387rpx;
+    height: 82rpx;
+    font-size: 30rpx;
+    font-family: PingFang-SC-Bold;
+    font-weight: bold;
+    color: rgba(240, 60, 50, 1);
+    margin: 0 auto;
+    margin-top: 140rpx;
+    text-align: center;
+    line-height: 50rpx;
+}
+
+.FirstRule {
+    margin-top: 34rpx;
+}
+
+.secondRule {
+    margin-top: 24rpx;
+}
+
+.threeRule {
+    margin-top: 24rpx;
+}
+
+.FirstRuleTxt {
+    display: inline-block;
+    padding: 0;
+    width: 524rpx;
+    height: 116rpx;
+    font-size: 26rpx;
+    color: #333;
+    line-height: 40rpx;
+}
+
+.secondRuleTxt {
+    font-size: 26rpx;
+    color: #333;
+}
+
+.RuleStepICon {
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+    background: rgba(240, 60, 50, 1);
+    border-radius: 50%;
+    line-height: 30rpx;
+    font-size: 22rpx;
+    text-align: center;
+    color: #fff;
+    margin-right: 20rpx;
+    position: relative;
+    top: 6rpx;
+    vertical-align: top;
+}
+
+.jieshiTxt {
+    font-size: 22rpx;
+    color: #f03c32;
+    text-indent: 2em;
+    line-height: 40rpx;
+    margin-top: 28rpx;
+}
+
+.jieshiTxt2 {
+    margin-top: 0rpx;
+}
+
+/* .secondRuleStepICon {
+    position: static;
+    vertical-align: middle;
+} */
+
+.RuleMaskBtn {
+    width: 286rpx;
+    height: 76rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    line-height: 76rpx;
+    box-sizing: border-box;
+    padding: 0 48rpx 0 44rpx;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15446856279798/mF2pwxgrLREJQdzdLGRCIs54GIZs9tObssHxodUT.png');
+    background-size: 286rpx 76rpx;
+    margin: 40rpx auto 0;
+    padding-left: 110rpx;
+}
+
+/* 红包弹窗 */
+
+.redEnvelopeBody {
+    width: 616rpx;
+    height: 882rpx;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15450151314445/lZlnWmFIPoIBO6yecw1f1foMW0AX8uFsPNoXSQia.png');
+    background-size: 616rpx 882rpx;
+    margin: 116rpx auto 0;
+}
+
+.redEnvelopeTxt {
+    width: 422rpx;
+    height: 70rpx;
+    font-size: 26rpx;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    margin: 486rpx auto 0;
+}
+
+.splitTxt {
+    width: 186rpx;
+    height: 186rpx;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15450164438620/JZXG0ScRFkPCXagR2GAD8A3nIxGzxvGtBB56KtmW.png');
+    background-size: 186rpx 186rpx;
+	margin: 60rpx auto 0;
 }

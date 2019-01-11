@@ -96,7 +96,8 @@ Page({
                     let rate = res.data[i].promotion_rate;
                     let price = (res.data[i].order_amount) / 100;
 
-                    res.data[i].cashBack = (price * rate / 1000 * app.globalData.comRote).toFixed(2);
+                    // res.data[i].cashBack = (price * rate / 1000 * app.globalData.comRote).toFixed(2);
+					res.data[i].cashBack = (res.data[i].promotion_amount/100).toFixed(2);
                 }
                 _this.defaultList = _this.defaultList.concat(res.data);
                 for (let i = 0; i < _this.defaultList.length; i++) {

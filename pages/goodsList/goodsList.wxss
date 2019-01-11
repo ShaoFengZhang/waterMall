@@ -190,3 +190,19 @@
 	position:relative;
 	top: -60rpx;
 }
+
+/* 引导页 */
+.guideMask{
+	width: 100vh;
+    height: 100vh;
+    /* background: rgba(0, 0, 0, 0.8); */
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.guideICon,.guideICon image{
+	width: 750rpx;
+	height: 100vh;
+}

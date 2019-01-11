@@ -194,7 +194,7 @@ Page({
                         ctx.drawImage(res2.path, 54, 40, 120, 120);
                         ctx.restore();
                         ctx.beginPath();
-                        ctx.setLineWidth(4);
+                        ctx.setLineWidth(2);
                         ctx.arc(114, 100, 62, 0, 2 * Math.PI);
                         ctx.setStrokeStyle('rgba(237,73,64,0.3)');
                         ctx.stroke();

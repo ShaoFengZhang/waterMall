@@ -85,9 +85,20 @@ Page({
             if (wx.getStorageSync('user_openID') && !app.callgoToOrderMent) {
                 this.goToOrderMent();
             }
-        }
+        };
+		if (options && options.clock) {
+			console.log("MMMMMMMMMM")
+			app.GoToClock = this.GoToClock;
+			if (wx.getStorageSync('user_openID') && !app.callGoToClock) {
+				this.GoToClock();
+			}
+		}
 
         // 首页参数处理
+		this.level=0;
+		if (options && options.level){
+			this.level = options.level;
+		}
         if (options && options.user_openId) {
             wx.showLoading({
                 title: '精品宝贝挑选中',
@@ -101,7 +112,8 @@ Page({
             }
             app.argsDealWith = this.argsDealWith;
         }
-        console.log('????????', options);
+
+		// 二维码带参处理
         if (options && options.scene) {
             console.log('SCENE');
             wx.showLoading({
@@ -168,6 +180,13 @@ Page({
             toView: "secondClass"
         })
     },
+
+	// 跳转0元购
+	goToZeroShopping:function(){
+		wx.navigateTo({
+			url: '/pages/zeroShopping/zeroShopping',
+		})
+	},
 
     // 获取默认数据
     getDefaultList: function(opt_id, sort_type) {
@@ -469,6 +488,13 @@ Page({
         })
     },
 
+	// 跳转如何省钱
+	goToPinSaveMoney:function(){
+		wx.navigateTo({
+			url: '/pages/howSaveMoney/howSaveMoney',
+		})
+	},
+
     // 红包弹窗处理 隐藏
     hideMask: function(e) {
         console.log(e);
@@ -578,10 +604,20 @@ Page({
     bindParent: function() {
         let _this = this;
         let bindParentUrl = wxAPIF.domin + 'bindParent';
-        wxAPIF.wxRequest(_this, bindParentUrl, "POST", {
-            open_id: wx.getStorageSync('user_openID'),
-            parent_id: this.parentId,
-        }, function(res) {
+		if (this.level==0){
+			var ParentData = {
+				open_id: wx.getStorageSync('user_openID'),
+				parent_id: this.parentId,
+			}
+		}else{
+			var ParentData = {
+				open_id: wx.getStorageSync('user_openID'),
+				parent_id: this.parentId,
+				pid_type: 1,
+				pid_level: this.level,
+			}
+		}
+		wxAPIF.wxRequest(_this, bindParentUrl, "POST", ParentData, function(res) {
             console.log("绑定父子关系");
             console.log(res);
             if (res.code == -1) {
@@ -600,6 +636,12 @@ Page({
                 if (_this.shareGoodsId != 'no') {
                     _this.bindShare();
                 } else {
+					console.log("SSSSSS")
+					if (_this.level != 0) {
+						wx.navigateTo({
+							url:`/pages/zeroShopping/zeroShopping?shareNew=123`,
+						})
+					}
                     wx.hideLoading();
                 }
             }
@@ -676,4 +718,12 @@ Page({
             url: `/pages/orderManagement/orderManagement?templateInfo=123`,
         })
     },
+
+	//跳转签到页面
+	GoToClock:function(){
+		app.callGoToClock = false;
+		wx.switchTab({
+			url: '/pages/shareMakes/shareMakes',
+		});
+	},
 })

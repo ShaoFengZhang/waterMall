@@ -1,5 +1,5 @@
-// const domin = "https://xcx12.18yx.com/api/"; //现在线上
-const domin = "https://xcx5.18yx.com/api/"; //现在测试
+// const domin = "https://xcx12.18yx.com/api/"; //现在测试
+const domin = "https://xcx5.18yx.com/api/"; //现在线上
 const LoginURl = `${domin}login`;
 const checkUserUrl = `${domin}updateUser`;
 
@@ -28,16 +28,22 @@ const wxloginfnc = (app) => {
                         app.getConfigData();
                     };
                     if (app.goToPayMent) {
-						app.callgoToPayMent=true;
+                        app.callgoToPayMent = true;
                         app.goToPayMent();
-                    }else{
-						app.callgoToPayMent = false;
-					}
+                    } else {
+                        app.callgoToPayMent = false;
+                    }
                     if (app.goToOrderMent) {
-						app.callgoToOrderMent = true;
+                        app.callgoToOrderMent = true;
                         app.goToOrderMent();
-                    }else{
-						app.callgoToOrderMent = false;
+                    } else {
+                        app.callgoToOrderMent = false;
+                    }
+					if (app.GoToClock) {
+						app.callGoToClock = true;
+						app.GoToClock();
+					} else {
+						app.callGoToClock = false;
 					}
                     if (app.argsDealWith) {
                         app.callArgsDealWith = true;
@@ -106,8 +112,8 @@ const requestURl = (app, url, method, data, cb) => {
         data: data,
         method: method,
         success: function(resdata) {
-            app.netBlock = 0;
             // console.log(url, resdata);
+            app.netBlock = 0;
             cb(resdata.data);
         },
         fali: function(res) {
@@ -122,6 +128,7 @@ const requestURl = (app, url, method, data, cb) => {
             if (!res.statusCode) {
                 app.netBlock++;
                 wx.hideLoading();
+                console.log("app.netBlock", app.netBlock)
                 if (app.netBlock < 3) {
                     requestURl(app, url, method, data, cb)
                 } else {
@@ -138,8 +145,19 @@ const requestURl = (app, url, method, data, cb) => {
                     })
                 }
 
-            }
-
+            };
+			if(res.statusCode==500){
+				wx.showModal({
+					title: '提示',
+					content: '服务器抛锚了,请稍后再试',
+					showCancel: false,
+					success: function (res) {
+						wx.switchTab({
+							url: '/pages/index/index'
+						})
+					}
+				})
+			}
         }
     })
 };

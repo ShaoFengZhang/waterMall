@@ -143,7 +143,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-	margin-top: 40rpx;
+	margin-top: 20rpx;
     margin-bottom: 38rpx;
 }
 
@@ -337,6 +337,10 @@ navigator {
 	margin-bottom: 16rpx;
 }
 
+.secondClassItem:nth-child(n+5){
+	margin-bottom: 6rpx;
+}
+
 .secondClassItem:nth-child(4n+0) {
     margin-right: 0rpx;
 }
@@ -353,7 +357,7 @@ navigator {
 .shareNewUser {
     width: 690rpx;
     height: 160rpx;
-    margin: 12rpx auto 0rpx;
+    margin: 0rpx auto 0rpx;
     position: relative;
 }
 

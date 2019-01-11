@@ -1,157 +1,117 @@
 <view class="bg">
     <scroll-view id='scroolBg' scroll-y style="height:100vh;">
 
-        <view class='topBg'>
+        <view class='topBg' wx:if="{{!ifShowTopBgNew}}">
 
             <view class='shareInfoBox'>
 
                 <view class='childInfoBox'>
-                    <!-- <view class='childNoinfo'>?</view> -->
-                    <image src='/assets/defaultIcon.png' />
-                    <view class='addicon'>+</view>
 
-                    <!-- <view class='childNoinfo'>?</view> -->
-                    <image src='/assets/defaultIcon.png' />
-                    <view class='addicon'>+</view>
+                    <block>
+                        <view class='childNoinfo' wx:if="{{user_num<1}}">?</view>
+                        <image src='{{userList[0].pic}}' wx:if="{{user_num>=1}}" />
+                        <view class='addicon'>+</view>
+                    </block>
 
-                    <!-- <view class='childNoinfo'>?</view> -->
-                    <image src='/assets/defaultIcon.png' />
-                    <view class='addicon'>+</view>
+                    <block>
+                        <view class='childNoinfo' wx:if="{{user_num<2}}">?</view>
+                        <image src='{{userList[1].pic}}' wx:if="{{user_num>=2}}" />
+                        <view class='addicon'>+</view>
+                    </block>
 
-                    <!-- <view class='childNoinfo'>?</view> -->
-                    <image src='/assets/defaultIcon.png' />
-                    <view class='addicon'>+</view>
+                    <block>
+                        <view class='childNoinfo' wx:if="{{user_num<3}}">?</view>
+                        <image src='{{userList[2].pic}}' wx:if="{{user_num>=3}}" />
+                        <view class='addicon'>+</view>
+                    </block>
 
-                    <view class='childNoinfo'>?</view>
-                    <!-- <image src='/assets/defaultIcon.png' /> -->
-                    <view class='addicon'>+</view>
+                    <block>
+                        <view class='childNoinfo' wx:if="{{user_num<4}}">?</view>
+                        <image src='{{userList[3].pic}}' wx:if="{{user_num>=4}}" />
+                        <view class='addicon' wx:if="{{zero_level>1}}">+</view>
+                    </block>
 
-                    <view class='childNoinfo'>?</view>
-                    <!-- <image src='/assets/defaultIcon.png' /> -->
+                    <block wx:if="{{zero_level>=2}}">
+                        <view class='childNoinfo' wx:if="{{user_num<5}}">?</view>
+                        <image src='{{userList[4].pic}}' wx:if="{{user_num>=5}}" />
+                        <view class='addicon' wx:if="{{zero_level>2}}">+</view>
+                    </block>
+
+                    <block wx:if="{{zero_level>=3}}">
+                        <view class='childNoinfo' wx:if="{{user_num<6}}">?</view>
+                        <image src='{{userList[5].pic}}' wx:if="{{user_num>=6}}" />
+                    </block>
+
                 </view>
 
-                <view class='ShareBtn'>
-                    <text>{{shareBtnTxt}}</text>
+                <view class='ShareBtn' wx:if="{{!ifShowLingqu}}">
+                    <text>马上去邀请</text>
                     <button id='contineShare' open-type='share'></button>
                 </view>
 
+                <view class='ShareBtn' wx:if="{{ifShowLingqu}}" bindtap='zeroReceiveChance'>
+                    <text>{{shareBtnTxt}}</text>
+                </view>
+
                 <view class='remainingTxt'>
-                    您现在还剩下
-                    <text style='color:#E02E24;'>{{iniviteNumber}}</text> 次机会
+                    <block wx:if="{{zero_level<=3}}">
+                        邀请
+                        <text style='color:#E02E24;'> {{shareUserNum}} </text>人可获得一次机会,
+                    </block> 
+					您现在拥有
+                    <text style='color:#E02E24;'>{{zero_num}}</text> 次机会
                 </view>
             </view>
 
-			<view class='activityRules' bindtap='goToRulerPage'></view>
+            <view class='activityRules' bindtap='goToRulerPage'></view>
 
         </view>
 
-		<view class='zeroGouTxt'>0元购物 可选商品</view>
+        <view class='topBgNew' wx:if="{{ifShowTopBgNew}}">
+            <view class='activityRules' bindtap='goToRulerPage'></view>
+        </view>
 
-		<view class="goodsIteam" hover-class="hover-class">
+        <view class='ShareBtn ShareBtnNew' bindtap='helpFriendBuy' wx:if="{{ifShowTopBgNew}}">
+            <text>帮他0元购</text>
+        </view>
+
+        <view class='zeroGouTxt'>
+            <image src='/assets/leftThree.png' />
+            <text>0元购物 可选商品</text>
+            <image src='/assets/leftThree.png' />
+        </view>
+
+        <view class="goodsIteam" data-goodID="{{item.goods_id}}" bindtap='goTodetail' hover-class="hover-class" wx:for="{{goodslistArr}}" wx:key="{{index}}">
 
             <view class='goodsIcon'>
-                <image src='/assets/defaultIcon.png' bindload="imageLoad" />
+                <image src='{{item.goods_pic}}' />
             </view>
 
             <view class='goodsDesc'>
 
                 <view class='goodstitle'>
-                    【限时亏本】七格格高领连衣裙2018冬季新哈哈哈哈哈款条……
+                    {{item.goods_name}}
                 </view>
 
                 <view class='goodsPrice'>
                     <view class='lastPrice'>
-                        <text style='font-size:26rpx;'>￥</text>1239.99
+                        <text style='font-size:26rpx;'>￥</text>{{(item.goods_price-item.goods_coupon_price)/100}}
                     </view>
 
-                    <view class='normalPrice'>￥1269.99</view>
+                    <view class='normalPrice'>￥{{(item.goods_price)/100}}</view>
                 </view>
 
                 <view class='shareCommissionTxt'>当前商品邀请新人可享受0元购</view>
 
             </view>
 
-			<view class='VIPbox'>
-				<view class='VIPtxt'>VIP</view>
-				<view class='zerotxt'>0元购</view>
-			</view>
+            <view class='VIPbox'>
+                <view class='VIPtxt'>VIP</view>
+                <view class='zerotxt'>0元购</view>
+            </view>
 
             <view class='shareGood' catchtap='catchtap'>
-                <button id='shareGoodBtn' data-goodID='{{item.goods_id}}' data-img="{{item.goods_thumbnail_url}}" open-type="share">
-                    <image lazy-load="{{true}}" src='/assets/index/shareIcon.png' />
-                    <text>分享赚</text>
-                </button>
-            </view>
-        </view>
-
-		<view class="goodsIteam" hover-class="hover-class">
-
-            <view class='goodsIcon'>
-                <image src='/assets/defaultIcon.png' bindload="imageLoad" />
-            </view>
-
-            <view class='goodsDesc'>
-
-                <view class='goodstitle'>
-                    【限时亏本】七格格高领连衣裙2018冬季新哈哈哈哈哈款条……
-                </view>
-
-                <view class='goodsPrice'>
-                    <view class='lastPrice'>
-                        <text style='font-size:26rpx;'>￥</text>1239.99
-                    </view>
-
-                    <view class='normalPrice'>￥1269.99</view>
-                </view>
-
-                <view class='shareCommissionTxt'>当前商品邀请新人可享受0元购</view>
-
-            </view>
-
-			<view class='VIPbox'>
-				<view class='VIPtxt'>VIP</view>
-				<view class='zerotxt'>0元购</view>
-			</view>
-
-            <view class='shareGood' catchtap='catchtap'>
-                <button id='shareGoodBtn' data-goodID='{{item.goods_id}}' data-img="{{item.goods_thumbnail_url}}" open-type="share">
-                    <image lazy-load="{{true}}" src='/assets/index/shareIcon.png' />
-                    <text>分享赚</text>
-                </button>
-            </view>
-        </view>
-
-		<view class="goodsIteam" hover-class="hover-class">
-
-            <view class='goodsIcon'>
-                <image src='/assets/defaultIcon.png' bindload="imageLoad" />
-            </view>
-
-            <view class='goodsDesc'>
-
-                <view class='goodstitle'>
-                    【限时亏本】七格格高领连衣裙2018冬季新哈哈哈哈哈款条……
-                </view>
-
-                <view class='goodsPrice'>
-                    <view class='lastPrice'>
-                        <text style='font-size:26rpx;'>￥</text>1239.99
-                    </view>
-
-                    <view class='normalPrice'>￥1269.99</view>
-                </view>
-
-                <view class='shareCommissionTxt'>当前商品邀请新人可享受0元购</view>
-
-            </view>
-
-			<view class='VIPbox'>
-				<view class='VIPtxt'>VIP</view>
-				<view class='zerotxt'>0元购</view>
-			</view>
-
-            <view class='shareGood' catchtap='catchtap'>
-                <button id='shareGoodBtn' data-goodID='{{item.goods_id}}' data-img="{{item.goods_thumbnail_url}}" open-type="share">
+                <button id='shareGoodBtn' data-goodID='{{item.goods_id}}' data-img="{{item.goods_pic}}" open-type="share">
                     <image lazy-load="{{true}}" src='/assets/index/shareIcon.png' />
                     <text>分享赚</text>
                 </button>
@@ -160,4 +120,39 @@
 
         <view class='botBox'></view>
     </scroll-view>
+
+    <!-- 规则 -->
+    <view class='newClockMask RuleMask' wx:if="{{ifShowRuleMask}}" bindtap='goToRulerPage'>
+        <view class='RuleMaskBody'>
+            <view class='RuleMaskTitle'>平台提供优质商品作为给主动邀请新人的用户的福利</view>
+
+            <view class='RuleStep FirstRule'>
+                <text class='RuleStepICon'>1</text>
+                <text class='FirstRuleTxt'>通过本页面邀请新人成功可以获得购买0元购商品的机会，多邀多得（ 0元购可与邀请新人奖励叠加 ）</text>
+            </view>
+
+            <view class='RuleStep secondRule '>
+                <text class='RuleStepICon'>2</text>
+                <text class='FirstRuleTxt'>为了公平和防范作弊，用户邀请来的新用户必须成功下单作为验证，请你到时务必提醒好友（ 下单成功后可取消 ）</text>
+            </view>
+
+            <view class='RuleStep threeRule '>
+                <text class='RuleStepICon'>3</text>
+                <text class='FirstRuleTxt'>获得0元购资格的用户需要在专区购买商品，确认收货后15天，系统会自动返还订单金额
+(仅限购买一件，若发生退货则当次资格取消)</text>
+            </view>
+            <view class='jieshiTxt'>*0元购商品仅限下单一件，多买无法享受0元购特权。</view>
+            <view class='jieshiTxt jieshiTxt2'>*取消订单方法：我的——订单管理——对应订单——售后和物流——跳转拼多多</view>
+            <!-- <view class='RuleMaskBtn' bindtap='RuleMakIknow'>我知道了</view> -->
+        </view>
+
+    </view>
+
+    <!-- 红包 -->
+    <view class='newClockMask redEnvelope' bindtap='goToIndex' wx:if="{{ifShowNewUserMask}}">
+        <view class='redEnvelopeBody'>
+            <view class='redEnvelopeTxt'>就剩最后一步了，只要激活新人红包， 你就能成功帮好友助力!</view>
+            <view class='splitTxt'></view>
+        </view>
+    </view>
 </view>

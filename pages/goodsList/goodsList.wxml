@@ -53,4 +53,11 @@
         <image src='/assets/goTop.png' />
         <view class='gotoTopTxt'>顶部</view>
     </view>
+
+	<!-- 引导 -->
+	<view class='guideMask' wx:if="{{ifShowGuide}}" bindtap='guideMaskClick'>
+		<view class='guideICon'>
+			<image src='https://tp.datikeji.com/a/15451074152180/1qTa7NcHVrfr109lQEyrsJgRO0K8Y2OFXOpDZWwr.png' />
+		</view>
+	</view>
 </view>

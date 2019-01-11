@@ -1,0 +1,43 @@
+<view class="bg">
+    <scroll-view scroll-y style="height:100vh;">
+        <view class='saveMoneyWhat'>
+            <view class='problem'>
+                <image src='/assets/newUser/wen.png' />
+                <text>核心问题解答</text>
+            </view>
+            <view class='answer'>
+                <image src='/assets/newUser/da.png' />
+                <text class='viewTxt'>您购买商品返的佣金 <text style="color:#E02E24">一定会返还！一定会！！！</text>同理，下级好友购买商品的佣金返还给好友的同时也会同时把提成给你<text style="color:#E02E24">（ 佣金一定会返现 ）</text></text>
+            </view>
+        </view>
+
+        <view class='LineBox'></view>
+
+        <view class='saveMoneyWhat saveMoneyWhat2'>
+            <view class='problem'>
+                <image src='/assets/newUser/wen.png' />
+                <text>为什么我确认收货了，返现还没到 ？</text>
+            </view>
+            <view class='answer'>
+                <image src='/assets/newUser/da.png' />
+                <text class='viewTxt'>可以参考以下系统判断是否能返现的详细规则：</text>
+            </view>
+        </view>
+
+        <view class='LineBox'></view>
+
+        <view class='howSaveMoney'>
+            <image src='https://tp.datikeji.com/a/15472035948513/NwVrWnWBYeSfvdChsWtc23gxZRn0UalRQXMqOqe9.png' />
+
+			<view class='customerService'>
+                <button id='contact' open-type='contact'></button>
+            </view>
+
+            <view class='handRow LeftRightAni'>
+                <image style='margin-top: 0rpx;' src='https://tp.datikeji.com/a/15441700608349/VNLrGLVSRb5MS8xp4mYzyACMXa2HcVMdHWa49FXA.png' /> <text>留言试试</text> 
+            </view>
+        </view>
+
+
+    </scroll-view>
+</view>

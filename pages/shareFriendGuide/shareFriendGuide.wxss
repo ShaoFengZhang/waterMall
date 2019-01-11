@@ -240,6 +240,7 @@
 }
 
 /* 动效 */
+
 .LeftRightAni {
     animation: ani 0.5s linear 0.5s infinite;
 }
@@ -249,20 +250,20 @@
         transform: translateX(0px);
     }
 
-   25% {
+    25% {
         transform: translateX(-4px);
     }
 
-	50% {
+    50% {
         transform: translateX(0px);
     }
 
-	75% {
+    75% {
         transform: translateX(4px);
     }
 
-	100% {
+    100% {
         transform: translateX(0px);
     }
-
 }
+

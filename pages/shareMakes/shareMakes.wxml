@@ -15,7 +15,14 @@
 
             <!-- 树木 -->
             <view class='tresss'>
-                <image src='https://tp.datikeji.com/a/15439029271953/PEreeTFJ6FBHB7gZvASlyIwrNYJBT4BhahJYTcHu.png' />
+                <image wx:if="{{userNowEnergy < 20}}" src='https://tp.datikeji.com/a/15450360104247/C0PmsY7jBV7PxheAiodfC87ky06BICvS07B6DL3k.png'></image>
+
+                <image wx:if="{{userNowEnergy<100 && userNowEnergy>=20}}" src='https://tp.datikeji.com/a/15450360293823/FBSZwpMeALjY8lLcmWpmJ2RTz59fcgxi3dw7X36e.png'></image>
+
+                <image wx:if="{{userNowEnergy<400 && userNowEnergy>=100}}"src='https://tp.datikeji.com/a/15450360432505/RwACugj0xaN59pTUqxduPMIHeP8Ef9gvybKoJFoP.png'></image>
+                <image wx:if="{{userNowEnergy<1000 && userNowEnergy>=400}}"src='https://tp.datikeji.com/a/15450360594618/KJH8hvycRDrzTOGAKp2VksX8lCvH9WjvXQPOpl8A.png'></image>
+                <image wx:if="{{userNowEnergy<2000 && userNowEnergy>=1000}}"src='https://tp.datikeji.com/a/15450360763614/6WcJJdvGsyIDSeplf1C1xTdZZeBzMjOqmbIIAetk.png'></image>
+                <image wx:if="{{userNowEnergy>=2000}}"src='https://tp.datikeji.com/a/15445190987390/yRCodfktYNlkomsI46OAXN5ex8mxqeMG2T1hEHio.png' ></image>
             </view>
 
             <!-- 签到能量圈 -->
@@ -25,12 +32,12 @@
             <view class='energyBox NewUserCircle ani2' bindtap='goToSharePage'>
                 <view style='font-size:22rpx;font-weight:bold;'>邀请新人赚</view>
                 <view style='font-weight:bold;'>
-                    <text style='font-size:34rpx;'>2</text>元/人
+                    <text style='font-size:32rpx;'>2</text>元/人
                 </view>
             </view>
 
             <!-- OneCircle -->
-            <view bindtap='collectEnergy' data-num="one" data-goodsId='{{orderList[0].id}}' wx:if="{{ifShowOne && orderList.length>=1?true:false}}" class='energyBox OneCircle Circlequan {{nAni1}}'>
+            <view bindtap='collectEnergy' data-num="one" data-order_sn='{{orderList[0].order_sn}}' data-goodsId='{{orderList[0].id}}' wx:if="{{ifShowOne && orderList.length>=1?true:false}}" class='energyBox OneCircle Circlequan {{nAni1}}'>
                 <view wx:if="{{orderList[0].order_status==1 || orderList[0].order_status==2}}">等待提成</view>
                 <view wx:if="{{orderList[0].order_status==3}}">领取提成</view>
                 <view wx:if="{{orderList[0].order_status==-1}}">未支付</view>
@@ -38,12 +45,12 @@
                 <view wx:if="{{orderList[0].order_status==5}}">已结算</view>
                 <view wx:if="{{orderList[0].order_status==8}}">无佣金订单</view>
                 <view>
-                    <text style='font-size:34rpx;font-weight:bold;'>{{orderList[0].cashBack}}</text>元
+                    <text style='font-size:32rpx;font-weight:bold;'>{{orderList[0].cashBack}}</text>元
                 </view>
             </view>
 
             <!-- TwoCircle -->
-            <view bindtap='collectEnergy' data-num="two" data-goodsId='{{orderList[1].id}}' wx:if="{{ifShowTwo && orderList.length>=2?true:false}}" class='energyBox TwoCircle Circlequan {{nAni2}}'>
+            <view bindtap='collectEnergy' data-num="two" data-order_sn='{{orderList[1].order_sn}}' data-goodsId='{{orderList[1].id}}' wx:if="{{ifShowTwo && orderList.length>=2?true:false}}" class='energyBox TwoCircle Circlequan {{nAni2}}'>
                 <view wx:if="{{orderList[0].order_status==1 || orderList[0].order_status==2}}">等待提成</view>
                 <view wx:if="{{orderList[0].order_status==3}}">领取提成</view>
                 <view wx:if="{{orderList[0].order_status==-1}}">未支付</view>
@@ -51,12 +58,12 @@
                 <view wx:if="{{orderList[0].order_status==5}}">已结算</view>
                 <view wx:if="{{orderList[0].order_status==8}}">无佣金订单</view>
                 <view>
-                    <text style='font-size:34rpx;font-weight:bold;'>{{orderList[1].cashBack}}</text>元
+                    <text style='font-size:32rpx;font-weight:bold;'>{{orderList[1].cashBack}}</text>元
                 </view>
             </view>
 
             <!-- ThreeCircle -->
-            <view bindtap='collectEnergy' data-num="three" data-goodsId='{{orderList[2].id}}' wx:if="{{ifShowThree && orderList.length>=3?true:false}}" class='energyBox ThreeCircle Circlequan {{nAni3}}'>
+            <view bindtap='collectEnergy' data-num="three" data-order_sn='{{orderList[2].order_sn}}' data-goodsId='{{orderList[2].id}}' wx:if="{{ifShowThree && orderList.length>=3?true:false}}" class='energyBox ThreeCircle Circlequan {{nAni3}}'>
                 <view wx:if="{{orderList[0].order_status==1 || orderList[0].order_status==2}}">等待提成</view>
                 <view wx:if="{{orderList[0].order_status==3}}">领取提成</view>
                 <view wx:if="{{orderList[0].order_status==-1}}">未支付</view>
@@ -64,12 +71,12 @@
                 <view wx:if="{{orderList[0].order_status==5}}">已结算</view>
                 <view wx:if="{{orderList[0].order_status==8}}">无佣金订单</view>
                 <view>
-                    <text style='font-size:34rpx;font-weight:bold;'>{{orderList[2].cashBack}}</text>元
+                    <text style='font-size:32rpx;font-weight:bold;'>{{orderList[2].cashBack}}</text>元
                 </view>
             </view>
 
             <!-- 分享赚攻略 -->
-            <view class='shareGoodWay' bindtap='goToGoodWay'>分享赚攻略 ></view>
+            <!-- <view class='shareGoodWay' bindtap='goToGoodWay'>分享赚攻略 ></view> -->
             <!-- <view class='shareGoodWay treeRule' bindtap='goToGoodWay'>能量树规则 ></view> -->
 
             <!-- 顶部swiper -->
@@ -85,6 +92,16 @@
                 </swiper-item>
             </swiper>
 
+            <!-- 等级 -->
+            <view class='levelInfo'>
+                <view class='leftProgress'>
+                    <view class='smallProgess' wx:if="{{ifShowProgess}}" style='width:{{smallProgessWidth}}rpx'></view>
+                </view>
+                <image mode='aspectFit' class='levelInfoIcon' src='{{levelICon}}' />
+                <image class='levelRightIcon' bindtap='goToGoodWay' src='https://tp.datikeji.com/a/15445219405200/wLpVppKKQcrQW9VjlFWot5CIOuhOHujSCqMYxQmB.png' />
+                <image class='levelRightIcon'  bindtap='RuleMakIknow' src='https://tp.datikeji.com/a/15445219577685/13qdiRyHpSPoJmMd9RubTDVAy2qnUm8uLdiP0RiO.png' />
+            </view>
+
             <!-- 用户信息 -->
             <view class='userInfo'>
 
@@ -95,13 +112,11 @@
 
                     <view class='infoDOller' bindtap='gotoFriendOrder'>
                         <view class='all_money'>
-							<text class='point'></text>
-                            好友已累计消费
+                            <text class='point'></text> 好友已累计消费
                             <text style='color:#E02E24;font-size:30rpx;'>{{all_money}}</text> 元
                         </view>
                         <view class='all_royalty'>
-							<text class='point'></text>
-                            我从中获得提成
+                            <text class='point'></text> 我从中获得提成
                             <text style='color:#E02E24;font-size:30rpx;'>{{all_royalty}}</text> 元
                         </view>
                     </view>
@@ -112,7 +127,7 @@
                         <button catchtap='catchtap' wx:if="{{!hasUserInfo && canIUse}}" id='baoBtn' lang='zh_CN' open-type='getUserInfo' bindgetuserinfo="getUserInfo"></button>
                     </view>
 
-					<view class='myQrCode'>我的邀请码</view>
+                    <view class='myQrCode'>我的邀请码</view>
                 </view>
 
                 <view class='infoLine'></view>
@@ -120,18 +135,19 @@
                 <view class='userInfoBot'>
                     <view class='friendNum'> 好友数量:
                         <text style='color:#E02E24;font-size:34rpx;'> {{firend_num}} 人</text> </view>
-                    <button id='shareID' open-type='share'>继续邀请</button>
+                    <button id='shareID' open-type='share' bindtap='QuickToInvite'>快速邀请</button>
+					<view class='goToFriendList' bindtap='goToFriendList'></view>
                 </view>
             </view>
 
         </view>
 
         <!-- 零元购物按钮 -->
-        <view class='centerShareBtnBox'  bindtap='GotoZeroBuy'>
+        <view class='centerShareBtnBox' bindtap='GotoZeroBuy'>
             <image class='breath1' src='https://tp.datikeji.com/a/15439121724616/IqjXvoKTOxbOHAgy9PDpqEqkQY1IwbBxAc1MrNIz.png' />
         </view>
 
-        <view class='zhenduixing'>针对性分享：赚的更多，提成更高</view>
+        <view class='zhenduixing'>针对特定人群分享：赚的更多，提成更高</view>
 
         <view class='botSwiperBox' wx:for="{{botSwiper}}" wx:key="index">
             <view class='botSwiperTex'>
@@ -148,16 +164,97 @@
             </view>
         </view>
         <view class='botBox'></view>
+		<ad unit-id="adunit-f93f01c64192f28e" class="tecentAD"></ad>
     </scroll-view>
 
-	<view class='clockMask' wx:if="{{ifshowClockMask}}">
-		<view class='clockMaskBody'>
-			<view class='redBaoNum'>获得{{clockprice/100}}元红包</view>
-			<view class='qiandao'>签到成功</view>
-			<view class='clockBtnBox'>
-				<view class='clockBtnLeft' bindtap='checkprice'>查看钱包</view>
-				<view class='clockBtnRight' bindtap='IKnowClick'>我知道了</view>
-			</view>
+    <!-- <view class='clockMask' wx:if="{{ifshowClockMask}}">
+        <view class='clockMaskBody'>
+            <view class='redBaoNum'>获得{{clockprice/100}}元红包</view>
+            <view class='qiandao'>签到成功</view>
+            <view class='clockBtnBox'>
+                <view class='clockBtnLeft' bindtap='checkprice'>查看钱包</view>
+                <view class='clockBtnRight' bindtap='IKnowClick'>我知道了</view>
+            </view>
+        </view>
+    </view> -->
+
+    <!-- 签到红包 -->
+    <view class='newClockMask' wx:if="{{ifshowClockMask}}">
+        <view class='newClockMaskBody'>
+            <view class='newClockMaskNum'>获得{{clockprice/100}}元红包</view>
+            <view class="newClockMaskQiandao">签到成功</view>
+            <view class='makeAnTxt'>
+                <text style='font-size:30rpx;'>预约明天签到</text>
+                <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                    <text style='font-size:34rpx;font-weight:bold;'>{{time}}</text>
+                    <image src='https://tp.datikeji.com/a/15446034745796/mNsYN05skvTGpdTh81VIGINnMR37HixA8n8uxL3D.png' />
+                </picker>
+            </view>
+            <view class='newClockBtn'>
+                <view class='noMakeAn' bindtap='IKnowClick'>不要预约</view>
+                <view class="Iknow" bindtap='makeAnFun'>我知道了</view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 升级红包 -->
+    <view class='upgradeRedBao newClockMask' wx:if="{{ifShowupgradeRed}}" bindtap='plantUpgrade'>
+
+        <view class='upgradeRedBaoBady'>
+
+            <view class='upgradeRedBaoDateBox'>
+                <view class='upgradeRedBaoNum'>获得
+                    <text style='color:#E75A3D;font-size:36rpx;'>{{upgradeRedNum/100}}</text> 元现金红包</view>
+                <image src='https://tp.datikeji.com/a/15446095036921/0pnJsnsbGyNyRBaLrL6uMWjry9mgpq8zXE2UuMKh.png'></image>
+            </view>
+
+            <view class='upgradeRedBaoBtn'>
+                <view class='walletWithdrawal' bindtap='checkprice'>钱包提现</view>
+                <view class='upgradeKnow' bindtap='upgradeKnow'>我知道了</view>
+            </view>
+        </view>
+
+    </view>
+
+    <!-- 规则 -->
+    <view class='newClockMask RuleMask' wx:if="{{ifShowRuleMask}}">
+        <view class='RuleMaskBody'>
+            <view class='RuleStep FirstRule'>
+				<text class='RuleStepICon'>1</text>
+                <text class='FirstRuleTxt'>用户每天到本页面签到可以获得签到红包，植物每次升级用户可以获得升级红包。</text>
+            </view>
+
+			<view class='RuleStep secondRule '>
+				<text class='RuleStepICon secondRuleStepICon'>2</text>
+                <text class='secondRuleTxt'>植物产生的能量以及升级所需成长值来源：</text>
+				<text class='secondSmallRuleTxt'>① 用户每天到本页面签到 <text style='color:#F03C32'>+8点</text> </text>
+                <text class='secondSmallRuleTxt'>② 邀请新人好友获得现金奖励 <text style='color:#F03C32'>+10点</text> </text>
+                <text class='secondSmallRuleTxt'>③ 邀请的下级好友每次购物产生提成 <text style='color:#F03C32'>+10点</text> </text>
+                <text class='secondSmallRuleTxt'>④ 分享商品给好友赚取现金和成长值 <text style='color:#F03C32'>+10点</text> </text>
+                <text class='secondSmallRuleTxt'>⑤ 选择『快速邀请』<text style='color:#F03C32'>+5点</text>，每天限一次 </text>
+            </view>
+
+			<view class='RuleStep threeRule '>
+				<text class='RuleStepICon'>3</text>
+                <text class='FirstRuleTxt'>植物满级可领养新的植物，也可联系客服领取礼物或折现。</text>
+            </view>
+
+			<view class='jieshiTxt'>本活动由省钱买分享赚官方打卡计划发起，官方保留最终解释权。</view>
+			<view class='RuleMaskBtn' bindtap='RuleMakIknow'>我知道了</view>
+        </view>
+
+    </view>
+
+	<!-- 引导 -->
+	<view class='newClockMask guideMask' wx:if="{{ifShowGuide1}}" catchtap='Guide1click'>
+		<view class='guideMaskICon'>
+			<image src='https://tp.datikeji.com/a/15451052944748/ezVJhu9ZG6VeLMSCeGr51ujIj4mrVDF2nyFCm1Q1.png' />
+		</view>
+	</view>
+
+	<view class='newClockMask guideMask' wx:if="{{ifShowGuide2}}" catchtap='Guide2click'>
+		<view class='guideMaskICon2'>
+			<image src='https://tp.datikeji.com/a/15451056526603/MTGTS3CWFSVR986hP0fjg4vSzZ4TnvOrkp1cGtYq.png' />
 		</view>
 	</view>
 </view>

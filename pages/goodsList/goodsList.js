@@ -11,6 +11,7 @@ Page({
         POrder: "1",
         defaultList: [],
 		ifloadingup:false,
+		ifShowGuide:false,
     },
 
     onLoad: function(options) {
@@ -31,7 +32,9 @@ Page({
     },
 
     onShow: function() {
-
+		this.setData({
+			ifShowGuide: app.ifNewUser && !app.yiMaskClick,
+		})
     },
 
     // 下拉刷新数据
@@ -184,5 +187,13 @@ Page({
             topId: "scrollView0"
         })
     },
+
+	//弹窗点击
+	guideMaskClick:function(){
+		this.setData({
+			ifShowGuide:false,
+		});
+		app.yiMaskClick=true;
+	},
 
 })

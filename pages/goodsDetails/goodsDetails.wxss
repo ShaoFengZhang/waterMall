@@ -148,6 +148,7 @@
     font-size: 22rpx;
     border: 2rpx solid #e02e24;
     padding: 0 10rpx;
+    border-radius: 8rpx;
 }
 
 .preferential {
@@ -225,12 +226,20 @@
 
 .shareBtn {
     width: 272rpx;
-    background-color: #fc756e;
+    /* background-color: #fc756e; */
+	 background-color: #e02e24;
     position: relative;
 }
 
 .buyCashback {
     width: 270rpx;
+    /* background-color: #e02e24; */
+    background-color: #fc756e;
+    position: relative;
+}
+
+.buyCashback2 {
+    width: 542rpx;
     background-color: #e02e24;
     position: relative;
 }
@@ -238,7 +247,8 @@
 #shareGoodBtn {
     width: 272rpx;
     height: 98rpx;
-    background-color: #fc756e;
+    /* background-color: #fc756e; */
+    background-color: #e02e24;
     padding: 0;
     opacity: 0;
     position: absolute;
@@ -250,7 +260,7 @@
     position: absolute;
     top: 0;
     left: 0;
-	opacity: 0;
+    opacity: 0;
 }
 
 .userInofBtn, #userInofBtn {
@@ -276,7 +286,7 @@
 
 /* 优惠券 */
 
-.youHuiJuanBox {
+/* .youHuiJuanBox {
     width: 100%;
     height: 334rpx;
     background-color: #fff;
@@ -358,12 +368,206 @@
     position: absolute;
     bottom: 38rpx;
     right: 58rpx;
+} */
+
+.separated {
+    width: 750rpx;
+    height: 20rpx;
+    background: rgba(242, 242, 242, 1);
 }
+
+/* 返现流程Box */
+
+.cashbackProcessBox {
+    width: 100%;
+    height: 358rpx;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.cashbackProcessTitle {
+    color: #333;
+    font-size: 30rpx;
+    text-align: center;
+    margin-top: 32rpx;
+}
+
+.cashbackProcessTitle text {
+    margin: 0 28rpx;
+}
+
+.cashbackProcessTitle image {
+    width: 22rpx;
+    height: 14rpx;
+    vertical-align: middle;
+}
+
+.fourStep {
+    width: 100%;
+    height: 32rpx;
+    display: flex;
+    box-sizing: border-box;
+    padding: 0 98rpx;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 36rpx;
+}
+
+.fourStepItem {
+    width: 32rpx;
+    height: 32rpx;
+    background: rgba(240, 60, 50, 1);
+    border-radius: 50%;
+    line-height: 32rpx;
+    color: #fff;
+    font-size: 24rpx;
+    text-align: center;
+}
+
+.fourStepLine {
+    width: 90rpx;
+    height: 2rpx;
+    background: rgba(240, 60, 50, 1);
+    border-radius: 1rpx;
+}
+
+.fourStepIcon {
+    width: 100%;
+    height: 158rpx;
+    display: flex;
+    box-sizing: border-box;
+    padding: 0 32rpx;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16rpx;
+}
+
+.fourStepIconItem {
+    width: 140rpx;
+    height: 150rpx;
+    box-sizing: border-box;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-size: 140rpx 150rpx;
+    font-size: 24rpx;
+    text-align: center;
+    color: #333;
+    line-height: 220rpx;
+}
+
+.fourStepOne {
+    background-image: url('https://tp.datikeji.com/a/15444325202158/haETVFwdJdGAMP0cEIAsSrnYjnzIO7zQ1ZrRG6el.png');
+}
+
+.fourStepTwo {
+    background-image: url("https://tp.datikeji.com/a/15444325422868/tWCxZfIyopu0GAPssWTX0qgWQ4v2j6XN4ViQ5sIo.png");
+}
+
+.fourStepThree {
+    background-image: url("https://tp.datikeji.com/a/15444325603497/BJUwgXbXbvgafLUyYzPYicetDLRisQMV3PpVVpOc.png");
+}
+
+.fourStepFour {
+    background-image: url("https://tp.datikeji.com/a/15444325723261/NyhCnaDvZQoEl2lF8uH1lSGN1UMtqY1mGjbVuBe3.png");
+}
+
+/* 店铺 */
+
+.theStore {
+    width: 100%;
+    height: 196rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.theStoreTop {
+    width: 100%;
+    height: 54rpx;
+    box-sizing: border-box;
+    padding: 0 28rpx;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40rpx;
+}
+
+.storeName {
+    width: 590rpx;
+    height: 54rpx;
+    line-height: 54rpx;
+    font-size: 32rpx;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.storeBtn {
+    width: 170rpx;
+    height: 54rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 27rpx;
+    line-height: 54rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #fff;
+}
+
+.theStoreBot {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 28rpx;
+    font-size: 24rpx;
+    color: #797979;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 36rpx;
+}
+
+.shuLine {
+    width: 2rpx;
+    height: 21rpx;
+    background: rgba(234, 234, 234, 1);
+    border-radius: 1rpx;
+}
+
+/* 商品详情 */
 
 .photo {
     width: 100%;
     background-color: #fff;
     padding-top: 20rpx;
+}
+
+.detailDesTex {
+    width: 680rpx;
+    height: 162rpx;
+    color: #333;
+    font-size: 26rpx;
+    margin: 0 auto;
+    margin-bottom: 26rpx;
+    line-height: 42rpx;
+    text-indent: 2em;
+}
+
+.detailDesTex2 {
+    height: 118rpx;
+    margin-bottom: 38rpx;
+}
+
+.xiangziliucheng {
+    width: 675rpx;
+    height: 116rpx;
+    margin: 0 auto;
+    font-size: 26rpx;
+    text-indent: 2em;
+    line-height: 40rpx;
 }
 
 .xiangqingTxt {
@@ -372,6 +576,7 @@
     font-size: 30rpx;
     box-sizing: border-box;
     padding-left: 46rpx;
+    margin-bottom: 26rpx;
 }
 
 .xiangqingTxt text {
@@ -555,6 +760,16 @@
     left: 0;
 }
 
+.Ynaa {
+    width: 542rpx;
+    height: 98rpx;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    border-radius: 8rpx;
+    top: 0;
+    left: 0;
+}
+
 #Hbtn1, #Hbtn2, #Hbtn3, #Hbtn4, #Hbtn5, #Ybtn1, #Ybtn2, #Ybtn3, #Ybtn4, #Ybtn5,
 #Xbtn1, #Xbtn2, #Xbtn3, #Xbtn4, #Xbtn5 {
     overflow: visible;
@@ -564,6 +779,109 @@
     width: 642rpx;
     height: 254rpx;
     background-color: rgba(255, 255, 255, 0);
-	top: 0;
-	left: 0;
+    top: 0;
+    left: 0;
+}
+
+/* 步骤效果 */
+
+.StepItem1 {
+    animation: StepItem1 5s ease-in-out infinite;
+}
+.StepItem2 {
+    animation: StepItem2 5s ease-in-out infinite;
+}
+.StepItem3 {
+    animation: StepItem3 5s ease-in-out infinite;
+}
+.StepItem4 {
+    animation: StepItem4 5s ease-in-out infinite;
+}
+
+@keyframes StepItem1 {
+	0% {
+        opacity: 0.3;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+         opacity: 0.3;
+    }
+
+    75% {
+         opacity: 0.3;
+    }
+
+	100% {
+         opacity: 0.3;
+    }
+}
+
+@keyframes StepItem2 {
+	0% {
+         opacity: 0.3;
+    }
+
+    25% {
+         opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+         opacity: 0.3;
+    }
+
+	100% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes StepItem3 {
+	0% {
+         opacity: 0.3;
+    }
+
+    25% {
+         opacity: 0.3;
+    }
+
+    50% {
+         opacity: 0.3;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+	100% {
+         opacity: 0.3;
+    }
+}
+
+@keyframes StepItem4 {
+	0% {
+         opacity: 0.3;
+    }
+
+    25% {
+         opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    75% {
+         opacity: 0.3;
+    }
+
+	100% {
+        opacity: 1;
+    }
 }

@@ -20,7 +20,8 @@
 		"pages/howSaveMoney/howSaveMoney",
 		"pages/makeMoneyWay/makeMoneyWay",
 		"pages/newGoodsList/newGoodsList",
-		"pages/zeroShopping/zeroShopping"
+		"pages/zeroShopping/zeroShopping",
+		"pages/DetailRule/DetailRule"
 	],
 	"window": {
 		"backgroundTextStyle": "light",

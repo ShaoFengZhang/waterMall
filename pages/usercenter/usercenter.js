@@ -19,6 +19,7 @@ Page({
         ifShowBotFuchang: false,
         ifShowCollection: false,
         ifShowTopPrompt: true,
+		ifShowGuide:false,
     },
 
     onLoad: function(options) {
@@ -56,12 +57,21 @@ Page({
 
     onShow: function() {
         this.getDataFun();
-
+		this.setData({
+			ifShowGuide: app.ifNewUser && !app.userGuide
+		})
     },
 
     onHide: function() {
 
     },
+
+	ifShowGuide:function(){
+		this.setData({
+			ifShowGuide: false,
+		});
+		app.userGuide=true;
+	},
 
     ifShowTopPrompt: function() {
         this.setData({

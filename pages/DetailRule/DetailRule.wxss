@@ -1,0 +1,131 @@
+.saveMoneyWhat {
+    width: 100%;
+    height: 346rpx;
+    box-sizing: border-box;
+    padding-left: 60rpx;
+}
+
+.saveMoneyWhat2 {
+    width: 100%;
+    height: 200rpx;
+    box-sizing: border-box;
+    padding-left: 60rpx;
+}
+
+.LineBox {
+    width: 750rpx;
+    height: 20rpx;
+    background: rgba(242, 242, 242, 1);
+}
+
+.problem {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1rpx solid #eaeaea;
+}
+
+.problem image, .answer image {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    margin-right: 20rpx;
+}
+
+.answer {
+    font-size: 26rpx;
+    color: #333;
+    line-height: 48rpx;
+    position: relative;
+    margin-top: 32rpx;
+}
+
+.answer .viewTxt {
+    display: inline-block;
+    width: 571rpx;
+}
+
+.answer image {
+    float: left;
+}
+
+.howSaveMoney {
+    width: 750rpx;
+    height: 3446rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+.howSaveMoney image {
+    width: 750rpx;
+    height: 3410rpx;
+    margin-top: 36rpx;
+}
+
+.handRow {
+    font-size: 30rpx;
+    font-family: PingFang-SC-Medium;
+    color: #E02E24;
+    position: absolute;
+    right: 20rpx;
+    bottom: 214rpx;
+    font-weight: 500;
+}
+
+.handRow image {
+    width: 46rpx;
+    height: 42rpx;
+	vertical-align: middle;
+	position: relative;
+	top: -4rpx;
+	margin-right: 10rpx;
+}
+
+/* 客服指引 */
+
+.customerService {
+    width: 380rpx;
+    height: 120rpx;
+    position: absolute;
+    left: 180rpx;
+    bottom: 190rpx;
+}
+
+#contact {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/* 动效 */
+
+.LeftRightAni {
+    animation: ani 0.5s linear 0.5s infinite;
+}
+
+@keyframes ani {
+    0% {
+        transform: translateX(0px);
+    }
+
+    25% {
+        transform: translateX(-4px);
+    }
+
+    50% {
+        transform: translateX(0px);
+    }
+
+    75% {
+        transform: translateX(4px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}

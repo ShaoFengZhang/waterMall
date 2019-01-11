@@ -25,6 +25,7 @@
                 <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{item.type==6}}">分享佣金</view>
             	<view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{item.type==7}}">用户0元购返现</view>
                 <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{item.type==8}}">每日签到红包</view>
+                <view style='color:#333333;font-size:28rpx;width:50%;' wx:if="{{item.type==9}}">植物升级红包</view>
                 <view style='color:#797979;font-size:22rpx;width:50%;margin-top:8rpx;'>{{item.created_at }}
                 </view>
                 <view class='doller' wx:if="{{dataType!=1}}">+{{item.amount}}</view>

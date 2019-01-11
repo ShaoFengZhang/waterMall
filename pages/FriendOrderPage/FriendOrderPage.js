@@ -66,7 +66,9 @@ Page({
 
                         let rate = subClassArr[i].order_list[n].promotion_rate;
                         let price = (subClassArr[i].order_list[n].order_amount) / 100;
-                        subClassArr[i].order_list[n].cashBack = (price * rate / 1000 * app.globalData.comRote * 0.216).toFixed(2);
+						// subClassArr[i].order_list[n].cashBack = (price * rate / 1000 * app.globalData.comRote * app.globalData.shareRote).toFixed(2);
+
+						subClassArr[i].order_list[n].cashBack = ((subClassArr[i].order_list[n].promotion_amount / 100) * app.globalData.shareRote).toFixed(2);
 
                         subClassArr[i].order_list[n].created_at = subClassArr[i].order_list[n].created_at.slice(0, 10);
                         subClassArr[i].order_list[n].pic = subClassArr[i].pic;
@@ -81,7 +83,9 @@ Page({
 
                         let rate = shareClassArr[i].order_list[n].promotion_rate;
                         let price = (shareClassArr[i].order_list[n].order_amount) / 100;
-                        shareClassArr[i].order_list[n].cashBack = (price * rate / 1000 * app.globalData.comRote * 0.0648).toFixed(2);
+						// shareClassArr[i].order_list[n].cashBack = (price * rate / 1000 * app.globalData.comRote * app.globalData.shareGoodsRote).toFixed(2);
+
+						shareClassArr[i].order_list[n].cashBack = ((shareClassArr[i].order_list[n].promotion_amount / 100) * app.globalData.shareGoodsRote).toFixed(2);
 
 
                         shareClassArr[i].order_list[n].created_at = shareClassArr[i].order_list[n].created_at.slice(0, 10)

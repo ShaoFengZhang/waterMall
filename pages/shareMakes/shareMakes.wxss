@@ -1,3 +1,15 @@
+progress {
+    width: 100%;
+    height: 100rpx;
+}
+
+.progress-box {
+    display: flex;
+    width: 200rpx;
+    height: 100rpx;
+    margin-bottom: 60rpx;
+}
+
 .botBox {
     width: 100%;
     height: 30rpx;
@@ -5,15 +17,15 @@
 
 .topBg {
     width: 750rpx;
-    height: 1010rpx;
+    height: 1090rpx;
     box-sizing: border-box;
     padding: 0;
     background-repeat: no-repeat;
     background-origin: border-box;
     position: relative;
     overflow: hidden;
-    background-image: url('https://tp.datikeji.com/a/15439021024704/MR9XS94RbrMRoyTkbxFq4qsuLLM7TtroAQQsb23e.png');
-    background-size: 750rpx 744rpx;
+    background-image: url('https://tp.datikeji.com/a/15446946053118/fMX1bYYzkpbDb9uxqt9sTiEgNM6l2C1kRpH5SYQ8.png');
+    background-size: 750rpx 858rpx;
 }
 
 .leftCloud {
@@ -39,28 +51,29 @@
 }
 
 .tresss {
-    margin: 258rpx auto 0;
+    margin: 248rpx auto 0;
 }
 
 .tresss, .tresss image {
-    width: 258rpx;
-    height: 400rpx;
+    width: 238rpx;
+    height: 370rpx;
 }
 
 .energyBox {
-    width: 154rpx;
-    height: 148rpx;
+    width: 146rpx;
+    height: 140rpx;
     border-radius: 50%;
     box-sizing: border-box;
     padding: 0;
     background-repeat: no-repeat;
     background-origin: border-box;
     overflow: hidden;
-    background-image: url('https://tp.datikeji.com/a/15439033062128/PGgD8QUi9ycgNmBomgE0xcjvYtTiOIH2EbGp9T2l.png');
-    background-size: 154rpx 148rpx;
+    background-image: url('https://tp.datikeji.com/a/15445190577637/U8BiBC1WEtSKN1bCty4zoJ5kdxQ1tDWglYWZP0lf.png');
+    background-size: 146rpx 140rpx;
     position: absolute;
     text-align: center;
     color: #3a8642;
+    font-size: 22rpx;
 }
 
 .energyBox view:first-child {
@@ -69,17 +82,17 @@
 
 .ClockCircle {
     font-family: PingFang-SC-Bold;
-    font-size: 34rpx;
+    font-size: 32rpx;
     font-weight: bold;
-    line-height: 148rpx;
-    left: 306rpx;
-    top: 88rpx;
+    line-height: 140rpx;
+    left: 302rpx;
+    top: 90rpx;
 }
 
 .NewUserCircle {
     font-size: 22rpx;
-    top: 198rpx;
-    right: 74rpx;
+    top: 166rpx;
+    right: 90rpx;
     padding-top: 38rpx;
 }
 
@@ -89,18 +102,18 @@
 }
 
 .OneCircle {
-    top: 178rpx;
+    top: 166rpx;
     left: 90rpx;
 }
 
 .TwoCircle {
-    top: 374rpx;
-    right: 30rpx;
+    top: 368rpx;
+    right: 70rpx;
 }
 
 .ThreeCircle {
-    top: 386rpx;
-    left: 50rpx;
+    top: 362rpx;
+    left: 74rpx;
 }
 
 .shareGoodWay {
@@ -169,13 +182,66 @@
     z-index: 999;
 }
 
+.levelInfo {
+    width: 100%;
+    height: 84rpx;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    margin-top: 30rpx;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.leftProgress {
+    width: 432rpx;
+    height: 46rpx;
+    background: rgba(255, 255, 255, 1);
+    border: 4rpx solid rgba(58, 134, 66, 1);
+    border-radius: 23rpx;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 2rpx;
+}
+
+.smallProgess {
+    width: 72rpx;
+    height: 38rpx;
+    background: rgba(252, 208, 75, 1);
+    border: 2rpx solid rgba(238, 178, 64, 1);
+    box-shadow: 1rpx 9rpx 2rpx 0rpx rgba(253, 230, 137, 1) inset;
+    border-radius: 19rpx;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.levelTxt {
+    padding: 0;
+    margin: 0;
+}
+
+.levelInfoIcon {
+    width: 46rpx;
+    height: 32rpx;
+    margin-left: 10rpx;
+    /* margin-right: 22rpx; */
+}
+
+.levelRightIcon {
+    width: 68rpx;
+    height: 84rpx;
+    margin-left: 30rpx;
+}
+
 .userInfo {
     width: 690rpx;
     height: 318rpx;
     background: rgba(255, 255, 255, 1);
     box-shadow: 0px 0px 20rpx 0px rgba(111, 105, 103, 0.16);
     border-radius: 8rpx;
-    margin: 30rpx auto 0;
+    margin: 36rpx auto 0;
 }
 
 .infoLine {
@@ -192,7 +258,7 @@
     padding: 0rpx 40rpx 0;
     display: flex;
     align-items: center;
-	position: relative;
+    position: relative;
 }
 
 .userInfoTop .infoAvatarUrl, .userInfoTop .infoDOller {
@@ -252,13 +318,13 @@
     overflow: hidden;
     background-image: url('https://tp.datikeji.com/a/15441563835410/jPLuicC25L826225Adhnezvdx5QTKmiytj1HmfoB.png');
     background-size: 120rpx 34rpx;
-	line-height: 34rpx;
-	font-size: 20rpx;
-	text-align: center;
-	color: #fff;
-	position: absolute;
-	right: 0;
-	top: 32rpx;
+    line-height: 34rpx;
+    font-size: 20rpx;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 32rpx;
 }
 
 #baoBtn {
@@ -277,6 +343,15 @@
     padding: 30rpx 30rpx 0 50rpx;
     display: flex;
     justify-content: space-between;
+	position: relative;
+}
+
+.goToFriendList{
+	width: 300rpx;
+	height: 118rpx;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .friendNum {
@@ -312,7 +387,7 @@
     overflow: hidden;
     background-image: url('https://tp.datikeji.com/a/15439114458557/hQfHJFugRCuVvJKJnV3xU1zRDCecCcZEyliJ5DXs.png');
     background-size: 708rpx 194rpx;
-    margin: 46rpx auto 0;
+    margin: 30rpx auto 0;
 }
 
 .centerShareBtnBox image {
@@ -331,23 +406,23 @@
     font-size: 36rpx;
     font-weight: bold;
     margin-top: 36rpx;
-    margin-bottom: 24rpx;
+    margin-bottom: 0rpx;
 }
 
 #botSwipr {
-	width: 100%;
+    width: 100%;
     height: 210rpx;
-	box-sizing: border-box;
-	padding: 0 0rpx;
-	display: flex;
-	justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 0rpx;
+    display: flex;
+    justify-content: space-between;
 }
 
 .botSwiperBox {
     width: 100%;
     box-sizing: border-box;
-    padding:30rpx;
-    margin-bottom: 34rpx;
+    padding: 26rpx 30rpx 0;
+    margin-bottom: 4rpx;
 }
 
 .botSwiperTex {
@@ -375,8 +450,8 @@
     height: 210rpx;
     background: rgba(255, 255, 255, 1);
     box-sizing: border-box;
-	position: relative;
-	box-shadow: 0px 0px 10rpx 0px rgba(111, 105, 103, 0.14);
+    position: relative;
+    box-shadow: 0px 0px 10rpx 0px rgba(111, 105, 103, 0.14);
 }
 
 .botSwiperimage {
@@ -389,7 +464,7 @@
 .botSwiperTxt {
     width: 210rpx;
     height: 46rpx;
-    background:rgba(255,163,155,0.53);
+    background: rgba(255, 163, 155, 0.7);
     border-radius: 0px 0px 10rpx 10rpx;
     font-size: 26rpx;
     color: #fff;
@@ -470,6 +545,308 @@
     color: #fff;
     background: rgba(224, 46, 36, 1);
     box-shadow: 0px 5rpx 24rpx 0px rgba(204, 34, 34, 0.75);
+}
+
+/* 新的签到弹窗 */
+
+.newClockMask {
+    width: 750rpx;
+    height: 100vh;
+    background: rgba(51, 51, 51, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.newClockMaskBody {
+    width: 726rpx;
+    height: 908rpx;
+    box-sizing: border-box;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15446008598719/dVamdFMEi9YVNiI9UBGoqf7NQ4PHnalosR3ewjNi.png');
+    background-size: 726rpx 908rpx;
+    margin: 64rpx 0 0 24rpx;
+}
+
+.newClockMaskNum {
+    width: 574rpx;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 56rpx;
+    /* background-color: gray; */
+    color: #ff453b;
+    margin: 316rpx 0 0 64rpx;
+}
+
+.newClockMaskQiandao {
+    width: 574rpx;
+    box-sizing: border-box;
+    font-size: 36rpx;
+    color: #ff453b;
+    text-align: center;
+    margin: 20rpx 0 0 64rpx;
+}
+
+.makeAnTxt {
+    width: 574rpx;
+    box-sizing: border-box;
+    font-size: 36rpx;
+    color: #feec77;
+    text-align: center;
+    margin: 184rpx 0 0 64rpx;
+}
+
+picker {
+    display: inline-block;
+    width: 140rpx;
+    text-align: center;
+    margin-left: 10rpx;
+    box-sizing: border-box;
+    border-bottom: 2rpx solid #feec77;
+}
+
+.makeAnTxt image {
+    width: 30rpx;
+    height: 28rpx;
+    margin-left: 8rpx;
+    vertical-align: middle;
+}
+
+.newClockBtn {
+    width: 574rpx;
+    height: 76rpx;
+    line-height: 76rpx;
+    box-sizing: border-box;
+    font-size: 32rpx;
+    margin: 70rpx 0 0 64rpx;
+    display: flex;
+    justify-content: space-around;
+}
+
+.noMakeAn {
+    width: 226rpx;
+    height: 76rpx;
+    text-align: center;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #ffd654;
+    border: 3rpx solid rgba(240, 162, 64, 1);
+    border-radius: 10rpx;
+    box-sizing: border-box;
+}
+
+.Iknow {
+    width: 226rpx;
+    height: 76rpx;
+    box-sizing: border-box;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15446047126226/N0PHeNMA6IlXwAtUY82k3qVstjj5BQNPwFEonaYD.png');
+    background-size: 226rpx 76rpx;
+    color: #fff;
+    padding-left: 70rpx;
+}
+
+/* 升级红包 */
+
+.upgradeRedBaoBady {
+    width: 560rpx;
+    height: 800rpx;
+    box-sizing: border-box;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15446089477938/Utfhnk0XzntYRQQbkkEytJTYVwVHjRPjY8Gh0RoA.png');
+    background-size: 560rpx 800rpx;
+    margin: 128rpx auto 0;
+}
+
+.upgradeRedBaoDateBox {
+    width: 496rpx;
+    height: 308rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 10rpx;
+    margin: 324rpx auto 0;
+    overflow: hidden;
+}
+
+.upgradeRedBaoNum {
+    width: 100%;
+    text-align: center;
+    font-size: 30rpx;
+    color: #333;
+    margin-top: 34rpx;
+}
+
+.upgradeRedBaoDateBox image {
+    width: 114rpx;
+    height: 176rpx;
+    margin: 30rpx 0 0 190rpx;
+}
+
+.upgradeRedBaoBtn {
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    margin-top: 40rpx;
+    padding: 0 30rpx;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.walletWithdrawal {
+    width: 236rpx;
+    height: 88rpx;
+    border: 3rpx solid rgba(248, 186, 54, 1);
+    box-shadow: 0px 10rpx 13rpx 0px rgba(220, 79, 50, 1);
+    border-radius: 44rpx;
+    color: #f8ba36;
+}
+
+.upgradeKnow {
+    width: 236rpx;
+    height: 88rpx;
+    background: rgba(247, 209, 103, 1);
+    box-shadow: 0px 10rpx 13rpx 0px rgba(220, 79, 50, 1);
+    border-radius: 45rpx;
+    color: #a84f1d;
+}
+
+/* 规则弹窗 */
+
+.RuleMaskBody {
+    width: 666rpx;
+    height: 896rpx;
+    box-sizing: border-box;
+    padding: 0 48rpx 0 44rpx;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15446833374589/wJm58S8VX4IblJ4N5ttiCHMwNsbieV78Win8cywW.png');
+    background-size: 666rpx 896rpx;
+    margin: 132rpx auto 0;
+}
+
+.FirstRule {
+    margin-top: 152rpx;
+}
+
+.secondRule {
+    margin-top: 10rpx;
+}
+
+.threeRule {
+    margin-top: 18rpx;
+}
+
+.FirstRuleTxt {
+    display: inline-block;
+    padding: 0;
+    width: 524rpx;
+    height: 71rpx;
+    font-size: 26rpx;
+    color: #333;
+    line-height: 40rpx;
+}
+
+.secondRuleTxt {
+    font-size: 26rpx;
+    color: #333;
+}
+
+.secondSmallRuleTxt {
+    display: block;
+    font-size: 24rpx;
+    color: #797979;
+    box-sizing: border-box;
+    padding-left: 50rpx;
+    line-height: 48rpx;
+}
+
+.jieshiTxt {
+    font-size: 22rpx;
+    color: #f03c32;
+    text-indent: 2em;
+    line-height: 40rpx;
+    margin-top: 22rpx;
+}
+
+.RuleStepICon {
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+    background: rgba(240, 60, 50, 1);
+    border-radius: 50%;
+    line-height: 30rpx;
+    font-size: 22rpx;
+    text-align: center;
+    color: #fff;
+    margin-right: 20rpx;
+    position: relative;
+    top: 6rpx;
+    vertical-align: top;
+}
+
+.secondRuleStepICon {
+    position: static;
+    vertical-align: middle;
+}
+
+.RuleMaskBtn {
+    width: 286rpx;
+    height: 76rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    line-height: 76rpx;
+    box-sizing: border-box;
+    padding: 0 48rpx 0 44rpx;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://tp.datikeji.com/a/15446856279798/mF2pwxgrLREJQdzdLGRCIs54GIZs9tObssHxodUT.png');
+    background-size: 286rpx 76rpx;
+    margin: 40rpx auto 0;
+	padding-left: 110rpx;
+}
+
+/* 引导 */
+.guideMask{
+	background:rgba(51, 51, 51, 0.8);
+}
+
+.guideMaskICon,.guideMaskICon image{
+	width: 722rpx;
+	height: 712rpx;
+}
+
+.guideMaskICon{
+	margin: 358rpx auto 0;
+}
+
+.guideMaskICon2,.guideMaskICon2 image{
+	width: 640rpx;
+	height: 981rpx;
+}
+
+.guideMaskICon2{
+	margin: 90rpx auto 0;
 }
 
 /* 能量动效 */

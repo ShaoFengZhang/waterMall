@@ -123,13 +123,26 @@ Page({
                 let price = (res.data.goods_search_response.goods_list[i].min_group_price - res.data.goods_search_response.goods_list[i].coupon_discount) / 100;
 
                 res.data.goods_search_response.goods_list[i].cashBack = (price * rate / 1000 * app.globalData.comRote).toFixed(2);
-                res.data.goods_search_response.goods_list[i].parentCashBack = (price * rate / 1000 * app.globalData.comRote * 0.216).toFixed(2);
+				res.data.goods_search_response.goods_list[i].parentCashBack = (price * rate / 1000 * app.globalData.comRote * app.globalData.shareRote).toFixed(2);
             };
 
             _this.defaultList = _this.defaultList.concat(res.data.goods_search_response.goods_list);
             _this.setData({
                 defaultList: _this.defaultList,
             });
+			if (_this.data.defaultList.length==0){
+				wx.hideLoading();
+				wx.showModal({
+					title: '温馨提示',
+					content: '此分类暂时没有数据,请返回!',
+					showCancel:false,
+					success:function(){
+						wx.navigateBack({
+							delta: 1
+						})
+					}
+				})
+			}
             if (res.data.goods_search_response.goods_list.length < 30 || res.data.goods_search_response.goods_list.length == 0) {
                 _this.pageCanAdd = false;
             };

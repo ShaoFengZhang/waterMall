@@ -1,0 +1,51 @@
+.saveMoneyWhat {
+    width: 100%;
+    height: 346rpx;
+    box-sizing: border-box;
+    padding-left: 60rpx;
+}
+
+.LineBox {
+    width: 750rpx;
+    height: 20rpx;
+    background: rgba(242, 242, 242, 1);
+}
+
+.problem {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1rpx solid #eaeaea;
+}
+
+.problem image, .answer image {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    margin-right: 20rpx;
+}
+
+.answer {
+    font-size: 26rpx;
+    color: #333;
+    line-height: 48rpx;
+	position: relative;
+	margin-top: 32rpx;
+}
+
+.answer text {
+    display: inline-block;
+    width: 571rpx;
+}
+
+.answer image{
+	float: left;
+}
+
+.howSaveMoney,.howSaveMoney image{
+	width: 750rpx;
+	height: 2026rpx;
+}

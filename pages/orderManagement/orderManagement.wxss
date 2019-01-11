@@ -215,20 +215,24 @@ text#invalid {
 }
 
 .buyCashback {
-    width: 690rpx;
-    height: 342rpx;
+    /* width: 690rpx;
+	 */
+	 width: 182rpx;
+    height: 48rpx;
     position: absolute;
-    top: 0;
-    left: 0;
+    bottom: 0rpx;
+    left: 0rpx;
     opacity: 0;
 }
 
-.gotoDetail{
-	width: 690rpx;
-    height: 342rpx;
+.gotoDetail {
+    /* width: 690rpx;
+    height: 342rpx; */
+	width: 182rpx;
+    height: 48rpx;
     position: absolute;
-    top: 0;
-    left: 0;
+    bottom: 22rpx;
+    left: 20rpx;
     opacity: 0;
 }
 
@@ -244,21 +248,42 @@ text#invalid {
     position: fixed;
     right: 0rpx;
     bottom: 50rpx;
-	font-size: 30rpx;
+    font-size: 30rpx;
 }
 
-.goToHome image{
-	display: inline-block;
+.goToHome image {
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    position: absolute;
+    top: 19rpx;
+    left: 32rpx;
+}
+
+.goToHome text {
+    display: inline-block;
+    position: absolute;
+    left: 74rpx;
+}
+
+.shouHouWuLiu {
+    width: 182rpx;
+    height: 48rpx;
+    background: rgba(224, 46, 36, 1);
+    border-radius: 24rpx;
+	font-size: 22rpx;
+	text-align: center;
+	color: #fff;
+	line-height: 48rpx;
+	position: absolute;
+	left: 20rpx;
+	bottom: 22rpx;
+}
+
+.shouHouWuLiu image{
 	width: 30rpx;
-	height: 30rpx;
+	height: 22rpx;
 	vertical-align: middle;
-	position: absolute;
-	top: 19rpx;
-	left: 32rpx;
-}
-
-.goToHome text{
-	display: inline-block;
-	position: absolute;
-	left: 74rpx;
+	margin-right: 6rpx;
 }

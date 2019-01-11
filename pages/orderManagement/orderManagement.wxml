@@ -40,7 +40,7 @@
     <!-- 订单列表 -->
     <view class='orderList' style='height:{{scrollHeight}}' wx:if="{{orderList.length}}">
         <scroll-view scroll-y style="height:{{scrollHeight}};" bindscrolltolower="dropDownRefresh" scroll-into-view="{{topview}}">
-            <view hover-class="hover-class" wx:if="{{item.order_status!=-1}}" id='orderListItem{{index}}' class='orderListItem' wx:for="{{orderList}}" wx:key="{{index}}">
+            <view hover-class="hover-class" wx:if="{{item.order_status!=-1}}" id='orderListItem{{index}}' class='orderListItem' wx:for="{{orderList}}" data-goodid='{{item.goods_id}}' wx:key="{{index}}" catchtap='goTodetail' >
                 <view class='orderDetails'>
                     <text>拼多多</text>
                     <!-- <text wx:if="{{}}">0元购</text> -->
@@ -75,8 +75,13 @@
                     下单时间 {{item.created_at}}
                 </view>
 
+				<view class='shouHouWuLiu'>
+					<image src='https://tp.datikeji.com/a/15446899395602/2jQMDdRLEoqBgxdlO2fHznCxy8ywDy0XRcDiudeM.png' />
+					<text>售后和物流</text>
+				</view>
+
 				<!-- 跳转详情和拼多多 -->
-                <view catchtap='goTodetail' data-goodid='{{item.goods_id}}' class='gotoDetail'>
+                <view data-goodid='{{item.goods_id}}' class='gotoDetail'>
                     <navigator catchtap='catchtap' class='buyCashback' target="miniProgram" open-type="navigate" app-id="wx32540bd863b27570" path="/pages/index/index" extra-data="" version="release">
                         <form bindsubmit="collectFormId" report-submit>
                             <button id='formID2' formType="submit" class='buyCashback'></button>

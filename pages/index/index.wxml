@@ -39,18 +39,33 @@
 
     <!-- 轮播以下 -->
     <scroll-view scroll-y style="height: 85vh;" bindscroll="topScrollChange" bindscrolltolower="dropDownRefresh" scroll-into-view="{{toView}}" lower-threshold="{{330}}">
-        
+
         <view class='secondClass' id='secondClass'>
             <view hover-class="hover-class" class='secondClassItem' wx:for="{{SecondTopClassData.classArray}}" wx:key="index" data-title='{{item.title}}' data-id='{{item.opt_id}}' bindtap='goToGoodsList'>
                 <image lazy-load="{{true}}" src='{{item.icon}}' />
                 <view>{{item.title}}</view>
             </view>
-            
+
         </view>
 
-        <view class='shareNewUser' bindtap='goToSharePage'>
-            <image class='shareNewFriend' src='/assets/index/shareNewFriend.png' />
-            <image class='GoIcon breath' src='/assets/index/go.png' />
+        <view class='shareNewUser'>
+            <!-- <image class='shareNewFriend' src='/assets/index/shareNewFriend.png' />
+            <image class='GoIcon breath' src='/assets/index/go.png' /> -->
+            <swiper class='shareNewFriend' bindchange="shuffChangeEvent" circular="{{true}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{3000}}" duration="{{500}}">
+                <swiper-item bindtap='goToSharePage'>
+                    <image class='shareNewFriend' src='/assets/index/shareNewFriend.png' />
+                    <image class='GoIcon breath' src='/assets/index/go.png' />
+                </swiper-item>
+                <swiper-item bindtap='goToPinSaveMoney'>
+                    <image class='shareNewFriend' src='https://tp.datikeji.com/a/15444273572077/74v1IirzKz3FFneDP83w9itirTHU5vcIooqSdDLE.png' />
+                </swiper-item>
+                <swiper-item bindtap='goToZeroShopping'>
+                    <image class='shareNewFriend' src='https://tp.datikeji.com/a/15451026561709/LBCUtfT8PC9uYC3UqeqtKl4c9MKaW3o6JL2H4kSz.png' />
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class='test'>
+            <text  wx:for="{{[1,2,3]}}" class='{{shuffCurrent==index?"selectShuff":"noShuff"}}'wx:key="index"></text>
         </view>
 
         <view class='adAreaBox'>
@@ -213,23 +228,26 @@
             </view>
         </view>
 
-		<view class='closeBtn' bindtap='hideMask'>
-			<image src='/assets/userContent/close.png' />
-		</view>
+        <view class='closeBtn' bindtap='hideMask'>
+            <image src='/assets/userContent/close.png' />
+        </view>
     </view>
 
     <!-- 授权成功后弹窗 -->
     <view class='newUserRewardMask' wx:if="{{ifShowlastBao}}">
         <view class='RewardMaskBody rewardLastMask'>
             <view class='gongXiWenAn lingquchenggong'>领取成功待激活</view>
-            <view class='MaskRuleTxt'>现在只要成功下单，红包将即刻激活到账。（ 红包到账后可选择取消订单 ）</view>
+            <view class='MaskRuleTxt'>
+                现在只要成功下单，红包将即刻激活到账
+                <view>（ 红包到账后可选择取消订单 ）</view>
+            </view>
 
             <view class='rewardsBtn'>
                 <view class='woxianguang' data-title='一分钱好货' data-id='590' bindtap='goToGoodsList'>
 
                     <image src='/assets/index/yifenqian.png' />
 
-					<form bindsubmit="formSubmit" report-submit="{{true}}">
+                    <form bindsubmit="formSubmit" report-submit="{{true}}">
                         <button formType="submit" class='Hbtn' id='Ybtn1'>
                             <view class='Haa' hover-class="hover-class">
                                 <form bindsubmit="formSubmit" report-submit="{{true}}">
@@ -266,7 +284,7 @@
 
                     <image src='/assets/index/xiadan.png' />
 
-					<form bindsubmit="formSubmit" report-submit="{{true}}">
+                    <form bindsubmit="formSubmit" report-submit="{{true}}">
                         <button formType="submit" class='Hbtn' id='Xbtn1'>
                             <view class='Haa' hover-class="hover-class">
                                 <form bindsubmit="formSubmit" report-submit="{{true}}">
@@ -300,9 +318,9 @@
                 </view>
             </view>
         </view>
-		<view class='closeBtn' bindtap='hideMask'>
-			<image src='/assets/userContent/close.png' />
-		</view>
+        <view class='closeBtn' bindtap='hideMask'>
+            <image src='/assets/userContent/close.png' />
+        </view>
     </view>
 
     <!-- 新人红包悬浮 -->

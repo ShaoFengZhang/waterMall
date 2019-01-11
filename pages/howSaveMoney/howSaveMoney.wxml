@@ -1,1 +1,33 @@
-<view class="bg"></view>
+<view class="bg">
+    <scroll-view scroll-y style="height:100vh;">
+        <view class='saveMoneyWhat'>
+            <view class='problem'>
+                <image src='/assets/newUser/wen.png' />
+                <text>省钱买分享赚是什么？</text>
+            </view>
+            <view class='answer'>
+                <image src='/assets/newUser/da.png' />
+                <text>省钱买分享赚是集合拼多多官方授权、商品种类最全的优惠券免费分发平台。简言之，在你去拼多多购物之前，切记来省钱买分享赚领取对应优惠券</text>
+            </view>
+        </view>
+
+        <view class='LineBox'></view>
+
+        <view class='saveMoneyWhat'>
+            <view class='problem'>
+                <image src='/assets/newUser/wen.png' />
+                <text>如何在我们平台赚省钱和赚钱？</text>
+            </view>
+            <view class='answer'>
+                <image src='/assets/newUser/da.png' />
+                <text>首先请记住一句话"购物之前先领券"，只要购物就能省钱，只要分享就能赚钱。具体步骤跟着我在接下来的1、2、3认真看看这个神奇的工具吧！</text>
+            </view>
+        </view>
+
+        <view class='LineBox'></view>
+
+        <view class='howSaveMoney'>
+            <image src='https://tp.datikeji.com/a/15446682149695/kbRoPdcOoZHkOoL6VD1OlDovxDfbGvbaoqVisIGc.png' />
+        </view>
+    </scroll-view>
+</view>

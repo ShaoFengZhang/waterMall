@@ -16,6 +16,7 @@ App({
         this.callArgsDealWith = true;
         this.callgoToPayMent = true;
         this.callgoToOrderMent = true;
+		this.callGoToClock=true;
         console.log("this.callArgsDealWith123");
         wxAPIF.wxloginfnc(this);
 
@@ -56,5 +57,7 @@ App({
     globalData: {
         userInfo: null,
         comRote: 0.72,
+		shareRote:0.216,
+		shareGoodsRote:0.0648,
     },
 })

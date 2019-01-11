@@ -1,5 +1,6 @@
 <view class="bg">
     <scroll-view scroll-y style="height:{{scrolloheight}}rpx;background-color: #f2f2f2;" scroll-into-view="{{topId}}">
+        <!-- 详情上部展示 -->
         <view id='goodWindow' style='background-color: #fff;padding-bottom:20rpx;'>
 
             <view class='goodWindow'>
@@ -31,7 +32,7 @@
                 <text>￥</text>
                 <text class='priceNum'>{{(GoodDetai.goods_detail.min_group_price-GoodDetai.goods_detail.coupon_discount)/100 || "0"}}</text>
                 <text class='juanhouTxt'>劵后价</text>
-                <text class='ordersBack'>下单可返{{GoodDetai.goods_detail.cashBack}}</text>
+                <text class='ordersBack'>购买后可返{{GoodDetai.goods_detail.cashBack}}</text>
             </view>
 
             <view class='preferential'>
@@ -56,62 +57,87 @@
 
         </view>
 
-        <view class='youHuiJuanBox'>
-            <view class='youHuiJuan'>
-                <view class='youTxt'>优惠券</view>
-                <view class='youNum'>
-                    <text class='dollerIcon'>￥</text>
-                    <text class='youPrice'>{{GoodDetai.goods_detail.coupon_discount/100 || "0"}}</text>
-                    <text class='lingTxt'>领</text>
-                </view>
-                <view class='youDate'>有效期:{{GoodDetai.starttTime || "0"}}-{{GoodDetai.endtTime || "0"}}</view>
-                <navigator id='navigateBtn' hover-class="hover-class" class='lingTxt' target="miniProgram" open-type="navigate" app-id="wx32540bd863b27570" path="{{gotopath}}" extra-data="" version="release">
+        <view class='separated'></view>
 
-                    <form bindsubmit="formSubmit" report-submit="{{true}}">
-                        <button formType="submit" class='Hbtn' id='Xbtn1'>
-                            <view class='Haa' hover-class="hover-class">
-                                <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                    <button formType="submit" class='Hbtn' id='Xbtn2'>
-                                        <view class='Haa' hover-class="hover-class">
-                                            <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                <button formType="submit" class='Hbtn' id='Xbtn3'>
-                                                    <view class='Haa' hover-class="hover-class">
-                                                        <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                            <button formType="submit" class='Hbtn' id='Xbtn4'>
-                                                                <view class='Haa' hover-class="hover-class">
-                                                                    <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                                        <button formType="submit" class='Hbtn' id='Xbtn5'>
-                                                                            <view hover-class="hover-class" class='Haa'>
-                                                                            </view>
-                                                                        </button>
-                                                                    </form>
-                                                                </view>
-                                                            </button>
-                                                        </form>
-                                                    </view>
-                                                </button>
-                                            </form>
-                                        </view>
-                                    </button>
-                                </form>
-                            </view>
-                        </button>
-                    </form>
+        <!-- 流程Box -->
+        <view class='cashbackProcessBox'>
 
-
-                </navigator>
-
-                <view class='userInofBtn1' wx:if="{{!hasUserInfo && canIUse}}">
-                    <button id='userInofBtn1' lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
-                </view>
+            <view class='cashbackProcessTitle'>
+                <image src='/assets/samlLeftTwo.png' />
+                <text>购物返现省钱流程</text>
+                <image src='/assets/samlLeftTwo.png' />
             </view>
 
+            <view class='fourStep'>
+                <view class='fourStepItem StepItem1'>1</view>
+                <view class='fourStepLine'></view>
+                <view class='fourStepItem StepItem2'>2</view>
+                <view class='fourStepLine'></view>
+                <view class='fourStepItem StepItem3'>3</view>
+                <view class='fourStepLine'></view>
+                <view class='fourStepItem StepItem4'>4</view>
+            </view>
+
+            <view class='fourStepIcon'>
+                <view class='fourStepIconItem fourStepOne StepItem1'>领券购买</view>
+                <view class='fourStepIconItem fourStepTwo StepItem2'>跳转拼多多</view>
+                <view class='fourStepIconItem fourStepThree StepItem3'>优惠下单</view>
+                <view class='fourStepIconItem fourStepFour StepItem4'>等待返现</view>
+
+				
+
+            </view>
         </view>
 
+        <view class='separated'></view>
+
+        <!-- 店铺 -->
+        <view class='theStore' data-title="{{GoodDetai.goods_detail.mall_name}}" bindtap='goGoStoreFun' data-storeid='{{GoodDetai.goods_detail.mall_id}}'>
+            <view class='theStoreTop'>
+                <view class='storeName'>{{GoodDetai.goods_detail.mall_name}}</view>
+                <view class='storeBtn'>进入店铺</view>
+            </view>
+            <view class='theStoreBot'>
+                <view>
+                    <text>商品描述 </text>
+                    <text style='color:#E02E24'> {{oneRandom}}</text>
+                </view>
+                <view class='shuLine'></view>
+                <view>
+                    <text>物流服务 </text>
+                    <text style='color:#E02E24'> {{TwoRandom}}</text>
+                </view>
+                <view class='shuLine'></view>
+                <view>
+                    <text>卖家服务 </text>
+                    <text style='color:#E02E24'> {{ThreeRandom}}</text>
+                </view>
+            </view>
+        </view>
+
+        <view class='separated'></view>
+
+        <!-- 商品详情 -->
         <view class='photo'>
             <view class='xiangqingTxt'>
                 <text></text> 商品详情
             </view>
+
+            <view class='detailDesTex'>当前商品来自拼多多精选类目，原价{{GoodDetai.goods_detail.min_group_price/100 || "0"}}。
+                <text style='color:#E02E24'>省钱买分享赚平台提供了{{GoodDetai.goods_detail.coupon_discount/100 || "0"}}元的优惠券，</text>点击<text style='color:#E02E24'>领劵购买</text>领取优惠券后可以{{(GoodDetai.goods_detail.min_group_price-GoodDetai.goods_detail.coupon_discount)/100 || "0"}}的价格购买，购买成功收货后可获得{{GoodDetai.goods_detail.cashBack}}元返现，相当于购买商品只花{{(GoodDetai.goods_detail.min_group_price-GoodDetai.goods_detail.coupon_discount)/100
+                || "0"}}-{{GoodDetai.goods_detail.cashBack}}={{GoodDetai.lastPrice}}元。</view>
+            <view class='detailDesTex detailDesTex2'>如果你把商品再分享出去给好友，好友购买了你还可以赚得最高2元的佣金。这么一算，购买该商品最终只需要{{GoodDetai.lastPrice-2}}元，比从拼多多直接购买整整省了{{GoodDetai.savePrice}}元。</view>
+
+            <view class='xiangqingTxt'>
+                <text></text> 详细流程
+            </view>
+
+            <view class='xiangziliucheng'>
+                <text>领券购买的详细流程：</text>
+                <text style='color:#E02E24'>领券购买 ——＞ 跳转拼多多——＞确认领券——＞优惠购买——＞返回省钱买分享赚坐等返现</text>
+            </view>
+
+            <!-- 图片展示 -->
             <view class='photoList'>
                 <image wx:if="{{GoodDetai.goods_detail.goods_gallery_urls.length}}" wx:for="{{GoodDetai.goods_detail.goods_gallery_urls}}" wx:key="{{index}}" src="{{item}}" />
             </view>
@@ -138,26 +164,67 @@
         </view>
 
         <view class='shareGood'>
-            <view class='shareBtn' bindtap='invitationNewUser'>
-                <button id='shareGoodBtn' data-goodID='{{GoodDetai.goods_detail.goods_id}}' data-img="{{GoodDetai.goods_detail.goods_thumbnail_url}}">
-                </button>
-                分享赚{{GoodDetai.goods_detail.parentCashBack}}元
+            <view class='oldUser' wx:if="{{!ifShowNewUser}}">
+                <view>
+                    <navigator hover-class="hover-class1" class='buyCashback' target="miniProgram" open-type="navigate" app-id="wx32540bd863b27570" path="{{gotopath}}" extra-data="" version="release">
+                        <!-- 自购返现{{GoodDetai.goods_detail.cashBack}}元 -->
+                        领劵购买
+                        <form bindsubmit="formSubmit" report-submit="{{true}}">
+                            <button formType="submit" class='Hbtn' id='Ybtn1'>
+                                <view class='Yaa' hover-class="hover-class">
+                                    <form bindsubmit="formSubmit" report-submit="{{true}}">
+                                        <button formType="submit" class='Hbtn' id='Ybtn2'>
+                                            <view class='Yaa' hover-class="hover-class">
+                                                <form bindsubmit="formSubmit" report-submit="{{true}}">
+                                                    <button formType="submit" class='Hbtn' id='Ybtn3'>
+                                                        <view class='Yaa' hover-class="hover-class">
+                                                            <form bindsubmit="formSubmit" report-submit="{{true}}">
+                                                                <button formType="submit" class='Hbtn' id='Ybtn4'>
+                                                                    <view class='Yaa' hover-class="hover-class">
+                                                                        <form bindsubmit="formSubmit" report-submit="{{true}}">
+                                                                            <button formType="submit" class='Hbtn' id='Ybtn5'>
+                                                                                <view hover-class="hover-class" class='Yaa'>
+                                                                                </view>
+                                                                            </button>
+                                                                        </form>
+                                                                    </view>
+                                                                </button>
+                                                            </form>
+                                                        </view>
+                                                    </button>
+                                                </form>
+                                            </view>
+                                        </button>
+                                    </form>
+                                </view>
+                            </button>
+                        </form>
+
+                    </navigator>
+                </view>
+
+				<view class='shareBtn' bindtap='invitationNewUser'>
+                    <button id='shareGoodBtn' data-goodID='{{GoodDetai.goods_detail.goods_id}}' data-img="{{GoodDetai.goods_detail.goods_thumbnail_url}}">
+                    </button>
+                    分享赚{{GoodDetai.goods_detail.parentCashBack}}元
+                </view>
             </view>
-            <view>
-                <navigator hover-class="hover-class1" class='buyCashback' target="miniProgram" open-type="navigate" app-id="wx32540bd863b27570" path="{{gotopath}}" extra-data="" version="release">自购返现{{GoodDetai.goods_detail.cashBack}}元
+
+            <view class='newUser2' wx:if="{{ifShowNewUser}}">
+                <navigator hover-class="hover-class1" class='buyCashback2' target="miniProgram" open-type="navigate" app-id="wx32540bd863b27570" path="{{gotopath}}" extra-data="" version="release">点击领券购买：返{{GoodDetai.goods_detail.cashBack}}元
 
                     <form bindsubmit="formSubmit" report-submit="{{true}}">
                         <button formType="submit" class='Hbtn' id='Ybtn1'>
-                            <view class='Yaa' hover-class="hover-class">
+                            <view class='Ynaa' hover-class="hover-class">
                                 <form bindsubmit="formSubmit" report-submit="{{true}}">
                                     <button formType="submit" class='Hbtn' id='Ybtn2'>
-                                        <view class='Yaa' hover-class="hover-class">
+                                        <view class='Ynaa' hover-class="hover-class">
                                             <form bindsubmit="formSubmit" report-submit="{{true}}">
                                                 <button formType="submit" class='Hbtn' id='Ybtn3'>
-                                                    <view class='Yaa' hover-class="hover-class">
+                                                    <view class='Ynaa' hover-class="hover-class">
                                                         <form bindsubmit="formSubmit" report-submit="{{true}}">
                                                             <button formType="submit" class='Hbtn' id='Ybtn4'>
-                                                                <view class='Yaa' hover-class="hover-class">
+                                                                <view class='Ynaa' hover-class="hover-class">
                                                                     <form bindsubmit="formSubmit" report-submit="{{true}}">
                                                                         <button formType="submit" class='Hbtn' id='Ybtn5'>
                                                                             <view hover-class="hover-class" class='Yaa'>
@@ -179,9 +246,12 @@
 
                 </navigator>
             </view>
+
+
             <view class='userInofBtn' wx:if="{{!hasUserInfo && canIUse}}">
                 <button id='userInofBtn' lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
             </view>
+
         </view>
     </view>
 
